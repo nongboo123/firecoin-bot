@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>고래·OI 봇 대시보드</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="brand">
+      <span class="mark">🐋</span>
+      <div><h1>고래·OI 자동매매 봇</h1><div class="sub">BTC · ETH · Hyperliquid 실행</div></div>
+    </div>
+    <span class="pill" id="mode"><span class="dot"></span><span id="mode-t">…</span></span>
+    <span class="updated" id="upd">불러오는 중…</span>
+  </header>
+
+  <div class="kpis">
+    <div class="kpi"><div class="lab">현재 국면</div><div class="val" id="k-reg">–</div></div>
+    <div class="kpi"><div class="lab">진행중 포지션</div><div class="val" id="k-pos">–</div></div>
+    <div class="kpi"><div class="lab">전체 성적</div><div class="val" id="k-wl">–</div></div>
+    <div class="kpi"><div class="lab">전체 손익</div><div class="val" id="k-realized">–</div></div>
+    <div class="kpi"><div class="lab">미실현 손익</div><div class="val" id="k-upnl">–</div></div>
+  </div>
+
+  <!-- 1. 국면 -->
+  <section class="card regime">
+    <div class="head"><h2>시장 국면 (Regime)</h2><span class="meta" id="reg-meta"></span></div>
+    <div class="now">
+      <span class="name" id="reg-name">–</span>
+      <span class="mom" id="reg-mom"></span>
+      <span class="asof" id="reg-asof"></span>
+    </div>
+    <div class="reg-chart" id="reg-chart"></div>
+    <div class="reg-axis" id="reg-axis"></div>
+    <div class="scale" id="reg-scale"></div>
+  </section>
+
+  <!-- 3. 봇 시그널 (롱·숏 계정) -->
+  <section class="card" style="margin-top:18px">
+    <div class="head"><h2>봇 시그널 거래</h2><span class="meta" id="sig-meta">롱 · 숏 계정</span></div>
+    <div class="body">
+      <div class="wnote">🔗 지갑 주소를 누르면 Hyperliquid에서 실제 포지션을 조회할 수 있어요.</div>
+      <div class="subhead" id="pos-h">진행중</div>
+      <div id="positions"></div>
+      <div class="subhead" style="margin-top:16px;">최근 완료</div>
+      <div class="rows" id="completed"></div>
+    </div>
+  </section>
+
+  <!-- 4. 메인 계정 거래 (메인 계정만, 전체 코인) -->
+  <section class="card" style="margin-top:18px">
+    <div class="head"><h2>메인 계정 거래</h2><span class="meta" id="main-meta">메인 계정 · 0xfe65…1EAE</span></div>
+    <div class="body">
+      <div class="acct-stats" id="main-stats">–</div>
+      <div class="wnote">🔗 개인 메인 계정(전체 코인 · xyz 상품·주식 포함)의 실제 거래.</div>
+      <div class="subhead" id="main-pos-h">진행중</div>
+      <div id="main-positions"></div>
+      <div class="subhead" style="margin-top:16px;">최근 완료</div>
+      <div class="rows" id="main-completed"></div>
+    </div>
+  </section>
+
+  <footer>고래·OI 자동매매 봇 · 읽기 전용 · HL 온체인 실시간 · 자동갱신 <span id="poll">–</span>초</footer>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
