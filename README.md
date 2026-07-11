@@ -13,15 +13,16 @@
 | `data.json` | **표시할 데이터**(현재는 샘플). 이 파일만 갈아끼우면 됨 |
 
 ## 배포 (라이브)
-👉 **https://firecoin.me/bot/** — GitHub Pages (`nongboo123/bull-market-alerter` 저장소의 `bot/` 폴더).
-firecoin.me 자체가 그 repo의 Pages라서 `bot/` 하위 폴더가 곧 `firecoin.me/bot/`. 백엔드·DigitalOcean 불필요.
+👉 **https://bot.firecoin.me** — 전용 저장소 `nongboo123/firecoin-bot`의 GitHub Pages (CNAME=bot.firecoin.me).
+> ⚠️ `firecoin.me/bot`은 불가: firecoin.me 저장소(`bull-market-alerter`)는 `site-sync[bot]`이 매번
+> orphan 커밋으로 통째 force-push해서 하위 폴더가 지워짐. 그래서 **독립 서브도메인**으로 분리함.
 
-**업데이트 방법** (이 폴더에서 수정 후 반영):
+**업데이트 방법** (이 폴더 `bot-homepage`가 원본. 수정 후):
 ```bash
-git clone https://github.com/nongboo123/bull-market-alerter.git
-cp index.html styles.css app.js data.json README.md bull-market-alerter/bot/
-cd bull-market-alerter && git add bot && git commit -m "bot: 대시보드 업데이트" && git push
-# ~1분 뒤 firecoin.me/bot/ 반영
+git clone https://github.com/nongboo123/firecoin-bot.git
+cp index.html styles.css app.js data.json README.md firecoin-bot/
+cd firecoin-bot && git add -A && git commit -m "update" && git push
+# ~1분 뒤 bot.firecoin.me 반영. (CNAME/.nojekyll 파일은 건드리지 말 것)
 ```
 
 ## 로컬에서 보는 법

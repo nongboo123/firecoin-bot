@@ -17,54 +17,110 @@
     <span class="updated" id="upd">불러오는 중…</span>
   </header>
 
-  <div class="kpis">
-    <div class="kpi"><div class="lab">현재 국면</div><div class="val" id="k-reg">–</div></div>
-    <div class="kpi"><div class="lab">진행중 포지션</div><div class="val" id="k-pos">–</div></div>
-    <div class="kpi"><div class="lab">전체 성적</div><div class="val" id="k-wl">–</div></div>
-    <div class="kpi"><div class="lab">전체 손익</div><div class="val" id="k-realized">–</div></div>
-    <div class="kpi"><div class="lab">미실현 손익</div><div class="val" id="k-upnl">–</div></div>
+  <nav class="tabs">
+    <button class="tab on" id="tab-live" data-view="live">라이브</button>
+    <button class="tab" id="tab-perf" data-view="perf">퍼포먼스</button>
+  </nav>
+
+  <!-- ══ 라이브 뷰 ══ -->
+  <div id="live-view">
+    <div class="kpis">
+      <div class="kpi"><div class="lab">현재 국면</div><div class="val" id="k-reg">–</div></div>
+      <div class="kpi"><div class="lab">진행중 포지션</div><div class="val" id="k-pos">–</div></div>
+      <div class="kpi"><div class="lab">전체 성적</div><div class="val" id="k-wl">–</div></div>
+      <div class="kpi"><div class="lab">전체 손익</div><div class="val" id="k-realized">–</div></div>
+      <div class="kpi"><div class="lab">미실현 손익</div><div class="val" id="k-upnl">–</div></div>
+    </div>
+
+    <section class="card regime">
+      <div class="head"><h2>시장 국면 (Regime)</h2><span class="meta" id="reg-meta"></span></div>
+      <div class="now">
+        <span class="name" id="reg-name">–</span>
+        <span class="mom" id="reg-mom"></span>
+        <span class="asof" id="reg-asof"></span>
+      </div>
+      <div class="reg-chart" id="reg-chart"></div>
+      <div class="reg-axis" id="reg-axis"></div>
+      <div class="scale" id="reg-scale"></div>
+    </section>
+
+    <section class="card" style="margin-top:18px">
+      <div class="head"><h2>봇 시그널 거래</h2><span class="meta" id="sig-meta">롱 · 숏 계정</span></div>
+      <div class="body">
+        <div class="wnote">🔗 지갑 주소를 누르면 Hyperliquid에서 실제 포지션을 조회할 수 있어요.</div>
+        <div class="subhead" id="pos-h">진행중</div>
+        <div id="positions"></div>
+        <div class="subhead" style="margin-top:16px;">최근 완료</div>
+        <div class="rows" id="completed"></div>
+      </div>
+    </section>
+
+    <section class="card" style="margin-top:18px">
+      <div class="head"><h2>메인 계정 거래</h2><span class="meta" id="main-meta">메인 계정 · 0xfe65…1EAE</span></div>
+      <div class="body">
+        <div class="acct-stats" id="main-stats">–</div>
+        <div class="wnote">🔗 개인 메인 계정(전체 코인 · xyz 상품·주식 포함)의 실제 거래.</div>
+        <div class="subhead" id="main-pos-h">진행중</div>
+        <div id="main-positions"></div>
+        <div class="subhead" style="margin-top:16px;">최근 완료</div>
+        <div class="rows" id="main-completed"></div>
+      </div>
+    </section>
   </div>
 
-  <!-- 1. 국면 -->
-  <section class="card regime">
-    <div class="head"><h2>시장 국면 (Regime)</h2><span class="meta" id="reg-meta"></span></div>
-    <div class="now">
-      <span class="name" id="reg-name">–</span>
-      <span class="mom" id="reg-mom"></span>
-      <span class="asof" id="reg-asof"></span>
+  <!-- ══ 퍼포먼스 뷰 ══ -->
+  <div id="perf-view" hidden>
+    <div class="perf-bar">
+      <div class="seg-switch" id="perf-acct">
+        <button class="on" data-scope="bot">봇 (롱+숏)</button>
+        <button data-scope="main">메인</button>
+      </div>
+      <span class="perf-range" id="p-range"></span>
     </div>
-    <div class="reg-chart" id="reg-chart"></div>
-    <div class="reg-axis" id="reg-axis"></div>
-    <div class="scale" id="reg-scale"></div>
-  </section>
+    <div class="kpis perf-kpis" id="p-kpis"></div>
 
-  <!-- 3. 봇 시그널 (롱·숏 계정) -->
-  <section class="card" style="margin-top:18px">
-    <div class="head"><h2>봇 시그널 거래</h2><span class="meta" id="sig-meta">롱 · 숏 계정</span></div>
-    <div class="body">
-      <div class="wnote">🔗 지갑 주소를 누르면 Hyperliquid에서 실제 포지션을 조회할 수 있어요.</div>
-      <div class="subhead" id="pos-h">진행중</div>
-      <div id="positions"></div>
-      <div class="subhead" style="margin-top:16px;">최근 완료</div>
-      <div class="rows" id="completed"></div>
-    </div>
-  </section>
+    <section class="card" style="margin-top:14px">
+      <div class="head"><h2>누적 손익 (Cumulative PnL)</h2><span class="meta" id="p-cum-meta"></span></div>
+      <div class="chart-host" id="p-cum"></div>
+    </section>
 
-  <!-- 4. 메인 계정 거래 (메인 계정만, 전체 코인) -->
-  <section class="card" style="margin-top:18px">
-    <div class="head"><h2>메인 계정 거래</h2><span class="meta" id="main-meta">메인 계정 · 0xfe65…1EAE</span></div>
-    <div class="body">
-      <div class="acct-stats" id="main-stats">–</div>
-      <div class="wnote">🔗 개인 메인 계정(전체 코인 · xyz 상품·주식 포함)의 실제 거래.</div>
-      <div class="subhead" id="main-pos-h">진행중</div>
-      <div id="main-positions"></div>
-      <div class="subhead" style="margin-top:16px;">최근 완료</div>
-      <div class="rows" id="main-completed"></div>
+    <div class="cols" style="margin-top:14px">
+      <section class="card">
+        <div class="head"><h2>일별 손익 (Daily PnL)</h2><span class="meta">수익 / 손실</span></div>
+        <div class="chart-host" id="p-daily"></div>
+      </section>
+      <section class="card">
+        <div class="head"><h2>월 수익 캘린더</h2><span class="meta" id="p-cal-meta"></span></div>
+        <div class="chart-host" id="p-cal"></div>
+      </section>
     </div>
-  </section>
+
+    <div class="perf-stats2" id="p-stats2" style="margin-top:14px"></div>
+
+    <div class="cols3" style="margin-top:14px">
+      <section class="card">
+        <div class="head"><h2>수익/손실 분포</h2></div>
+        <div class="chart-host" id="p-donut"></div>
+      </section>
+      <section class="card">
+        <div class="head"><h2>손익 요약</h2><span class="meta">USDT</span></div>
+        <div id="p-summary"></div>
+      </section>
+      <section class="card">
+        <div class="head"><h2>리스크</h2><span class="meta" id="p-risk-meta"></span></div>
+        <div id="p-risk"></div>
+      </section>
+    </div>
+
+    <section class="card" style="margin-top:14px">
+      <div class="head"><h2>벤치마크 — 봇 vs BTC (누적 수익률)</h2><span class="meta" id="p-bench-meta"></span></div>
+      <div class="chart-host" id="p-bench"></div>
+    </section>
+  </div>
 
   <footer>고래·OI 자동매매 봇 · 읽기 전용 · HL 온체인 실시간 · 자동갱신 <span id="poll">–</span>초</footer>
 </div>
 <script src="app.js"></script>
+<script src="perf.js"></script>
 </body>
 </html>
