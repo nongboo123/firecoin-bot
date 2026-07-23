@@ -66,6 +66,18 @@
         <div class="rows" id="main-completed"></div>
       </div>
     </section>
+
+    <section class="card" style="margin-top:18px">
+      <div class="head"><h2>TradFi 계정 거래</h2><span class="meta" id="tradfi-meta">TradFi 계정 · 0x0d48…1a80</span></div>
+      <div class="body">
+        <div class="acct-stats" id="tradfi-stats">–</div>
+        <div class="wnote">🔗 TradFi 뉴스 자동매매 계정(상품·주식 퍼프 등)의 실제 거래.</div>
+        <div class="subhead" id="tradfi-pos-h">진행중</div>
+        <div id="tradfi-positions"></div>
+        <div class="subhead" style="margin-top:16px;">최근 완료</div>
+        <div class="rows" id="tradfi-completed"></div>
+      </div>
+    </section>
   </div>
 
   <!-- ══ 퍼포먼스 뷰 ══ -->
@@ -74,6 +86,7 @@
       <div class="seg-switch" id="perf-acct">
         <button class="on" data-scope="bot">봇 (롱+숏)</button>
         <button data-scope="main">메인</button>
+        <button data-scope="tradfi">TradFi</button>
       </div>
       <span class="perf-range" id="p-range"></span>
     </div>

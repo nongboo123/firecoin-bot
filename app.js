@@ -92,8 +92,9 @@ function sideCls(s) { return s === 'buy' ? 'buy' : s === 'sell' ? 'sell' : 'flat
 function coinOf(sym) { return (sym || '').replace('USDT', ''); }
 
 var lastState = { positions: [], completed: [], live: false };
-var botTrades = null;   // 롱+숏 계정 온체인 실거래 {positions, completed}
-var mainTrades = null;  // 메인 계정 온체인 실거래
+var botTrades = null;    // 롱+숏 계정 온체인 실거래 {positions, completed}
+var mainTrades = null;   // 메인 계정 온체인 실거래
+var tradfiTrades = null; // TradFi 계정 온체인 실거래
 var acctBal = {};       // 계정별 SPOT USDC 잔고 (name → USD)
 function effPos() { return botTrades ? botTrades.positions : (lastState.positions || []); }
 function effComp() { return botTrades ? botTrades.completed : (lastState.completed || []); }
@@ -114,6 +115,7 @@ function render(s) {
 
   renderTrades();
   renderMain();
+  renderTradfi();
 
 }
 
@@ -172,11 +174,26 @@ function renderMain() {
   renderList('main-positions', 'main-completed', 'main-pos-h', positions, completed);
 }
 
+// ── TradFi 계정 거래 (뉴스 자동매매) ──
+function renderTradfi() {
+  if (!tradfiTrades) return;
+  var positions = tradfiTrades.positions, completed = tradfiTrades.completed;
+  document.getElementById('tradfi-meta').textContent = '잔고 ' + usd(acctBal['TradFi'] || 0, 0) + ' · 0x0d48…1a80';
+  var w = 0, l = 0, realized = 0;
+  completed.forEach(function (c) { var p = c.pnl_usd || 0; p > 0 ? w++ : l++; realized += p; });
+  var upnl = 0; positions.forEach(function (p) { upnl += (p.upnl || 0); });
+  document.getElementById('tradfi-stats').innerHTML =
+    '<b>' + w + '</b>승 · <b>' + l + '</b>패 · 총 PNL <b class="' + (realized >= 0 ? 'up' : 'down') + '">' + signed(realized, 0) + '</b>' +
+    ' · 미실현 <b class="' + (upnl >= 0 ? 'up' : 'down') + '">' + signed(upnl, 0) + '</b>';
+  renderList('tradfi-positions', 'tradfi-completed', 'tradfi-pos-h', positions, completed);
+}
+
 // ── 봇 계정 3개를 HL 온체인으로 직접 조회 (롱/숏/메인) ──
 var ACCTS = {
-  long:  { addr: '0xaca1f2524a6c3a75511a44cc7c437bcfd9350afb', name: '롱' },
-  short: { addr: '0xfee8c8b02fd5c0f8034ce41e04a0d135c3f919bf', name: '숏' },
-  main:  { addr: '0xfe65E38Ffe08d8a2888E1467E1ABAfd9F2921EAE', name: '메인' }
+  long:   { addr: '0xaca1f2524a6c3a75511a44cc7c437bcfd9350afb', name: '롱' },
+  short:  { addr: '0xfee8c8b02fd5c0f8034ce41e04a0d135c3f919bf', name: '숏' },
+  main:   { addr: '0xfe65E38Ffe08d8a2888E1467E1ABAfd9F2921EAE', name: '메인' },
+  tradfi: { addr: '0x0d48933fd842901b1d7a67475c436fe655421a80', name: 'TradFi' }
 };
 function hlPost(body) {
   return fetch('https://api.hyperliquid.xyz/info', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) }).then(function (r) { return r.json(); });
@@ -242,6 +259,11 @@ function refreshBotTrades() {
   fetchAccount(ACCTS.main).then(function (m) {
     mainTrades = { positions: m.positions, completed: m.completed.sort(function (a, b) { return b.close_ts - a.close_ts; }) };
     renderMain();
+  });
+  // TradFi 계정
+  fetchAccount(ACCTS.tradfi).then(function (t) {
+    tradfiTrades = { positions: t.positions, completed: t.completed.sort(function (a, b) { return b.close_ts - a.close_ts; }) };
+    renderTradfi();
   });
 }
 

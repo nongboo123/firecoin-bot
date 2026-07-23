@@ -17,6 +17,10 @@
       var mt = (typeof mainTrades !== 'undefined' && mainTrades) ? mainTrades : { positions: [], completed: [] };
       return { completed: mt.completed || [], positions: mt.positions || [], balance: (acctBal['메인'] || 0), label: '메인 계정' };
     }
+    if (perfScope === 'tradfi') {
+      var tt = (typeof tradfiTrades !== 'undefined' && tradfiTrades) ? tradfiTrades : { positions: [], completed: [] };
+      return { completed: tt.completed || [], positions: tt.positions || [], balance: (acctBal['TradFi'] || 0), label: 'TradFi 계정' };
+    }
     var bt = (typeof botTrades !== 'undefined' && botTrades) ? botTrades : { positions: [], completed: [] };
     return { completed: bt.completed || [], positions: bt.positions || [], balance: (acctBal['롱'] || 0) + (acctBal['숏'] || 0), label: '봇 (롱+숏)' };
   }
