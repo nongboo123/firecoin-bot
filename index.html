@@ -94,9 +94,9 @@
     <!-- 상단 스탯 카드 4 -->
     <div class="lab-top" id="p-topcards"></div>
 
-    <!-- 누적 수익률 + 기간 토글 -->
+    <!-- 누적 수익금 + 기간 토글 -->
     <section class="card" style="margin-top:14px">
-      <div class="head"><h2>누적 수익률</h2>
+      <div class="head"><h2>누적 수익금</h2>
         <div class="seg-switch sm" id="p-period">
           <button data-p="7">7D</button><button data-p="30" class="on">30D</button><button data-p="90">90D</button><button data-p="365">1Y</button><button data-p="0">ALL</button>
         </div>
@@ -104,19 +104,15 @@
       <div class="chart-host" id="p-cum"></div>
     </section>
 
-    <!-- 포지션 상세 · 스코어보드 · 리스크 -->
-    <div class="cols3" style="margin-top:14px">
+    <!-- 포지션 상세 · 스코어보드 -->
+    <div class="cols" style="margin-top:14px">
       <section class="card">
-        <div class="head"><h2>포지션 상세</h2></div>
+        <div class="head"><h2>포지션 상세</h2><span class="meta" id="p-pos-meta"></span></div>
         <div id="p-posdetail"></div>
       </section>
       <section class="card">
         <div class="head"><h2>Scoreboard</h2></div>
         <div id="p-scoreboard"></div>
-      </section>
-      <section class="card">
-        <div class="head"><h2>리스크</h2><span class="meta" id="p-risk-meta"></span></div>
-        <div id="p-risk"></div>
       </section>
     </div>
 

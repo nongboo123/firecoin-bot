@@ -195,9 +195,9 @@ table.tbl { width: 100%; border-collapse: collapse; font-size: 12.5px; }
 table.tbl thead th { position: sticky; top: 0; background: var(--surface); z-index: 1;
   text-align: right; font-weight: 600; color: var(--text-dim); font-size: 11px; letter-spacing: .03em;
   padding: 9px 10px; border-bottom: 1px solid var(--border); white-space: nowrap; }
-table.tbl thead th:nth-child(-n+3) { text-align: left; }
+table.tbl thead th:nth-child(-n+4) { text-align: left; }
 table.tbl tbody td { padding: 9px 10px; border-bottom: 1px solid var(--border); text-align: right; white-space: nowrap; }
-table.tbl tbody td:nth-child(-n+3) { text-align: left; }
+table.tbl tbody td:nth-child(-n+4) { text-align: left; }
 table.tbl tbody tr:hover { background: var(--surface-2); }
 table.tbl .mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
 table.tbl .mut { color: var(--text-faint); }
@@ -205,3 +205,15 @@ table.tbl .up { color: var(--up); } table.tbl .down { color: var(--down); }
 table.tbl .badge { font-size: 10.5px; font-weight: 660; padding: 2px 8px; border-radius: 6px; }
 table.tbl .badge.tp { color: var(--up); background: var(--up-soft); }
 table.tbl .badge.sl { color: var(--down); background: var(--down-soft); }
+
+/* 포지션 상세 (여러 개 대응) */
+.pd-list { display: flex; flex-direction: column; padding: 2px 4px 4px; }
+.pd-item { padding: 11px 2px; border-top: 1px solid var(--border); }
+.pd-item:first-child { border-top: none; }
+.pd-top { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.pd-coin { font-size: 14px; font-weight: 660; }
+.pd-lev { font-size: 11px; font-weight: 650; color: var(--text-dim); background: var(--surface-2); border: 1px solid var(--border); padding: 1px 7px; border-radius: 6px; }
+.pd-upnl { margin-left: auto; font-family: var(--font-mono); font-weight: 660; font-variant-numeric: tabular-nums; }
+.pd-upnl.up { color: var(--up); } .pd-upnl.down { color: var(--down); }
+.pd-sub { margin-top: 6px; font-size: 12px; color: var(--text-dim); font-variant-numeric: tabular-nums; }
+.pd-sub b { color: var(--text); font-weight: 600; font-family: var(--font-mono); }

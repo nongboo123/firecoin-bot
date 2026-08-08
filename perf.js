@@ -88,7 +88,7 @@
     var posHtml = cur
       ? '<span class="' + (cur.direction === 'long' ? 'up' : 'down') + '">' + (cur.direction === 'long' ? 'LONG' : 'SHORT') + (cur.leverage ? ' ' + cur.leverage + 'x' : '') + '</span>'
       : '<span style="color:var(--text-faint)">포지션 없음</span>';
-    var posSub = cur ? coinOf(cur.symbol) + ' Perp' + (pos.length > 1 ? ' +' + (pos.length - 1) : '') : '';
+    var posSub = cur ? coinOf(cur.symbol) + ' Perp' + (pos.length > 1 ? ' · 외 ' + (pos.length - 1) + '개' : '') : '';
     document.getElementById('p-topcards').innerHTML =
       labCard('총 자산', usd(m.balance, 0), pct(m.returnPct) + ' (추정)', m.returnPct >= 0 ? 'up' : 'down') +
       labCard('현재 포지션', posHtml, posSub, '') +
@@ -96,17 +96,23 @@
       labCard('미실현 PNL', colVal(m.upnl, 2), (cur && cur.upnl_pct != null) ? pct(cur.upnl_pct) : '', m.upnl >= 0 ? 'up' : 'down');
   }
   function renderPosDetail(m) {
-    var host = document.getElementById('p-posdetail'), pos = m.positions;
+    var host = document.getElementById('p-posdetail'), pos = m.positions, meta = document.getElementById('p-pos-meta');
+    if (meta) meta.textContent = pos.length ? pos.length + '개' : '';
     if (!pos.length) { host.innerHTML = '<div class="chart-empty">진행중 포지션 없음</div>'; return; }
-    host.innerHTML = pos.map(function (p) {
-      var d = p.direction === 'long';
-      return metric('방향', '<span class="' + (d ? 'up' : 'down') + '">' + (d ? 'LONG' : 'SHORT') + '</span> ' + esc2(coinOf(p.symbol)), '') +
-        metric('레버리지', (p.leverage || '–') + (p.leverage ? 'x' : ''), '') +
-        metric('진입가', usd(p.entry_price, 1), '') +
-        metric('현재가', usd(p.mark, 1), '') +
-        metric('규모', usd(p.notional, 0), '') +
-        metric('미실현', money(p.upnl, 2) + (p.upnl_pct != null ? ' (' + pct(p.upnl_pct) + ')' : ''), p.upnl >= 0 ? 'up' : 'down');
-    }).join('<div class="pd-div"></div>');
+    // 규모 큰 순
+    var sorted = pos.slice().sort(function (a, b) { return Math.abs(b.notional || 0) - Math.abs(a.notional || 0); });
+    host.innerHTML = '<div class="pd-list">' + sorted.map(function (p) {
+      var d = p.direction === 'long', up = (p.upnl || 0) >= 0;
+      return '<div class="pd-item">' +
+        '<div class="pd-top">' +
+        '<span class="dir ' + (d ? 'long' : 'short') + '">' + (d ? 'LONG' : 'SHORT') + '</span>' +
+        '<b class="pd-coin">' + esc2(coinOf(p.symbol)) + '</b>' +
+        (p.leverage ? '<span class="pd-lev">' + p.leverage + 'x</span>' : '') +
+        '<span class="pd-upnl ' + (up ? 'up' : 'down') + '">' + money(p.upnl, 2) + (p.upnl_pct != null ? ' (' + pct(p.upnl_pct) + ')' : '') + '</span>' +
+        '</div>' +
+        '<div class="pd-sub">진입 <b>' + usd(p.entry_price, 1) + '</b> · 현재 <b>' + usd(p.mark, 1) + '</b> · 규모 <b>' + usd(p.notional, 0) + '</b></div>' +
+        '</div>';
+    }).join('') + '</div>';
   }
   function renderScoreboard(m) {
     document.getElementById('p-scoreboard').innerHTML =
@@ -117,18 +123,28 @@
       metric('최대 수익률', pct(m.bestTradeRet, 2), 'up') +
       metric('최대 손실률', pct(m.worstTradeRet, 2), 'down');
   }
+  function holdFmt(ms) {
+    if (ms == null || isNaN(ms) || ms < 0) return '–';
+    var mins = Math.floor(ms / 60000), h = Math.floor(mins / 60), mm = mins % 60, d = Math.floor(h / 24);
+    if (d > 0) return d + '일 ' + (h % 24) + '시간';
+    return h + '시간 ' + mm + '분';
+  }
   function renderTable(m) {
     var rows = m.comp.slice().sort(function (a, b) { return b.close_ts - a.close_ts; }).slice(0, 50);
-    document.getElementById('p-table-meta').textContent = '최근 ' + rows.length + '건';
+    document.getElementById('p-table-meta').textContent = '최근 ' + rows.length + '건 · USDT';
     if (!rows.length) { document.getElementById('p-table').innerHTML = '<div class="chart-empty">거래 기록 없음</div>'; return; }
-    var h = '<table class="tbl"><thead><tr><th>#</th><th>청산 시각</th><th>방향</th><th>진입가</th><th>청산가</th><th>수익률</th><th>PNL</th><th>상태</th></tr></thead><tbody>';
+    var h = '<table class="tbl"><thead><tr><th>#</th><th>진입 시간</th><th>청산 시간</th><th>방향</th><th>진입가</th><th>청산가</th><th>수익률</th><th>PNL (USDT)</th><th>보유 시간</th><th>상태</th></tr></thead><tbody>';
     rows.forEach(function (c, i) {
       var e = c.entry_price, x = c.exit_px, ret = e ? (x - e) / e * (c.direction === 'long' ? 1 : -1) * 100 : 0, win = (c.pnl_usd || 0) > 0;
-      h += '<tr><td class="mut">' + (i + 1) + '</td><td class="mono">' + dt(c.close_ts) + '</td>' +
+      var hold = (c.entry_ts && c.close_ts) ? holdFmt(c.close_ts - c.entry_ts) : '–';
+      h += '<tr><td class="mut">' + (i + 1) + '</td>' +
+        '<td class="mono mut">' + (c.entry_ts ? dt(c.entry_ts) : '–') + '</td>' +
+        '<td class="mono">' + dt(c.close_ts) + '</td>' +
         '<td><b class="' + (c.direction === 'long' ? 'up' : 'down') + '">' + (c.direction === 'long' ? 'LONG' : 'SHORT') + '</b> ' + esc2(coinOf(c.symbol)) + '</td>' +
         '<td class="mono">' + usd(c.entry_price, 1) + '</td><td class="mono">' + usd(c.exit_px, 1) + '</td>' +
         '<td class="mono ' + (ret >= 0 ? 'up' : 'down') + '">' + pct(ret, 2) + '</td>' +
         '<td class="mono ' + (win ? 'up' : 'down') + '">' + money(c.pnl_usd, 0) + '</td>' +
+        '<td class="mono mut">' + hold + '</td>' +
         '<td><span class="badge ' + (win ? 'tp' : 'sl') + '">' + esc2(c.reason || (win ? 'TP' : 'SL')) + '</span></td></tr>';
     });
     document.getElementById('p-table').innerHTML = h + '</tbody></table>';
@@ -180,18 +196,18 @@
     var comp = m.comp;
     if (perfPeriod > 0) { var cut = Date.now() - perfPeriod * 86400000; comp = comp.filter(function (c) { return c.close_ts >= cut; }); }
     if (comp.length < 2) { host.innerHTML = '<div class="chart-empty">해당 기간 거래가 부족합니다</div>'; return; }
-    var cum = 0, s = comp.map(function (c) { cum += (c.pnl_usd || 0); return { ts: c.close_ts, ret: cum / m.estCap * 100 }; });
+    var cum = 0, s = comp.map(function (c) { cum += (c.pnl_usd || 0); return { ts: c.close_ts, cum: cum }; });
     var pos = C('--up'), neg = C('--down'), tx = C('--text'), faint = C('--text-faint'), line = C('--border');
-    var up = s[s.length - 1].ret >= 0 ? pos : neg;
-    var W = 840, H = 300, L = 52, R = 16, T = 14, B = 30;
+    var total = s[s.length - 1].cum, up = total >= 0 ? pos : neg;
+    var W = 840, H = 300, L = 54, R = 16, T = 14, B = 30;
     var x0 = s[0].ts, x1 = s[s.length - 1].ts;
-    var lo = 0, hi = 0; s.forEach(function (p) { if (p.ret < lo) lo = p.ret; if (p.ret > hi) hi = p.ret; });
+    var lo = 0, hi = 0; s.forEach(function (p) { if (p.cum < lo) lo = p.cum; if (p.cum > hi) hi = p.cum; });
     if (hi === lo) hi = lo + 1; var padY = (hi - lo) * 0.08; hi += padY; lo -= padY;
     var X = function (t) { return L + (t - x0) / (x1 - x0 || 1) * (W - L - R); };
     var Y = function (v) { return T + (hi - v) / (hi - lo) * (H - T - B); };
-    var g = ''; for (var i = 0; i <= 4; i++) { var v = lo + (hi - lo) * i / 4, y = Y(v); g += '<line x1="' + L + '" y1="' + y.toFixed(1) + '" x2="' + (W - R) + '" y2="' + y.toFixed(1) + '" stroke="' + line + '" stroke-width="1" opacity="0.5"/><text x="' + (L - 8) + '" y="' + (y + 3).toFixed(1) + '" text-anchor="end" font-size="11" fill="' + faint + '" font-family="ui-monospace,monospace">' + (v >= 0 ? '+' : '') + v.toFixed(1) + '%</text>'; }
+    var g = ''; for (var i = 0; i <= 4; i++) { var v = lo + (hi - lo) * i / 4, y = Y(v); g += '<line x1="' + L + '" y1="' + y.toFixed(1) + '" x2="' + (W - R) + '" y2="' + y.toFixed(1) + '" stroke="' + line + '" stroke-width="1" opacity="0.5"/><text x="' + (L - 8) + '" y="' + (y + 3).toFixed(1) + '" text-anchor="end" font-size="11" fill="' + faint + '" font-family="ui-monospace,monospace">' + niceLabel(v) + '</text>'; }
     var zeroY = Y(0);
-    var pts = s.map(function (p) { return X(p.ts).toFixed(1) + ',' + Y(p.ret).toFixed(1); });
+    var pts = s.map(function (p) { return X(p.ts).toFixed(1) + ',' + Y(p.cum).toFixed(1); });
     var area = 'M' + X(x0).toFixed(1) + ',' + zeroY.toFixed(1) + ' L' + pts.join(' L') + ' L' + X(x1).toFixed(1) + ',' + zeroY.toFixed(1) + ' Z';
     var xl = ''; for (var k = 0; k <= 3; k++) { var t = x0 + (x1 - x0) * k / 3; xl += '<text x="' + X(t).toFixed(1) + '" y="' + (H - 10) + '" text-anchor="middle" font-size="11" fill="' + faint + '" font-family="ui-monospace,monospace">' + mdKey(t) + '</text>'; }
     var end = s[s.length - 1];
@@ -200,8 +216,8 @@
       g + '<line x1="' + L + '" y1="' + zeroY.toFixed(1) + '" x2="' + (W - R) + '" y2="' + zeroY.toFixed(1) + '" stroke="' + faint + '" stroke-width="1"/>' +
       '<path d="' + area + '" fill="url(#cumg)"/>' +
       '<polyline points="' + pts.join(' ') + '" fill="none" stroke="' + up + '" stroke-width="2" stroke-linejoin="round"/>' +
-      '<circle cx="' + X(end.ts).toFixed(1) + '" cy="' + Y(end.ret).toFixed(1) + '" r="3.5" fill="' + up + '"/>' +
-      '<text x="' + (X(end.ts) - 6).toFixed(1) + '" y="' + (Y(end.ret) - 8).toFixed(1) + '" text-anchor="end" font-size="12" font-weight="700" fill="' + tx + '" font-family="ui-monospace,monospace">' + (end.ret >= 0 ? '+' : '') + end.ret.toFixed(1) + '%</text>' +
+      '<circle cx="' + X(end.ts).toFixed(1) + '" cy="' + Y(end.cum).toFixed(1) + '" r="3.5" fill="' + up + '"/>' +
+      '<text x="' + (X(end.ts) - 6).toFixed(1) + '" y="' + (Y(end.cum) - 8).toFixed(1) + '" text-anchor="end" font-size="12" font-weight="700" fill="' + tx + '" font-family="ui-monospace,monospace">' + money(total, 0) + '</text>' +
       xl + '</svg>';
   }
 
@@ -328,7 +344,7 @@
     var d = perfData();
     document.getElementById('p-range').textContent = d.label + (d.completed.length ? ' · ' + mdKey(Math.min.apply(null, d.completed.map(function (c) { return c.close_ts; }))) + ' ~ ' + mdKey(Math.max.apply(null, d.completed.map(function (c) { return c.close_ts; }))) + ' · ' + d.completed.length + '건' : ' · 데이터 대기중');
     var m = computePerf(d);
-    renderTopCards(m); renderPosDetail(m); renderScoreboard(m); renderRisk(m); renderTable(m);
+    renderTopCards(m); renderPosDetail(m); renderScoreboard(m); renderTable(m);
     drawCumulative(m);
     renderStats2(m); renderSummary(m); drawDaily(m); drawCalendar(m); drawDonut(m); drawBenchmark(m);
   }

@@ -229,6 +229,21 @@ function fetchAccount(a) {
         leverage: (p.leverage && p.leverage.value) || null, wallet: a.addr, acct: a.name
       });
     });
+    // 진입시각 재구성: 체결을 시간순으로 훑어 '포지션 오픈(0→보유)' 시각을 기록해 청산 체결에 매핑.
+    var segEntry = {};
+    try {
+      var openTs = {};
+      fills.slice().sort(function (a, b) { return (a.time || 0) - (b.time || 0); }).forEach(function (f) {
+        var coin = f.coin, dir = f.dir || '', sz = parseFloat(f.sz) || 0, t = parseInt(f.time) || 0, sp = parseFloat(f.startPosition || 0);
+        if (!coin || !dir) return;
+        if (dir.indexOf('>') >= 0) { if (openTs[coin] != null) segEntry[coin + '|' + t] = openTs[coin]; openTs[coin] = t; return; }
+        if (dir.indexOf('Open') === 0) { if (Math.abs(sp) < 1e-9 || openTs[coin] == null) openTs[coin] = t; }
+        else if (dir.indexOf('Close') === 0) {
+          var after = sp + (dir === 'Close Short' ? sz : -sz);
+          if (Math.abs(after) < Math.max(1e-6, Math.abs(sp) * 0.02)) { segEntry[coin + '|' + t] = (openTs[coin] != null ? openTs[coin] : null); openTs[coin] = null; }
+        }
+      });
+    } catch (e) { segEntry = {}; }
     // 완료 거래 = Close 체결을 '오더(oid)' 단위로 묶음. 청산가=체결 가중평균, 진입가=closedPnl로 역산.
     var g = {};
     fills.forEach(function (f) {
@@ -240,7 +255,8 @@ function fetchAccount(a) {
     var completed = Object.keys(g).map(function (o) {
       var k = g[o], isLong = k.dir.indexOf('Long') >= 0, exit = k.sz ? k.pxsz / k.sz : 0;
       var entry = k.sz ? (isLong ? exit - k.pnl / k.sz : exit + k.pnl / k.sz) : 0;   // pnl=(exit-entry)*sz (롱)
-      return { close_ts: k.ts, symbol: k.coin, direction: isLong ? 'long' : 'short', entry_price: entry, exit_px: exit, pnl_usd: k.pnl, reason: k.pnl > 0 ? 'TP' : 'SL', acct: a.name };
+      var et = segEntry[k.coin + '|' + k.ts];
+      return { close_ts: k.ts, entry_ts: (et != null ? et : null), symbol: k.coin, direction: isLong ? 'long' : 'short', entry_price: entry, exit_px: exit, pnl_usd: k.pnl, reason: k.pnl > 0 ? 'TP' : 'SL', acct: a.name };
     });
     return { positions: positions, completed: completed, balance: usdc };
   }).catch(function () { return { positions: [], completed: [], balance: 0 }; });
