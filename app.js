@@ -236,11 +236,12 @@ function fetchAccount(a) {
       fills.slice().sort(function (a, b) { return (a.time || 0) - (b.time || 0); }).forEach(function (f) {
         var coin = f.coin, dir = f.dir || '', sz = parseFloat(f.sz) || 0, t = parseInt(f.time) || 0, sp = parseFloat(f.startPosition || 0);
         if (!coin || !dir) return;
-        if (dir.indexOf('>') >= 0) { if (openTs[coin] != null) segEntry[coin + '|' + t] = openTs[coin]; openTs[coin] = t; return; }
-        if (dir.indexOf('Open') === 0) { if (Math.abs(sp) < 1e-9 || openTs[coin] == null) openTs[coin] = t; }
+        if (dir.indexOf('>') >= 0) { segEntry[coin + '|' + t] = (openTs[coin] != null ? openTs[coin] : null); openTs[coin] = t; return; }   // 플립: 청산+반대오픈
+        if (dir.indexOf('Open') === 0) { if (openTs[coin] == null) openTs[coin] = t; }   // 새 포지션 오픈 시각(스케일링은 첫 오픈 유지)
         else if (dir.indexOf('Close') === 0) {
+          segEntry[coin + '|' + t] = (openTs[coin] != null ? openTs[coin] : null);        // 부분청산 포함 모든 청산에 진입시각 부여
           var after = sp + (dir === 'Close Short' ? sz : -sz);
-          if (Math.abs(after) < Math.max(1e-6, Math.abs(sp) * 0.02)) { segEntry[coin + '|' + t] = (openTs[coin] != null ? openTs[coin] : null); openTs[coin] = null; }
+          if (Math.abs(after) < Math.max(1e-6, Math.abs(sp) * 0.02)) openTs[coin] = null;  // 완전 청산 → 리셋
         }
       });
     } catch (e) { segEntry = {}; }

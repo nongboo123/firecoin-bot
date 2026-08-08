@@ -82,18 +82,21 @@
   function colVal(n, d) { return '<span style="color:' + (n >= 0 ? 'var(--up)' : 'var(--down)') + '">' + money(n, d) + '</span>'; }
 
   function labCard(lab, val, sub, subcls) { return '<div class="lab-card"><div class="lab">' + lab + '</div><div class="val">' + val + '</div>' + (sub ? '<div class="sub2 ' + (subcls || '') + '">' + sub + '</div>' : '') + '</div>'; }
+  function posCard(p) {
+    var d = p.direction === 'long', up = (p.upnl || 0) >= 0;
+    return '<div class="pos-card">' +
+      '<div class="pc-head"><span class="dir ' + (d ? 'long' : 'short') + '">' + (d ? 'LONG' : 'SHORT') + (p.leverage ? ' ' + p.leverage + 'x' : '') + '</span>' +
+      '<b class="pc-coin">' + esc2(coinOf(p.symbol)) + '</b>' +
+      '<span class="pc-upnl ' + (up ? 'up' : 'down') + '">' + money(p.upnl, 2) + (p.upnl_pct != null ? ' (' + pct(p.upnl_pct) + ')' : '') + '</span></div>' +
+      '<div class="pc-nums">진입 <b>' + usd(p.entry_price, 1) + '</b> · 현재 <b>' + usd(p.mark, 1) + '</b> · 규모 <b>' + usd(p.notional, 0) + '</b></div>' +
+      '</div>';
+  }
   function renderTopCards(m) {
     var pos = m.positions.slice().sort(function (a, b) { return Math.abs(b.notional || 0) - Math.abs(a.notional || 0); });
-    var cur = pos[0];
-    var posHtml = cur
-      ? '<span class="' + (cur.direction === 'long' ? 'up' : 'down') + '">' + (cur.direction === 'long' ? 'LONG' : 'SHORT') + (cur.leverage ? ' ' + cur.leverage + 'x' : '') + '</span>'
-      : '<span style="color:var(--text-faint)">포지션 없음</span>';
-    var posSub = cur ? coinOf(cur.symbol) + ' Perp' + (pos.length > 1 ? ' · 외 ' + (pos.length - 1) + '개' : '') : '';
-    document.getElementById('p-topcards').innerHTML =
-      labCard('총 자산', usd(m.balance, 0), pct(m.returnPct) + ' (추정)', m.returnPct >= 0 ? 'up' : 'down') +
-      labCard('현재 포지션', posHtml, posSub, '') +
-      labCard('진입가', cur ? usd(cur.entry_price, 1) : '–', cur ? '현재 ' + usd(cur.mark, 1) : '', '') +
-      labCard('미실현 PNL', colVal(m.upnl, 2), (cur && cur.upnl_pct != null) ? pct(cur.upnl_pct) : '', m.upnl >= 0 ? 'up' : 'down');
+    var html = labCard('총 자산', usd(m.balance, 0), pct(m.returnPct) + ' (추정)', m.returnPct >= 0 ? 'up' : 'down');
+    if (!pos.length) html += '<div class="pos-card empty"><div class="pc-head"><span class="pc-none">진행중 포지션 없음</span></div></div>';
+    else html += pos.map(posCard).join('');
+    document.getElementById('p-topcards').innerHTML = html;
   }
   function renderPosDetail(m) {
     var host = document.getElementById('p-posdetail'), pos = m.positions, meta = document.getElementById('p-pos-meta');
@@ -115,13 +118,14 @@
     }).join('') + '</div>';
   }
   function renderScoreboard(m) {
+    function s(lab, val, cls) { return '<div class="sb-item"><div class="sb-lab">' + lab + '</div><div class="sb-val ' + (cls || '') + '">' + val + '</div></div>'; }
     document.getElementById('p-scoreboard').innerHTML =
-      metric('총 거래횟수', m.n + '건', '') +
-      metric('승률', (m.winRate * 100).toFixed(1) + '%', '') +
-      metric('총 수익률', pct(m.returnPct), m.returnPct >= 0 ? 'up' : 'down') +
-      metric('평균 수익률', pct(m.avgTradeRet, 2), m.avgTradeRet >= 0 ? 'up' : 'down') +
-      metric('최대 수익률', pct(m.bestTradeRet, 2), 'up') +
-      metric('최대 손실률', pct(m.worstTradeRet, 2), 'down');
+      s('총 거래횟수', m.n + '건', '') +
+      s('승률', (m.winRate * 100).toFixed(1) + '%', '') +
+      s('총 수익률', pct(m.returnPct), m.returnPct >= 0 ? 'up' : 'down') +
+      s('평균 수익률', pct(m.avgTradeRet, 2), m.avgTradeRet >= 0 ? 'up' : 'down') +
+      s('최대 수익률', pct(m.bestTradeRet, 2), 'up') +
+      s('최대 손실률', pct(m.worstTradeRet, 2), 'down');
   }
   function holdFmt(ms) {
     if (ms == null || isNaN(ms) || ms < 0) return '–';
@@ -344,7 +348,7 @@
     var d = perfData();
     document.getElementById('p-range').textContent = d.label + (d.completed.length ? ' · ' + mdKey(Math.min.apply(null, d.completed.map(function (c) { return c.close_ts; }))) + ' ~ ' + mdKey(Math.max.apply(null, d.completed.map(function (c) { return c.close_ts; }))) + ' · ' + d.completed.length + '건' : ' · 데이터 대기중');
     var m = computePerf(d);
-    renderTopCards(m); renderPosDetail(m); renderScoreboard(m); renderTable(m);
+    renderTopCards(m); renderScoreboard(m); renderTable(m);
     drawCumulative(m);
     renderStats2(m); renderSummary(m); drawDaily(m); drawCalendar(m); drawDonut(m); drawBenchmark(m);
   }
