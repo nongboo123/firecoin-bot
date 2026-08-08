@@ -2,7 +2,7 @@
    HL 온체인 완료 거래로 성과지표·차트 계산. 정적, 인라인 SVG. */
 (function () {
   'use strict';
-  var currentView = 'live', perfScope = 'bot';
+  var currentView = 'live', perfScope = 'bot', perfPeriod = 30;
 
   // ── 유틸 ──
   function C(v) { return getComputedStyle(document.documentElement).getPropertyValue(v).trim() || '#888'; }
@@ -59,7 +59,12 @@
     dailyArr.forEach(function (x) { if (x.pnl > 0) { cw++; cl = 0; } else if (x.pnl < 0) { cl++; cw = 0; } else { cw = 0; cl = 0; } if (cw > maxWinS) maxWinS = cw; if (cl > maxLossS) maxLossS = cl; });
     var tW = 0, tcw = 0; comp.forEach(function (c) { if ((c.pnl_usd || 0) > 0) { tcw++; if (tcw > tW) tW = tcw; } else tcw = 0; });
     var notional = (d.positions || []).reduce(function (s, p) { return s + Math.abs(p.notional || 0); }, 0);
+    var tradeRets = comp.map(function (c) { var e = c.entry_price, x = c.exit_px; if (!e) return 0; return (x - e) / e * (c.direction === 'long' ? 1 : -1) * 100; });
+    var avgTradeRet = tradeRets.length ? tradeRets.reduce(function (a, b) { return a + b; }, 0) / tradeRets.length : 0;
+    var bestTradeRet = tradeRets.length ? Math.max.apply(null, tradeRets) : 0;
+    var worstTradeRet = tradeRets.length ? Math.min.apply(null, tradeRets) : 0;
     return {
+      avgTradeRet: avgTradeRet, bestTradeRet: bestTradeRet, worstTradeRet: worstTradeRet, positions: d.positions || [],
       n: comp.length, totalPnl: totalPnl, returnPct: returnPct, estCap: estCap, upnl: upnl, balance: d.balance,
       tradingDays: tradingDays, winRate: winRate, wins: wins, losses: losses, pf: pf, bestDay: bestDay, worstDay: worstDay,
       avgDaily: avgDaily, gp: gp, gl: gl, avgWin: wins ? gp / wins : 0, avgLoss: losses ? gl / losses : 0,
@@ -76,16 +81,57 @@
   }
   function colVal(n, d) { return '<span style="color:' + (n >= 0 ? 'var(--up)' : 'var(--down)') + '">' + money(n, d) + '</span>'; }
 
-  function renderKpis(m) {
-    var pfv = m.pf === Infinity ? '∞' : m.pf.toFixed(2);
-    document.getElementById('p-kpis').innerHTML =
-      kpi('누적 손익 (USDT)', colVal(m.totalPnl, 2), pct(m.returnPct) + ' <span style="color:var(--text-faint)">(추정)</span>', m.returnPct >= 0 ? 'up' : 'down') +
-      kpi('매매일', m.tradingDays + '<small>일</small>', m.n + '건') +
-      kpi('승률', (m.winRate * 100).toFixed(1) + '%', m.wins + 'W / ' + m.losses + 'L') +
-      kpi('최고의 날', colVal(m.bestDay, 2), '', '') +
-      kpi('최악의 날', colVal(m.worstDay, 2), '', '') +
-      kpi('Profit Factor', pfv, m.tW ? '최대 ' + m.tW + '연승' : '') +
-      kpi('평균 일손익', colVal(m.avgDaily, 2), 'USDT');
+  function labCard(lab, val, sub, subcls) { return '<div class="lab-card"><div class="lab">' + lab + '</div><div class="val">' + val + '</div>' + (sub ? '<div class="sub2 ' + (subcls || '') + '">' + sub + '</div>' : '') + '</div>'; }
+  function renderTopCards(m) {
+    var pos = m.positions.slice().sort(function (a, b) { return Math.abs(b.notional || 0) - Math.abs(a.notional || 0); });
+    var cur = pos[0];
+    var posHtml = cur
+      ? '<span class="' + (cur.direction === 'long' ? 'up' : 'down') + '">' + (cur.direction === 'long' ? 'LONG' : 'SHORT') + (cur.leverage ? ' ' + cur.leverage + 'x' : '') + '</span>'
+      : '<span style="color:var(--text-faint)">포지션 없음</span>';
+    var posSub = cur ? coinOf(cur.symbol) + ' Perp' + (pos.length > 1 ? ' +' + (pos.length - 1) : '') : '';
+    document.getElementById('p-topcards').innerHTML =
+      labCard('총 자산', usd(m.balance, 0), pct(m.returnPct) + ' (추정)', m.returnPct >= 0 ? 'up' : 'down') +
+      labCard('현재 포지션', posHtml, posSub, '') +
+      labCard('진입가', cur ? usd(cur.entry_price, 1) : '–', cur ? '현재 ' + usd(cur.mark, 1) : '', '') +
+      labCard('미실현 PNL', colVal(m.upnl, 2), (cur && cur.upnl_pct != null) ? pct(cur.upnl_pct) : '', m.upnl >= 0 ? 'up' : 'down');
+  }
+  function renderPosDetail(m) {
+    var host = document.getElementById('p-posdetail'), pos = m.positions;
+    if (!pos.length) { host.innerHTML = '<div class="chart-empty">진행중 포지션 없음</div>'; return; }
+    host.innerHTML = pos.map(function (p) {
+      var d = p.direction === 'long';
+      return metric('방향', '<span class="' + (d ? 'up' : 'down') + '">' + (d ? 'LONG' : 'SHORT') + '</span> ' + esc2(coinOf(p.symbol)), '') +
+        metric('레버리지', (p.leverage || '–') + (p.leverage ? 'x' : ''), '') +
+        metric('진입가', usd(p.entry_price, 1), '') +
+        metric('현재가', usd(p.mark, 1), '') +
+        metric('규모', usd(p.notional, 0), '') +
+        metric('미실현', money(p.upnl, 2) + (p.upnl_pct != null ? ' (' + pct(p.upnl_pct) + ')' : ''), p.upnl >= 0 ? 'up' : 'down');
+    }).join('<div class="pd-div"></div>');
+  }
+  function renderScoreboard(m) {
+    document.getElementById('p-scoreboard').innerHTML =
+      metric('총 거래횟수', m.n + '건', '') +
+      metric('승률', (m.winRate * 100).toFixed(1) + '%', '') +
+      metric('총 수익률', pct(m.returnPct), m.returnPct >= 0 ? 'up' : 'down') +
+      metric('평균 수익률', pct(m.avgTradeRet, 2), m.avgTradeRet >= 0 ? 'up' : 'down') +
+      metric('최대 수익률', pct(m.bestTradeRet, 2), 'up') +
+      metric('최대 손실률', pct(m.worstTradeRet, 2), 'down');
+  }
+  function renderTable(m) {
+    var rows = m.comp.slice().sort(function (a, b) { return b.close_ts - a.close_ts; }).slice(0, 50);
+    document.getElementById('p-table-meta').textContent = '최근 ' + rows.length + '건';
+    if (!rows.length) { document.getElementById('p-table').innerHTML = '<div class="chart-empty">거래 기록 없음</div>'; return; }
+    var h = '<table class="tbl"><thead><tr><th>#</th><th>청산 시각</th><th>방향</th><th>진입가</th><th>청산가</th><th>수익률</th><th>PNL</th><th>상태</th></tr></thead><tbody>';
+    rows.forEach(function (c, i) {
+      var e = c.entry_price, x = c.exit_px, ret = e ? (x - e) / e * (c.direction === 'long' ? 1 : -1) * 100 : 0, win = (c.pnl_usd || 0) > 0;
+      h += '<tr><td class="mut">' + (i + 1) + '</td><td class="mono">' + dt(c.close_ts) + '</td>' +
+        '<td><b class="' + (c.direction === 'long' ? 'up' : 'down') + '">' + (c.direction === 'long' ? 'LONG' : 'SHORT') + '</b> ' + esc2(coinOf(c.symbol)) + '</td>' +
+        '<td class="mono">' + usd(c.entry_price, 1) + '</td><td class="mono">' + usd(c.exit_px, 1) + '</td>' +
+        '<td class="mono ' + (ret >= 0 ? 'up' : 'down') + '">' + pct(ret, 2) + '</td>' +
+        '<td class="mono ' + (win ? 'up' : 'down') + '">' + money(c.pnl_usd, 0) + '</td>' +
+        '<td><span class="badge ' + (win ? 'tp' : 'sl') + '">' + esc2(c.reason || (win ? 'TP' : 'SL')) + '</span></td></tr>';
+    });
+    document.getElementById('p-table').innerHTML = h + '</tbody></table>';
   }
 
   function renderStats2(m) {
@@ -131,19 +177,21 @@
 
   function drawCumulative(m) {
     var host = document.getElementById('p-cum');
-    var s = m.cumSeries;
-    if (s.length < 2) { host.innerHTML = '<div class="chart-empty">완료 거래가 부족합니다</div>'; return; }
-    var up = C('--up'), tx = C('--text'), faint = C('--text-faint'), line = C('--border');
-    var W = 840, H = 300, L = 54, R = 16, T = 14, B = 30;
+    var comp = m.comp;
+    if (perfPeriod > 0) { var cut = Date.now() - perfPeriod * 86400000; comp = comp.filter(function (c) { return c.close_ts >= cut; }); }
+    if (comp.length < 2) { host.innerHTML = '<div class="chart-empty">해당 기간 거래가 부족합니다</div>'; return; }
+    var cum = 0, s = comp.map(function (c) { cum += (c.pnl_usd || 0); return { ts: c.close_ts, ret: cum / m.estCap * 100 }; });
+    var pos = C('--up'), neg = C('--down'), tx = C('--text'), faint = C('--text-faint'), line = C('--border');
+    var up = s[s.length - 1].ret >= 0 ? pos : neg;
+    var W = 840, H = 300, L = 52, R = 16, T = 14, B = 30;
     var x0 = s[0].ts, x1 = s[s.length - 1].ts;
-    var lo = 0, hi = 0; s.forEach(function (p) { if (p.cum < lo) lo = p.cum; if (p.cum > hi) hi = p.cum; });
+    var lo = 0, hi = 0; s.forEach(function (p) { if (p.ret < lo) lo = p.ret; if (p.ret > hi) hi = p.ret; });
     if (hi === lo) hi = lo + 1; var padY = (hi - lo) * 0.08; hi += padY; lo -= padY;
     var X = function (t) { return L + (t - x0) / (x1 - x0 || 1) * (W - L - R); };
     var Y = function (v) { return T + (hi - v) / (hi - lo) * (H - T - B); };
-    var g = '', ticks = 4;
-    for (var i = 0; i <= ticks; i++) { var v = lo + (hi - lo) * i / ticks, y = Y(v); g += '<line x1="' + L + '" y1="' + y.toFixed(1) + '" x2="' + (W - R) + '" y2="' + y.toFixed(1) + '" stroke="' + line + '" stroke-width="1" opacity="0.5"/><text x="' + (L - 8) + '" y="' + (y + 3).toFixed(1) + '" text-anchor="end" font-size="11" fill="' + faint + '" font-family="ui-monospace,monospace">' + niceLabel(v) + '</text>'; }
+    var g = ''; for (var i = 0; i <= 4; i++) { var v = lo + (hi - lo) * i / 4, y = Y(v); g += '<line x1="' + L + '" y1="' + y.toFixed(1) + '" x2="' + (W - R) + '" y2="' + y.toFixed(1) + '" stroke="' + line + '" stroke-width="1" opacity="0.5"/><text x="' + (L - 8) + '" y="' + (y + 3).toFixed(1) + '" text-anchor="end" font-size="11" fill="' + faint + '" font-family="ui-monospace,monospace">' + (v >= 0 ? '+' : '') + v.toFixed(1) + '%</text>'; }
     var zeroY = Y(0);
-    var pts = s.map(function (p) { return X(p.ts).toFixed(1) + ',' + Y(p.cum).toFixed(1); });
+    var pts = s.map(function (p) { return X(p.ts).toFixed(1) + ',' + Y(p.ret).toFixed(1); });
     var area = 'M' + X(x0).toFixed(1) + ',' + zeroY.toFixed(1) + ' L' + pts.join(' L') + ' L' + X(x1).toFixed(1) + ',' + zeroY.toFixed(1) + ' Z';
     var xl = ''; for (var k = 0; k <= 3; k++) { var t = x0 + (x1 - x0) * k / 3; xl += '<text x="' + X(t).toFixed(1) + '" y="' + (H - 10) + '" text-anchor="middle" font-size="11" fill="' + faint + '" font-family="ui-monospace,monospace">' + mdKey(t) + '</text>'; }
     var end = s[s.length - 1];
@@ -152,8 +200,8 @@
       g + '<line x1="' + L + '" y1="' + zeroY.toFixed(1) + '" x2="' + (W - R) + '" y2="' + zeroY.toFixed(1) + '" stroke="' + faint + '" stroke-width="1"/>' +
       '<path d="' + area + '" fill="url(#cumg)"/>' +
       '<polyline points="' + pts.join(' ') + '" fill="none" stroke="' + up + '" stroke-width="2" stroke-linejoin="round"/>' +
-      '<circle cx="' + X(end.ts).toFixed(1) + '" cy="' + Y(end.cum).toFixed(1) + '" r="3.5" fill="' + up + '"/>' +
-      '<text x="' + (X(end.ts) - 6).toFixed(1) + '" y="' + (Y(end.cum) - 8).toFixed(1) + '" text-anchor="end" font-size="12" font-weight="700" fill="' + tx + '" font-family="ui-monospace,monospace">' + m.totalPnl.toFixed(2) + '</text>' +
+      '<circle cx="' + X(end.ts).toFixed(1) + '" cy="' + Y(end.ret).toFixed(1) + '" r="3.5" fill="' + up + '"/>' +
+      '<text x="' + (X(end.ts) - 6).toFixed(1) + '" y="' + (Y(end.ret) - 8).toFixed(1) + '" text-anchor="end" font-size="12" font-weight="700" fill="' + tx + '" font-family="ui-monospace,monospace">' + (end.ret >= 0 ? '+' : '') + end.ret.toFixed(1) + '%</text>' +
       xl + '</svg>';
   }
 
@@ -280,9 +328,9 @@
     var d = perfData();
     document.getElementById('p-range').textContent = d.label + (d.completed.length ? ' · ' + mdKey(Math.min.apply(null, d.completed.map(function (c) { return c.close_ts; }))) + ' ~ ' + mdKey(Math.max.apply(null, d.completed.map(function (c) { return c.close_ts; }))) + ' · ' + d.completed.length + '건' : ' · 데이터 대기중');
     var m = computePerf(d);
-    document.getElementById('p-cum-meta').textContent = '완료 ' + m.n + '건 · 매매일 ' + m.tradingDays + '일';
-    renderKpis(m); renderStats2(m); renderSummary(m); renderRisk(m);
-    drawCumulative(m); drawDaily(m); drawCalendar(m); drawDonut(m); drawBenchmark(m);
+    renderTopCards(m); renderPosDetail(m); renderScoreboard(m); renderRisk(m); renderTable(m);
+    drawCumulative(m);
+    renderStats2(m); renderSummary(m); drawDaily(m); drawCalendar(m); drawDonut(m); drawBenchmark(m);
   }
 
   // ── 뷰/계정 전환 ──
@@ -300,6 +348,13 @@
       b.addEventListener('click', function () {
         perfScope = b.getAttribute('data-scope');
         document.querySelectorAll('#perf-acct button').forEach(function (t) { t.classList.toggle('on', t === b); });
+        renderPerf();
+      });
+    });
+    document.querySelectorAll('#p-period button').forEach(function (b) {
+      b.addEventListener('click', function () {
+        perfPeriod = parseInt(b.getAttribute('data-p'), 10);
+        document.querySelectorAll('#p-period button').forEach(function (t) { t.classList.toggle('on', t === b); });
         renderPerf();
       });
     });

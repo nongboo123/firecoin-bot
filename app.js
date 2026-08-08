@@ -225,7 +225,8 @@ function fetchAccount(a) {
       positions.push({
         symbol: coin, signal: '', direction: isLong ? 'long' : 'short', entry_price: entry, mark: mark,
         tp_price: tp, sl_price: sl, notional: notional, upnl: parseFloat(p.unrealizedPnl || 0),
-        upnl_pct: entry ? Math.round((mark - entry) / entry * (isLong ? 1 : -1) * 1000) / 10 : 0, wallet: a.addr, acct: a.name
+        upnl_pct: entry ? Math.round((mark - entry) / entry * (isLong ? 1 : -1) * 1000) / 10 : 0,
+        leverage: (p.leverage && p.leverage.value) || null, wallet: a.addr, acct: a.name
       });
     });
     // 완료 거래 = Close 체결을 '오더(oid)' 단위로 묶음. 청산가=체결 가중평균, 진입가=closedPnl로 역산.

@@ -173,3 +173,35 @@ footer { margin-top: 28px; text-align: center; font-size: 12px; color: var(--tex
 .chart-note { font-size: 11px; color: var(--text-faint); padding: 0 14px 10px; text-align: right; }
 .legend-row { display: flex; gap: 14px; padding: 0 14px 8px; font-size: 12px; color: var(--text-dim); }
 .legend-row i { width: 18px; height: 3px; border-radius: 2px; display: inline-block; margin-right: 5px; vertical-align: middle; }
+
+/* ══════════ 퍼포먼스 /lab 스타일 ══════════ */
+.lab-top { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+@media (max-width: 820px) { .lab-top { grid-template-columns: repeat(2, 1fr); } }
+.lab-card { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 16px 18px; box-shadow: var(--shadow); }
+.lab-card .lab { font-size: 11.5px; color: var(--text-dim); text-transform: uppercase; letter-spacing: .06em; }
+.lab-card .val { font-size: 25px; font-weight: 720; margin-top: 7px; font-variant-numeric: tabular-nums; letter-spacing: -.02em; }
+.lab-card .sub2 { font-size: 12.5px; font-weight: 600; margin-top: 4px; }
+.lab-card .sub2.up, .lab-card .val .up { color: var(--up); } .lab-card .sub2.down, .lab-card .val .down { color: var(--down); }
+
+.seg-switch.sm button { font-size: 11.5px; padding: 4px 9px; }
+
+/* 포지션 상세 / 스코어보드 padding */
+#p-posdetail, #p-scoreboard { padding: 2px 4px 6px; }
+.pd-div { height: 1px; background: var(--border); margin: 8px 0; opacity: .6; }
+
+/* 거래 기록 테이블 */
+.tbl-host { max-height: 480px; overflow: auto; padding: 0 6px 6px; }
+table.tbl { width: 100%; border-collapse: collapse; font-size: 12.5px; }
+table.tbl thead th { position: sticky; top: 0; background: var(--surface); z-index: 1;
+  text-align: right; font-weight: 600; color: var(--text-dim); font-size: 11px; letter-spacing: .03em;
+  padding: 9px 10px; border-bottom: 1px solid var(--border); white-space: nowrap; }
+table.tbl thead th:nth-child(-n+3) { text-align: left; }
+table.tbl tbody td { padding: 9px 10px; border-bottom: 1px solid var(--border); text-align: right; white-space: nowrap; }
+table.tbl tbody td:nth-child(-n+3) { text-align: left; }
+table.tbl tbody tr:hover { background: var(--surface-2); }
+table.tbl .mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+table.tbl .mut { color: var(--text-faint); }
+table.tbl .up { color: var(--up); } table.tbl .down { color: var(--down); }
+table.tbl .badge { font-size: 10.5px; font-weight: 660; padding: 2px 8px; border-radius: 6px; }
+table.tbl .badge.tp { color: var(--up); background: var(--up-soft); }
+table.tbl .badge.sl { color: var(--down); background: var(--down-soft); }

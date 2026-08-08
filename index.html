@@ -80,7 +80,7 @@
     </section>
   </div>
 
-  <!-- ══ 퍼포먼스 뷰 ══ -->
+  <!-- ══ 퍼포먼스 뷰 (esosong /lab 스타일) ══ -->
   <div id="perf-view" hidden>
     <div class="perf-bar">
       <div class="seg-switch" id="perf-acct">
@@ -90,16 +90,47 @@
       </div>
       <span class="perf-range" id="p-range"></span>
     </div>
-    <div class="kpis perf-kpis" id="p-kpis"></div>
 
+    <!-- 상단 스탯 카드 4 -->
+    <div class="lab-top" id="p-topcards"></div>
+
+    <!-- 누적 수익률 + 기간 토글 -->
     <section class="card" style="margin-top:14px">
-      <div class="head"><h2>누적 손익 (Cumulative PnL)</h2><span class="meta" id="p-cum-meta"></span></div>
+      <div class="head"><h2>누적 수익률</h2>
+        <div class="seg-switch sm" id="p-period">
+          <button data-p="7">7D</button><button data-p="30" class="on">30D</button><button data-p="90">90D</button><button data-p="365">1Y</button><button data-p="0">ALL</button>
+        </div>
+      </div>
       <div class="chart-host" id="p-cum"></div>
     </section>
 
-    <div class="cols" style="margin-top:14px">
+    <!-- 포지션 상세 · 스코어보드 · 리스크 -->
+    <div class="cols3" style="margin-top:14px">
       <section class="card">
-        <div class="head"><h2>일별 손익 (Daily PnL)</h2><span class="meta">수익 / 손실</span></div>
+        <div class="head"><h2>포지션 상세</h2></div>
+        <div id="p-posdetail"></div>
+      </section>
+      <section class="card">
+        <div class="head"><h2>Scoreboard</h2></div>
+        <div id="p-scoreboard"></div>
+      </section>
+      <section class="card">
+        <div class="head"><h2>리스크</h2><span class="meta" id="p-risk-meta"></span></div>
+        <div id="p-risk"></div>
+      </section>
+    </div>
+
+    <!-- 거래 기록 테이블 -->
+    <section class="card" style="margin-top:14px">
+      <div class="head"><h2>거래 기록</h2><span class="meta" id="p-table-meta"></span></div>
+      <div class="tbl-host" id="p-table"></div>
+    </section>
+
+    <!-- 추가 분석 (기존 차트) -->
+    <div class="subhead" style="margin:24px 2px 8px">추가 분석</div>
+    <div class="cols">
+      <section class="card">
+        <div class="head"><h2>일별 손익</h2><span class="meta">수익 / 손실</span></div>
         <div class="chart-host" id="p-daily"></div>
       </section>
       <section class="card">
@@ -107,9 +138,6 @@
         <div class="chart-host" id="p-cal"></div>
       </section>
     </div>
-
-    <div class="perf-stats2" id="p-stats2" style="margin-top:14px"></div>
-
     <div class="cols3" style="margin-top:14px">
       <section class="card">
         <div class="head"><h2>수익/손실 분포</h2></div>
@@ -120,15 +148,11 @@
         <div id="p-summary"></div>
       </section>
       <section class="card">
-        <div class="head"><h2>리스크</h2><span class="meta" id="p-risk-meta"></span></div>
-        <div id="p-risk"></div>
+        <div class="head"><h2>봇 vs BTC</h2><span class="meta" id="p-bench-meta"></span></div>
+        <div class="chart-host" id="p-bench"></div>
       </section>
     </div>
-
-    <section class="card" style="margin-top:14px">
-      <div class="head"><h2>벤치마크 — 봇 vs BTC (누적 수익률)</h2><span class="meta" id="p-bench-meta"></span></div>
-      <div class="chart-host" id="p-bench"></div>
-    </section>
+    <div class="perf-stats2" id="p-stats2" style="margin-top:14px"></div>
   </div>
 
   <footer>고래·OI 자동매매 봇 · 읽기 전용 · HL 온체인 실시간 · 자동갱신 <span id="poll">–</span>초</footer>
