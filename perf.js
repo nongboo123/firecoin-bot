@@ -4,6 +4,11 @@
   'use strict';
   var currentView = 'live', perfScope = 'bot', perfPeriod = 30;
 
+  // ── 통화 인식 포매터: 주식 스코프면 ₩, 아니면 전역 $ 포매터로 위임 (섀도잉) ──
+  var Gusd = window.usd, Gsigned = window.signed;
+  function usd(n, d) { if (perfScope === 'stocks') return (n == null || isNaN(n)) ? '–' : '₩' + Math.round(n).toLocaleString('en-US'); return Gusd(n, d); }
+  function signed(n, d) { if (perfScope === 'stocks') { if (n == null || isNaN(n)) return '–'; var neg = n < 0; return (neg ? '-' : '+') + '₩' + Math.abs(Math.round(n)).toLocaleString('en-US'); } return Gsigned(n, d); }
+
   // ── 유틸 ──
   function C(v) { return getComputedStyle(document.documentElement).getPropertyValue(v).trim() || '#888'; }
   function pct(n, d) { if (n == null || isNaN(n)) return '–'; return (n >= 0 ? '+' : '') + n.toFixed(d == null ? 1 : d) + '%'; }
@@ -20,6 +25,10 @@
     if (perfScope === 'tradfi') {
       var tt = (typeof tradfiTrades !== 'undefined' && tradfiTrades) ? tradfiTrades : { positions: [], completed: [] };
       return { completed: tt.completed || [], positions: tt.positions || [], balance: (acctBal['TradFi'] || 0), label: 'TradFi 계정' };
+    }
+    if (perfScope === 'stocks') {
+      var sk = (typeof stockTrades !== 'undefined' && stockTrades) ? stockTrades : { positions: [], completed: [] };
+      return { completed: sk.completed || [], positions: sk.positions || [], balance: (acctBal['주식'] || 0), label: '한국주식' };
     }
     var bt = (typeof botTrades !== 'undefined' && botTrades) ? botTrades : { positions: [], completed: [] };
     return { completed: bt.completed || [], positions: bt.positions || [], balance: (acctBal['롱'] || 0) + (acctBal['숏'] || 0), label: '봇 (롱+숏)' };
@@ -193,7 +202,10 @@
   }
 
   // ── SVG 차트 ──
-  function niceLabel(v) { var a = Math.abs(v); if (a >= 1000) return (v / 1000).toFixed(1) + 'k'; return v.toFixed(0); }
+  function niceLabel(v) {
+    if (perfScope === 'stocks') { var k = Math.abs(v); if (k >= 1e8) return (v / 1e8).toFixed(1) + '억'; if (k >= 1e4) return Math.round(v / 1e4) + '만'; return Math.round(v).toString(); }
+    var a = Math.abs(v); if (a >= 1000) return (v / 1000).toFixed(1) + 'k'; return v.toFixed(0);
+  }
 
   function drawCumulative(m) {
     var host = document.getElementById('p-cum');

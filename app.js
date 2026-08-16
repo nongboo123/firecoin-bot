@@ -95,7 +95,10 @@ var lastState = { positions: [], completed: [], live: false };
 var botTrades = null;    // 롱+숏 계정 온체인 실거래 {positions, completed}
 var mainTrades = null;   // 메인 계정 온체인 실거래
 var tradfiTrades = null; // TradFi 계정 온체인 실거래
-var acctBal = {};       // 계정별 SPOT USDC 잔고 (name → USD)
+var stockTrades = null;  // 한국주식 봇 (stocks.json export)
+var acctBal = {};       // 계정별 잔고 (name → 금액)
+function won(n) { return (n == null || isNaN(n)) ? '–' : '₩' + Math.round(n).toLocaleString('en-US'); }
+function wonS(n) { if (n == null || isNaN(n)) return '–'; var neg = n < 0; return (neg ? '-' : '+') + '₩' + Math.abs(Math.round(n)).toLocaleString('en-US'); }
 function effPos() { return botTrades ? botTrades.positions : (lastState.positions || []); }
 function effComp() { return botTrades ? botTrades.completed : (lastState.completed || []); }
 
@@ -116,6 +119,7 @@ function render(s) {
   renderTrades();
   renderMain();
   renderTradfi();
+  renderStocks();
 
 }
 
@@ -186,6 +190,59 @@ function renderTradfi() {
     '<b>' + w + '</b>승 · <b>' + l + '</b>패 · 총 PNL <b class="' + (realized >= 0 ? 'up' : 'down') + '">' + signed(realized, 0) + '</b>' +
     ' · 미실현 <b class="' + (upnl >= 0 ? 'up' : 'down') + '">' + signed(upnl, 0) + '</b>';
   renderList('tradfi-positions', 'tradfi-completed', 'tradfi-pos-h', positions, completed);
+}
+
+// ── 한국주식 봇 (stocks.json export — 온체인 아님, 봇이 내보낸 파일을 읽음) ──
+function fetchStocks() {
+  fetch('stocks.json', { cache: 'no-store' })
+    .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+    .then(function (d) {
+      var positions = (d.positions || []).map(function (p) {
+        return {
+          symbol: p.symbol || p.code, code: p.code, direction: p.direction || 'long',
+          entry_price: p.entry_price, mark: p.mark, notional: p.notional, qty: p.qty,
+          upnl: p.upnl || 0, upnl_pct: p.upnl_pct, leverage: null, wallet: null, acct: '주식'
+        };
+      });
+      var completed = (d.completed || []).map(function (c) {
+        return {
+          close_ts: c.close_ts, entry_ts: c.entry_ts || null, symbol: c.symbol || c.code, code: c.code,
+          direction: c.direction || 'long', entry_price: c.entry_price, exit_px: c.exit_px,
+          pnl_usd: (c.pnl_krw != null ? c.pnl_krw : (c.pnl || 0)), reason: c.reason || ((c.pnl_krw || 0) > 0 ? '익절' : '손절'), acct: '주식'
+        };
+      }).sort(function (a, b) { return b.close_ts - a.close_ts; });
+      stockTrades = { positions: positions, completed: completed, balance: d.balance || 0 };
+      acctBal['주식'] = d.balance || 0;
+      renderStocks();
+      if (window.renderPerf) window.renderPerf();
+    })
+    .catch(function () { /* stocks.json 미존재 → 대기 */ });
+}
+function renderStocks() {
+  if (!stockTrades) return;
+  var positions = stockTrades.positions, completed = stockTrades.completed;
+  document.getElementById('stocks-meta').textContent = '잔고 ' + won(acctBal['주식'] || 0) + ' · 한국주식';
+  var w = 0, l = 0, realized = 0;
+  completed.forEach(function (c) { var p = c.pnl_usd || 0; p > 0 ? w++ : l++; realized += p; });
+  var upnl = 0; positions.forEach(function (p) { upnl += (p.upnl || 0); });
+  document.getElementById('stocks-stats').innerHTML =
+    '<b>' + w + '</b>승 · <b>' + l + '</b>패 · 총 PNL <b class="' + (realized >= 0 ? 'up' : 'down') + '">' + wonS(realized) + '</b>' +
+    ' · 미실현 <b class="' + (upnl >= 0 ? 'up' : 'down') + '">' + wonS(upnl) + '</b>';
+  document.getElementById('stocks-pos-h').textContent = '보유중 (' + positions.length + ')';
+  document.getElementById('stocks-positions').innerHTML = !positions.length ? '<div class="empty">보유 종목 없음</div>' : positions.map(function (p) {
+    var up = (p.upnl || 0) >= 0;
+    return '<div class="pos"><div class="top"><span class="strat">' + esc(p.symbol) + '</span>' +
+      (p.code ? '<span class="tag">' + esc(p.code) + '</span>' : '') +
+      '<span class="upnl ' + (up ? 'pos-v' : 'neg-v') + '">' + wonS(p.upnl) + (p.upnl_pct != null ? ' (' + (p.upnl_pct >= 0 ? '+' : '') + p.upnl_pct + '%)' : '') + '</span></div>' +
+      '<div class="nums">' + (p.qty != null ? '수량 <b>' + p.qty + '</b> · ' : '') + '매입 <b>' + won(p.entry_price) + '</b> · 현재 <b>' + won(p.mark) + '</b> · 평가 <b>' + won(p.notional) + '</b></div></div>';
+  }).join('');
+  document.getElementById('stocks-completed').innerHTML = !completed.length ? '<div class="empty">매도 내역 없음</div>' : completed.slice(0, 30).map(function (c) {
+    var win = (c.pnl_usd || 0) > 0;
+    return '<div class="row done-row"><div><span class="sym">' + esc(c.symbol) + '</span> ' +
+      '<span class="acct">' + (c.code ? esc(c.code) + ' · ' : '') + dirKo(c.direction) + ' · ' + hhmm(c.close_ts) + '</span></div>' +
+      '<span class="result ' + (win ? 'tp' : 'sl') + '">' + esc(c.reason) + '</span>' +
+      '<span class="pnl ' + (win ? 'pos-v' : 'neg-v') + '">' + wonS(c.pnl_usd) + '</span></div>';
+  }).join('');
 }
 
 // ── 봇 계정 3개를 HL 온체인으로 직접 조회 (롱/숏/메인) ──
@@ -298,3 +355,5 @@ refreshLive();                       // 국면 차트: 실제 BTC 일봉 실시�
 setInterval(refreshLive, 600000);    // 10분마다 갱신
 refreshBotTrades();                  // 봇 시그널: HL 계정 온체인 실거래
 setInterval(refreshBotTrades, 30000);
+fetchStocks();                       // 한국주식: stocks.json (봇 export)
+setInterval(fetchStocks, 30000);

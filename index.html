@@ -78,6 +78,18 @@
         <div class="rows" id="tradfi-completed"></div>
       </div>
     </section>
+
+    <section class="card" style="margin-top:18px">
+      <div class="head"><h2>한국주식 거래</h2><span class="meta" id="stocks-meta">한국주식 봇 · 연결 대기중</span></div>
+      <div class="body">
+        <div class="acct-stats" id="stocks-stats">–</div>
+        <div class="wnote">📈 한국주식 자동매매 봇의 실제 거래 (봇이 stocks.json 내보내면 표시).</div>
+        <div class="subhead" id="stocks-pos-h">보유중</div>
+        <div id="stocks-positions"><div class="empty">주식봇 연결 대기중 — stocks.json 필요</div></div>
+        <div class="subhead" style="margin-top:16px;">최근 완료</div>
+        <div class="rows" id="stocks-completed"></div>
+      </div>
+    </section>
   </div>
 
   <!-- ══ 퍼포먼스 뷰 (esosong /lab 스타일) ══ -->
@@ -87,6 +99,7 @@
         <button class="on" data-scope="bot">봇 (롱+숏)</button>
         <button data-scope="main">메인</button>
         <button data-scope="tradfi">TradFi</button>
+        <button data-scope="stocks">한국주식</button>
       </div>
       <span class="perf-range" id="p-range"></span>
     </div>
