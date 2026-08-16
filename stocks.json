@@ -1,5 +1,5 @@
 {
- "updated_ts": 1786871945584,
+ "updated_ts": 1786872739023,
  "balance": 3023453,
  "positions": [],
  "completed": [
@@ -10,6 +10,7 @@
    "exit_px": 3385,
    "pnl_krw": 23453,
    "code": "419540",
+   "qty": 151,
    "entry_ts": 1786685589249,
    "reason": "익절"
   }
