@@ -239,7 +239,7 @@ function renderStocks() {
   document.getElementById('stocks-completed').innerHTML = !completed.length ? '<div class="empty">매도 내역 없음</div>' : completed.slice(0, 30).map(function (c) {
     var win = (c.pnl_usd || 0) > 0;
     return '<div class="row done-row"><div><span class="sym">' + esc(c.symbol) + '</span> ' +
-      '<span class="acct">' + (c.code ? esc(c.code) + ' · ' : '') + dirKo(c.direction) + ' · ' + hhmm(c.close_ts) + '</span></div>' +
+      '<span class="acct">' + (c.code ? esc(c.code) + ' · ' : '') + '매도 · ' + hhmm(c.close_ts) + '</span></div>' +
       '<span class="result ' + (win ? 'tp' : 'sl') + '">' + esc(c.reason) + '</span>' +
       '<span class="pnl ' + (win ? 'pos-v' : 'neg-v') + '">' + wonS(c.pnl_usd) + '</span></div>';
   }).join('');
