@@ -234,12 +234,15 @@ function renderStocks() {
     return '<div class="pos"><div class="top"><span class="strat">' + esc(p.symbol) + '</span>' +
       (p.code ? '<span class="tag">' + esc(p.code) + '</span>' : '') +
       '<span class="upnl ' + (up ? 'pos-v' : 'neg-v') + '">' + wonS(p.upnl) + (p.upnl_pct != null ? ' (' + (p.upnl_pct >= 0 ? '+' : '') + p.upnl_pct + '%)' : '') + '</span></div>' +
-      '<div class="nums">' + (p.qty != null ? '수량 <b>' + p.qty + '</b> · ' : '') + '매입 <b>' + won(p.entry_price) + '</b> · 현재 <b>' + won(p.mark) + '</b> · 평가 <b>' + won(p.notional) + '</b></div></div>';
+      '<div class="nums">' + (p.qty != null ? '수량 <b>' + p.qty + '</b> · ' : '') + '매입 <b>' + won(p.entry_price) + '</b> · 현재 <b>' + won(p.mark) + '</b>' +
+      (p.qty != null && p.entry_price != null ? ' · 매입금액 <b>' + won(p.qty * p.entry_price) + '</b>' : '') + ' · 평가 <b>' + won(p.notional) + '</b></div></div>';
   }).join('');
   document.getElementById('stocks-completed').innerHTML = !completed.length ? '<div class="empty">매도 내역 없음</div>' : completed.slice(0, 30).map(function (c) {
     var win = (c.pnl_usd || 0) > 0;
+    var cost = (c.qty != null && c.entry_price != null) ? c.qty * c.entry_price : null;
     return '<div class="row done-row"><div><span class="sym">' + esc(c.symbol) + '</span> ' +
-      '<span class="acct">' + (c.code ? esc(c.code) + ' · ' : '') + '매도 · ' + hhmm(c.close_ts) + '</span></div>' +
+      '<span class="acct">' + (c.code ? esc(c.code) + ' · ' : '') + '매도 · ' + hhmm(c.close_ts) +
+      (c.qty != null ? ' · ' + c.qty + '주' : '') + (cost != null ? ' · 매입 ' + won(cost) : '') + '</span></div>' +
       '<span class="result ' + (win ? 'tp' : 'sl') + '">' + esc(c.reason) + '</span>' +
       '<span class="pnl ' + (win ? 'pos-v' : 'neg-v') + '">' + wonS(c.pnl_usd) + '</span></div>';
   }).join('');

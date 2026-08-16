@@ -96,8 +96,10 @@
     var head = isS
       ? '<span class="dir" style="background:var(--surface-2);color:var(--text-dim);border:1px solid var(--border)">보유</span>'
       : '<span class="dir ' + (d ? 'long' : 'short') + '">' + (d ? 'LONG' : 'SHORT') + (p.leverage ? ' ' + p.leverage + 'x' : '') + '</span>';
+    var cost = (p.qty != null && p.entry_price != null) ? p.qty * p.entry_price : null;
     var nums = isS
-      ? '매입 <b>' + usd(p.entry_price, 1) + '</b> · 현재 <b>' + usd(p.mark, 1) + '</b> · 평가 <b>' + usd(p.notional, 0) + '</b>'
+      ? (p.qty != null ? '수량 <b>' + p.qty + '</b> · ' : '') + '매입 <b>' + usd(p.entry_price, 1) + '</b> · 현재 <b>' + usd(p.mark, 1) + '</b>' +
+        (cost != null ? ' · 매입금액 <b>' + usd(cost, 0) + '</b>' : '') + ' · 평가 <b>' + usd(p.notional, 0) + '</b>'
       : '진입 <b>' + usd(p.entry_price, 1) + '</b> · 현재 <b>' + usd(p.mark, 1) + '</b> · 규모 <b>' + usd(p.notional, 0) + '</b>';
     return '<div class="pos-card"><div class="pc-head">' + head +
       '<b class="pc-coin">' + esc2(coinOf(p.symbol)) + '</b>' +
@@ -152,12 +154,13 @@
     document.getElementById('p-table-meta').textContent = '최근 ' + rows.length + '건 · ' + unit;
     if (!rows.length) { document.getElementById('p-table').innerHTML = '<div class="chart-empty">거래 기록 없음</div>'; return; }
     var th = isS
-      ? ['#', '매수 시간', '매도 시간', '종목', '매수가', '매도가', '수익률', 'PNL (KRW)', '보유 시간', '상태']
+      ? ['#', '매수 시간', '매도 시간', '종목', '수량', '매수가', '매도가', '매입금액', '수익률', 'PNL (KRW)', '보유 시간', '상태']
       : ['#', '진입 시간', '청산 시간', '방향', '진입가', '청산가', '수익률', 'PNL (USDT)', '보유 시간', '상태'];
     var h = '<table class="tbl"><thead><tr><th>' + th.join('</th><th>') + '</th></tr></thead><tbody>';
     rows.forEach(function (c, i) {
       var e = c.entry_price, x = c.exit_px, ret = e ? (x - e) / e * (c.direction === 'short' ? -1 : 1) * 100 : 0, win = (c.pnl_usd || 0) > 0;
       var hold = (c.entry_ts && c.close_ts) ? holdFmt(c.close_ts - c.entry_ts) : '–';
+      var cost = (c.qty != null && c.entry_price != null) ? c.qty * c.entry_price : null;
       var nameCell = isS
         ? '<b>' + esc2(coinOf(c.symbol)) + '</b>'
         : '<b class="' + (c.direction === 'long' ? 'up' : 'down') + '">' + (c.direction === 'long' ? 'LONG' : 'SHORT') + '</b> ' + esc2(coinOf(c.symbol));
@@ -165,7 +168,9 @@
         '<td class="mono mut">' + (c.entry_ts ? dt(c.entry_ts) : '–') + '</td>' +
         '<td class="mono">' + dt(c.close_ts) + '</td>' +
         '<td>' + nameCell + '</td>' +
+        (isS ? '<td class="mono mut">' + (c.qty != null ? c.qty : '–') + '</td>' : '') +
         '<td class="mono">' + usd(c.entry_price, 1) + '</td><td class="mono">' + usd(c.exit_px, 1) + '</td>' +
+        (isS ? '<td class="mono">' + (cost != null ? usd(cost, 0) : '–') + '</td>' : '') +
         '<td class="mono ' + (ret >= 0 ? 'up' : 'down') + '">' + pct(ret, 2) + '</td>' +
         '<td class="mono ' + (win ? 'up' : 'down') + '">' + money(c.pnl_usd, 0) + '</td>' +
         '<td class="mono mut">' + hold + '</td>' +
