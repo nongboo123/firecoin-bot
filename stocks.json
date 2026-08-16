@@ -1,1 +1,17 @@
-{"updated_ts":1786871034066,"balance":10250000,"positions":[{"symbol":"삼성전자","code":"005930","qty":100,"entry_price":71000,"mark":74500,"notional":7450000,"upnl":350000,"upnl_pct":4.9},{"symbol":"에코프로비엠","code":"247540","qty":20,"entry_price":185000,"mark":179000,"notional":3580000,"upnl":-120000,"upnl_pct":-3.2}],"completed":[{"close_ts":1786867434066,"entry_ts":1786781034066,"symbol":"현대차","code":"005380","entry_price":238000,"exit_px":245000,"pnl_krw":210000,"reason":"익절"},{"close_ts":1786781034066,"entry_ts":1786691034066,"symbol":"카카오","code":"035720","entry_price":42000,"exit_px":40500,"pnl_krw":-150000,"reason":"손절"},{"close_ts":1786611034066,"entry_ts":1786521034066,"symbol":"NAVER","code":"035420","entry_price":168000,"exit_px":176000,"pnl_krw":320000,"reason":"익절"}]}
+{
+ "updated_ts": 1786871945584,
+ "balance": 3023453,
+ "positions": [],
+ "completed": [
+  {
+   "close_ts": 1786685977000,
+   "symbol": "비스토스",
+   "entry_price": 3223,
+   "exit_px": 3385,
+   "pnl_krw": 23453,
+   "code": "419540",
+   "entry_ts": 1786685589249,
+   "reason": "익절"
+  }
+ ]
+}
