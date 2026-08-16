@@ -159,7 +159,7 @@ function renderTrades() {
   var upnl = 0; positions.forEach(function (p) { upnl += (p.upnl || 0); });
   var ke = document.getElementById('k-upnl'); ke.className = 'val ' + (upnl >= 0 ? 'pos' : 'neg'); ke.textContent = signed(upnl, 2);
   document.getElementById('sig-meta').textContent = botTrades
-    ? '롱 잔고 ' + usd(acctBal['롱'] || 0, 0) + ' · 숏 잔고 ' + usd(acctBal['숏'] || 0, 0)
+    ? '롱 잔고 ' + usd(acctBal['롱'] || 0, 0) + ' · 숏 잔고 ' + usd(acctBal['숏'] || 0, 0) + ' · 8/1 개편 이후'
     : (lastState.live ? '실거래' : '관찰 모드');
   renderList('positions', 'completed', 'pos-h', positions, completed);
 }
@@ -246,6 +246,8 @@ function renderStocks() {
 }
 
 // ── 봇 계정 3개를 HL 온체인으로 직접 조회 (롱/숏/메인) ──
+// 봇(롱+숏)은 2026-08-01(KST) 개편 이후 거래만 표시 (진입시각 기준, 없으면 청산시각)
+var BOT_SINCE = Date.parse('2026-08-01T00:00:00+09:00');
 var ACCTS = {
   long:   { addr: '0xaca1f2524a6c3a75511a44cc7c437bcfd9350afb', name: '롱' },
   short:  { addr: '0xfee8c8b02fd5c0f8034ce41e04a0d135c3f919bf', name: '숏' },
@@ -324,7 +326,9 @@ function refreshBotTrades() {
   Promise.all([fetchAccount(ACCTS.long), fetchAccount(ACCTS.short)]).then(function (r) {
     botTrades = {
       positions: r[0].positions.concat(r[1].positions),
-      completed: r[0].completed.concat(r[1].completed).sort(function (a, b) { return b.close_ts - a.close_ts; })
+      completed: r[0].completed.concat(r[1].completed)
+        .filter(function (c) { return (c.entry_ts || c.close_ts) >= BOT_SINCE; })
+        .sort(function (a, b) { return b.close_ts - a.close_ts; })
     };
     renderTrades();
     var mp = document.getElementById('mode'), mt = document.getElementById('mode-t');
