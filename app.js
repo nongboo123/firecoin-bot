@@ -90,6 +90,8 @@ function hs(a) { return 'https://hypurrscan.io/address/' + a; }
 function wlink(addr, label) { if (!addr) return ''; var sh = addr.length > 12 ? addr.slice(0, 6) + '…' + addr.slice(-4) : addr; return '<a class="wlink" href="' + hs(addr) + '" target="_blank" rel="noopener">' + (label || '') + sh + ' 🔗</a>'; }
 function sideCls(s) { return s === 'buy' ? 'buy' : s === 'sell' ? 'sell' : 'flat'; }
 function coinOf(sym) { return (sym || '').replace('USDT', ''); }
+// 코인 수량 포맷 (규모): 값 크기에 따라 소수 자릿수 조절
+function qtyFmt(n) { if (n == null || isNaN(n)) return '–'; var a = Math.abs(n); var d = a >= 1000 ? 0 : a >= 1 ? 3 : 4; return Number(n).toLocaleString('en-US', { maximumFractionDigits: d }); }
 
 var lastState = { positions: [], completed: [], live: false };
 var botTrades = null;    // 롱+숏 계정 온체인 실거래 {positions, completed}
@@ -130,8 +132,10 @@ function posCardHtml(p) {
     '<span class="strat">' + esc(coinOf(p.symbol)) + '</span>' +
     '<span class="dir ' + (p.direction === 'long' ? 'long' : 'short') + '">' + dirKo(p.direction) + '</span>' +
     '<span class="upnl ' + (up ? 'pos-v' : 'neg-v') + '">' + signed(p.upnl, 0) + (p.upnl_pct != null ? ' (' + (p.upnl_pct >= 0 ? '+' : '') + p.upnl_pct + '%)' : '') + '</span></div>' +
-    '<div class="nums">진입 <b>' + usd(p.entry_price, 1) + '</b> · 현재 <b>' + usd(p.mark, 1) + '</b> · ' +
-    'TP <b>' + usd(p.tp_price, 1) + '</b> · SL <b>' + usd(p.sl_price, 1) + '</b> · 규모 <b>' + usd(p.notional, 0) + '</b> · ' + wlink(p.wallet, acctLabel) + '</div></div>';
+    '<div class="nums">규모 <b>' + qtyFmt(p.size) + ' ' + esc(coinOf(p.symbol)) + '</b> · 명목 <b>' + usd(p.notional, 0) + '</b>' +
+    (p.margin != null ? ' · 증거금 <b>' + usd(p.margin, 0) + '</b>' : '') +
+    ' · 진입 <b>' + usd(p.entry_price, 1) + '</b> · 현재 <b>' + usd(p.mark, 1) + '</b> · ' +
+    'TP <b>' + usd(p.tp_price, 1) + '</b> · SL <b>' + usd(p.sl_price, 1) + '</b> · ' + wlink(p.wallet, acctLabel) + '</div></div>';
 }
 function compRowHtml(c) {
   var win = (c.pnl_usd || 0) > 0;
@@ -284,11 +288,13 @@ function fetchAccount(a) {
         if (isLong) { if (px > entry) tp = px; else if (px < entry) sl = px; }
         else { if (px < entry) tp = px; else if (px > entry) sl = px; }
       });
+      var lev = (p.leverage && p.leverage.value) || null;
       positions.push({
         symbol: coin, signal: '', direction: isLong ? 'long' : 'short', entry_price: entry, mark: mark,
+        size: size, margin: (lev ? notional / lev : null),
         tp_price: tp, sl_price: sl, notional: notional, upnl: parseFloat(p.unrealizedPnl || 0),
         upnl_pct: entry ? Math.round((mark - entry) / entry * (isLong ? 1 : -1) * 1000) / 10 : 0,
-        leverage: (p.leverage && p.leverage.value) || null, wallet: a.addr, acct: a.name
+        leverage: lev, wallet: a.addr, acct: a.name
       });
     });
     // 진입시각 재구성: 체결을 시간순으로 훑어 '포지션 오픈(0→보유)' 시각을 기록해 청산 체결에 매핑.

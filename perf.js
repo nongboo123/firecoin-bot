@@ -100,7 +100,9 @@
     var nums = isS
       ? (p.qty != null ? '수량 <b>' + p.qty + '</b> · ' : '') + '매입 <b>' + usd(p.entry_price, 1) + '</b> · 현재 <b>' + usd(p.mark, 1) + '</b>' +
         (cost != null ? ' · 매입금액 <b>' + usd(cost, 0) + '</b>' : '') + ' · 평가 <b>' + usd(p.notional, 0) + '</b>'
-      : '진입 <b>' + usd(p.entry_price, 1) + '</b> · 현재 <b>' + usd(p.mark, 1) + '</b> · 규모 <b>' + usd(p.notional, 0) + '</b>';
+      : '규모 <b>' + (typeof qtyFmt === 'function' ? qtyFmt(p.size) : p.size) + ' ' + esc2(coinOf(p.symbol)) + '</b> · 명목 <b>' + usd(p.notional, 0) + '</b>' +
+        (p.margin != null ? ' · 증거금 <b>' + usd(p.margin, 0) + '</b>' : '') +
+        ' · 진입 <b>' + usd(p.entry_price, 1) + '</b> · 현재 <b>' + usd(p.mark, 1) + '</b>';
     return '<div class="pos-card"><div class="pc-head">' + head +
       '<b class="pc-coin">' + esc2(coinOf(p.symbol)) + '</b>' +
       '<span class="pc-upnl ' + (up ? 'up' : 'down') + '">' + money(p.upnl, 2) + (p.upnl_pct != null ? ' (' + pct(p.upnl_pct) + ')' : '') + '</span></div>' +
