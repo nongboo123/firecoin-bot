@@ -1,16 +1,16 @@
 {
- "updated_ts": 1787194810260,
- "balance": 3046089,
+ "updated_ts": 1787196004894,
+ "balance": 3043209,
  "positions": [
   {
    "symbol": "한국알콜",
    "code": "017890",
    "qty": 36,
    "entry_price": 13550,
-   "mark": 13520,
-   "notional": 486720,
-   "upnl": -1080,
-   "upnl_pct": -0.22
+   "mark": 13440,
+   "notional": 483840,
+   "upnl": -3960,
+   "upnl_pct": -0.81
   }
  ],
  "completed": [
