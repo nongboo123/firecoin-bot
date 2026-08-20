@@ -1,18 +1,7 @@
 {
- "updated_ts": 1787206212700,
- "balance": 3041409,
- "positions": [
-  {
-   "symbol": "한국알콜",
-   "code": "017890",
-   "qty": 36,
-   "entry_price": 13550,
-   "mark": 13390,
-   "notional": 482040,
-   "upnl": -5760,
-   "upnl_pct": -1.18
-  }
- ],
+ "updated_ts": 1787206806527,
+ "balance": 3039726,
+ "positions": [],
  "completed": [
   {
    "close_ts": 1786685977000,
@@ -35,6 +24,17 @@
    "qty": 33,
    "entry_ts": 1787187797140,
    "reason": "TP(걸어둔 지정가)"
+  },
+  {
+   "close_ts": 1787206515000,
+   "symbol": "한국알콜",
+   "entry_price": 13550,
+   "exit_px": 13370,
+   "pnl_krw": -7443,
+   "code": "017890",
+   "qty": 36,
+   "entry_ts": 1787188083745,
+   "reason": "당일 15:15 종가"
   }
  ]
 }
