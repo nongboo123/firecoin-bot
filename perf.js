@@ -383,23 +383,27 @@
     renderStats2(m); renderSummary(m); drawDaily(m); drawCalendar(m); drawDonut(m); drawBenchmark(m);
   }
 
-  // ── 뷰/계정 전환 ──
+  // ── 뷰/계정 전환 (URL 해시 딥링크: #live · #perf · #perf/bot|main|tradfi|stocks) ──
+  var SCOPES = ['bot', 'main', 'tradfi', 'stocks'];
+  function applyHash() {
+    var parts = (location.hash || '').replace(/^#/, '').split('/');
+    currentView = parts[0] === 'perf' ? 'perf' : 'live';
+    if (SCOPES.indexOf(parts[1]) >= 0) perfScope = parts[1];
+    document.querySelectorAll('.tab').forEach(function (t) { t.classList.toggle('on', t.getAttribute('data-view') === currentView); });
+    document.getElementById('live-view').hidden = currentView !== 'live';
+    document.getElementById('perf-view').hidden = currentView !== 'perf';
+    document.querySelectorAll('#perf-acct button').forEach(function (t) { t.classList.toggle('on', t.getAttribute('data-scope') === perfScope); });
+    if (currentView === 'perf') renderPerf();
+  }
   function initTabs() {
     document.querySelectorAll('.tab').forEach(function (b) {
       b.addEventListener('click', function () {
-        currentView = b.getAttribute('data-view');
-        document.querySelectorAll('.tab').forEach(function (t) { t.classList.toggle('on', t === b); });
-        document.getElementById('live-view').hidden = currentView !== 'live';
-        document.getElementById('perf-view').hidden = currentView !== 'perf';
-        if (currentView === 'perf') renderPerf();
+        var v = b.getAttribute('data-view');
+        location.hash = v === 'perf' ? 'perf/' + perfScope : 'live';
       });
     });
     document.querySelectorAll('#perf-acct button').forEach(function (b) {
-      b.addEventListener('click', function () {
-        perfScope = b.getAttribute('data-scope');
-        document.querySelectorAll('#perf-acct button').forEach(function (t) { t.classList.toggle('on', t === b); });
-        renderPerf();
-      });
+      b.addEventListener('click', function () { location.hash = 'perf/' + b.getAttribute('data-scope'); });
     });
     document.querySelectorAll('#p-period button').forEach(function (b) {
       b.addEventListener('click', function () {
@@ -408,6 +412,8 @@
         renderPerf();
       });
     });
+    window.addEventListener('hashchange', applyHash);
+    applyHash();   // 최초 로드 시 해시대로 진입
   }
   if (document.readyState !== 'loading') initTabs(); else document.addEventListener('DOMContentLoaded', initTabs);
   setInterval(function () { if (currentView === 'perf') renderPerf(); }, 15000);   // 데이터 갱신 반영
