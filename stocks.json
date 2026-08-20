@@ -1,26 +1,26 @@
 {
- "updated_ts": 1787188207276,
- "balance": 3028343,
+ "updated_ts": 1787188803605,
+ "balance": 3026783,
  "positions": [
   {
    "symbol": "아이에스동서",
    "code": "010780",
    "qty": 33,
    "entry_price": 14920,
-   "mark": 15090,
-   "notional": 497970,
-   "upnl": 5610,
-   "upnl_pct": 1.14
+   "mark": 15130,
+   "notional": 499290,
+   "upnl": 6930,
+   "upnl_pct": 1.41
   },
   {
    "symbol": "한국알콜",
    "code": "017890",
    "qty": 36,
    "entry_price": 13550,
-   "mark": 13530,
-   "notional": 487080,
-   "upnl": -720,
-   "upnl_pct": -0.15
+   "mark": 13450,
+   "notional": 484200,
+   "upnl": -3600,
+   "upnl_pct": -0.74
   }
  ],
  "completed": [
