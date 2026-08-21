@@ -1,18 +1,7 @@
 {
- "updated_ts": 1787305800724,
- "balance": 3030726,
- "positions": [
-  {
-   "symbol": "삼성전자",
-   "code": "005930",
-   "qty": 3,
-   "entry_price": 272000,
-   "mark": 269000,
-   "notional": 807000,
-   "upnl": -9000,
-   "upnl_pct": -1.1
-  }
- ],
+ "updated_ts": 1787306402937,
+ "balance": 3026118,
+ "positions": [],
  "completed": [
   {
    "close_ts": 1786685977000,
@@ -46,6 +35,17 @@
    "qty": 36,
    "entry_ts": 1787188083745,
    "reason": "당일 15:15 종가"
+  },
+  {
+   "close_ts": 1787305982000,
+   "symbol": "삼성전자",
+   "entry_price": 272000,
+   "exit_px": 268000,
+   "pnl_krw": -13608,
+   "code": "005930",
+   "qty": 3,
+   "entry_ts": 1787300400981,
+   "reason": "Opus 즉시탈출(사용자 /kexit)"
   }
  ]
 }
