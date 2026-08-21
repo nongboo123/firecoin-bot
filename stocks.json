@@ -1,16 +1,16 @@
 {
- "updated_ts": 1787304605579,
- "balance": 3032226,
+ "updated_ts": 1787305201443,
+ "balance": 3033726,
  "positions": [
   {
    "symbol": "삼성전자",
    "code": "005930",
    "qty": 3,
    "entry_price": 272000,
-   "mark": 269500,
-   "notional": 808500,
-   "upnl": -7500,
-   "upnl_pct": -0.92
+   "mark": 270000,
+   "notional": 810000,
+   "upnl": -6000,
+   "upnl_pct": -0.74
   }
  ],
  "completed": [
