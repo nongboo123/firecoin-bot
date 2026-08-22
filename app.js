@@ -325,7 +325,7 @@ function fetchAccount(a) {
       var k = g[o], isLong = k.dir.indexOf('Long') >= 0, exit = k.sz ? k.pxsz / k.sz : 0;
       var entry = k.sz ? (isLong ? exit - k.pnl / k.sz : exit + k.pnl / k.sz) : 0;   // pnl=(exit-entry)*sz (롱)
       var et = segEntry[k.coin + '|' + k.ts];
-      return { close_ts: k.ts, entry_ts: (et != null ? et : null), symbol: k.coin, direction: isLong ? 'long' : 'short', entry_price: entry, exit_px: exit, pnl_usd: k.pnl, reason: k.pnl > 0 ? 'TP' : 'SL', acct: a.name };
+      return { close_ts: k.ts, entry_ts: (et != null ? et : null), symbol: k.coin, direction: isLong ? 'long' : 'short', entry_price: entry, exit_px: exit, size: k.sz, notional: entry * k.sz, pnl_usd: k.pnl, reason: k.pnl > 0 ? 'TP' : 'SL', acct: a.name };
     });
     return { positions: positions, completed: completed, balance: usdc };
   }).catch(function () { return { positions: [], completed: [], balance: 0 }; });
