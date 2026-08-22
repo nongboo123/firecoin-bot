@@ -172,8 +172,8 @@
         '<td>' + nameCell + '</td>' +
         (isS
           ? '<td class="mono mut">' + (c.qty != null ? c.qty : '–') + '</td>'
-          : '<td class="mono"' + (c.notional != null ? ' title="명목 ' + usd(c.notional, 0) + '"' : '') + '>' +
-            (c.size != null ? (typeof qtyFmt === 'function' ? qtyFmt(c.size) : c.size) + ' ' + esc2(coinOf(c.symbol)) : '–') + '</td>') +
+          : '<td class="mono"' + (c.size != null ? ' title="' + (typeof qtyFmt === 'function' ? qtyFmt(c.size) : c.size) + ' ' + esc2(coinOf(c.symbol)) + '"' : '') + '>' +
+            (c.notional != null ? usd(c.notional, 0) : '–') + '</td>') +
         '<td class="mono">' + usd(c.entry_price, 1) + '</td><td class="mono">' + usd(c.exit_px, 1) + '</td>' +
         (isS ? '<td class="mono">' + (cost != null ? usd(cost, 0) : '–') + '</td>' : '') +
         '<td class="mono ' + (ret >= 0 ? 'up' : 'down') + '">' + pct(ret, 2) + '</td>' +
