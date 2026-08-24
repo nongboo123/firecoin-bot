@@ -1,7 +1,18 @@
 {
- "updated_ts": 1787529632252,
- "balance": 3026118,
- "positions": [],
+ "updated_ts": 1787530810228,
+ "balance": 3023898,
+ "positions": [
+  {
+   "symbol": "대원전선",
+   "code": "006340",
+   "qty": 37,
+   "entry_price": 13190,
+   "mark": 13130,
+   "notional": 485810,
+   "upnl": -2220,
+   "upnl_pct": -0.45
+  }
+ ],
  "completed": [
   {
    "close_ts": 1786685977000,
