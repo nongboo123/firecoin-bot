@@ -1,18 +1,7 @@
 {
- "updated_ts": 1787531401223,
- "balance": 3016498,
- "positions": [
-  {
-   "symbol": "대원전선",
-   "code": "006340",
-   "qty": 37,
-   "entry_price": 13190,
-   "mark": 12930,
-   "notional": 478410,
-   "upnl": -9620,
-   "upnl_pct": -1.97
-  }
- ],
+ "updated_ts": 1787532000577,
+ "balance": 3016649,
+ "positions": [],
  "completed": [
   {
    "close_ts": 1786685977000,
@@ -56,6 +45,17 @@
    "code": "005930",
    "qty": 3,
    "entry_ts": 1787300400981,
+   "reason": "Opus 즉시탈출(사용자 /kexit)"
+  },
+  {
+   "close_ts": 1787531657000,
+   "symbol": "대원전선",
+   "entry_price": 13190,
+   "exit_px": 12960,
+   "pnl_krw": -9469,
+   "code": "006340",
+   "qty": 37,
+   "entry_ts": 1787530504407,
    "reason": "Opus 즉시탈출(사용자 /kexit)"
   }
  ]
