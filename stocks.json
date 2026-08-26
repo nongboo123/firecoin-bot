@@ -1,18 +1,7 @@
 {
- "updated_ts": 1787724001765,
- "balance": 3013399,
- "positions": [
-  {
-   "symbol": "세진티에스",
-   "code": "067770",
-   "qty": 65,
-   "entry_price": 2670,
-   "mark": 2620,
-   "notional": 170300,
-   "upnl": -3250,
-   "upnl_pct": -1.87
-  }
- ],
+ "updated_ts": 1787725202891,
+ "balance": 3013058,
+ "positions": [],
  "completed": [
   {
    "close_ts": 1786685977000,
@@ -68,6 +57,17 @@
    "qty": 37,
    "entry_ts": 1787530504407,
    "reason": "Opus 즉시탈출(사용자 /kexit)"
+  },
+  {
+   "close_ts": 1787724918000,
+   "symbol": "세진티에스",
+   "entry_price": 2670,
+   "exit_px": 2620,
+   "pnl_krw": -3591,
+   "code": "067770",
+   "qty": 65,
+   "entry_ts": 1787638680254,
+   "reason": "D+1 15:15 종가"
   }
  ]
 }
