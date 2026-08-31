@@ -1,26 +1,26 @@
 {
- "updated_ts": 1788150001150,
- "balance": 3024403,
+ "updated_ts": 1788150601444,
+ "balance": 3022058,
  "positions": [
   {
    "symbol": "세진티에스",
    "code": "067770",
    "qty": 369,
    "entry_price": 2710,
-   "mark": 2715,
-   "notional": 1001835,
-   "upnl": 1845,
-   "upnl_pct": 0.18
+   "mark": 2710,
+   "notional": 999990,
+   "upnl": 0,
+   "upnl_pct": 0.0
   },
   {
    "symbol": "셀트리온",
    "code": "068270",
    "qty": 5,
    "entry_price": 187100,
-   "mark": 189000,
-   "notional": 945000,
-   "upnl": 9500,
-   "upnl_pct": 1.02
+   "mark": 188900,
+   "notional": 944500,
+   "upnl": 9000,
+   "upnl_pct": 0.96
   }
  ],
  "completed": [
