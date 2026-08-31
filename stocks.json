@@ -1,6 +1,6 @@
 {
- "updated_ts": 1788150601444,
- "balance": 3022058,
+ "updated_ts": 1788151201752,
+ "balance": 3025058,
  "positions": [
   {
    "symbol": "세진티에스",
@@ -17,10 +17,10 @@
    "code": "068270",
    "qty": 5,
    "entry_price": 187100,
-   "mark": 188900,
-   "notional": 944500,
-   "upnl": 9000,
-   "upnl_pct": 0.96
+   "mark": 189500,
+   "notional": 947500,
+   "upnl": 12000,
+   "upnl_pct": 1.28
   }
  ],
  "completed": [
