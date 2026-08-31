@@ -1,6 +1,6 @@
 {
- "updated_ts": 1788219603342,
- "balance": 3038448,
+ "updated_ts": 1788220226007,
+ "balance": 3030948,
  "positions": [
   {
    "symbol": "세진티에스",
@@ -17,10 +17,10 @@
    "code": "068270",
    "qty": 5,
    "entry_price": 187100,
-   "mark": 190400,
-   "notional": 952000,
-   "upnl": 16500,
-   "upnl_pct": 1.76
+   "mark": 188900,
+   "notional": 944500,
+   "upnl": 9000,
+   "upnl_pct": 0.96
   },
   {
    "symbol": "유아이엘",
