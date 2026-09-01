@@ -1,36 +1,26 @@
 {
- "updated_ts": 1788243029190,
- "balance": 3071800,
+ "updated_ts": 1788243617243,
+ "balance": 3063647,
  "positions": [
-  {
-   "symbol": "셀트리온",
-   "code": "068270",
-   "qty": 5,
-   "entry_price": 187100,
-   "mark": 188400,
-   "notional": 942000,
-   "upnl": 6500,
-   "upnl_pct": 0.69
-  },
   {
    "symbol": "탑런토탈솔루션",
    "code": "336680",
    "qty": 179,
    "entry_price": 2780,
-   "mark": 2760,
-   "notional": 494040,
-   "upnl": -3580,
-   "upnl_pct": -0.72
+   "mark": 2710,
+   "notional": 485090,
+   "upnl": -12530,
+   "upnl_pct": -2.52
   },
   {
    "symbol": "진도",
    "code": "088790",
    "qty": 212,
    "entry_price": 2350,
-   "mark": 2325,
-   "notional": 492900,
-   "upnl": -5300,
-   "upnl_pct": -1.06
+   "mark": 2340,
+   "notional": 496080,
+   "upnl": -2120,
+   "upnl_pct": -0.43
   }
  ],
  "completed": [
@@ -121,6 +111,17 @@
    "qty": 52,
    "entry_ts": 1788156710761,
    "reason": "TP(걸어둔 지정가)"
+  },
+  {
+   "close_ts": 1788243316000,
+   "symbol": "셀트리온",
+   "entry_price": 187100,
+   "exit_px": 188300,
+   "pnl_krw": 4117,
+   "code": "068270",
+   "qty": 5,
+   "entry_ts": 1788143146336,
+   "reason": "D+1 15:15 종가"
   }
  ]
 }
