@@ -1,16 +1,16 @@
 {
- "updated_ts": 1788222630783,
- "balance": 3083180,
+ "updated_ts": 1788223224845,
+ "balance": 3082680,
  "positions": [
   {
    "symbol": "셀트리온",
    "code": "068270",
    "qty": 5,
    "entry_price": 187100,
-   "mark": 188900,
-   "notional": 944500,
-   "upnl": 9000,
-   "upnl_pct": 0.96
+   "mark": 188800,
+   "notional": 944000,
+   "upnl": 8500,
+   "upnl_pct": 0.91
   }
  ],
  "completed": [
