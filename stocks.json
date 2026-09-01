@@ -1,26 +1,26 @@
 {
- "updated_ts": 1788243617243,
- "balance": 3063647,
+ "updated_ts": 1788244816267,
+ "balance": 3062917,
  "positions": [
   {
    "symbol": "탑런토탈솔루션",
    "code": "336680",
    "qty": 179,
    "entry_price": 2780,
-   "mark": 2710,
-   "notional": 485090,
-   "upnl": -12530,
-   "upnl_pct": -2.52
+   "mark": 2700,
+   "notional": 483300,
+   "upnl": -14320,
+   "upnl_pct": -2.88
   },
   {
    "symbol": "진도",
    "code": "088790",
    "qty": 212,
    "entry_price": 2350,
-   "mark": 2340,
-   "notional": 496080,
-   "upnl": -2120,
-   "upnl_pct": -0.43
+   "mark": 2345,
+   "notional": 497140,
+   "upnl": -1060,
+   "upnl_pct": -0.21
   }
  ],
  "completed": [
