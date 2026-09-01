@@ -1,36 +1,36 @@
 {
- "updated_ts": 1788235214189,
- "balance": 3081790,
+ "updated_ts": 1788235829626,
+ "balance": 3087050,
  "positions": [
   {
    "symbol": "셀트리온",
    "code": "068270",
    "qty": 5,
    "entry_price": 187100,
-   "mark": 188900,
-   "notional": 944500,
-   "upnl": 9000,
-   "upnl_pct": 0.96
+   "mark": 188600,
+   "notional": 943000,
+   "upnl": 7500,
+   "upnl_pct": 0.8
   },
   {
    "symbol": "탑런토탈솔루션",
    "code": "336680",
    "qty": 179,
    "entry_price": 2780,
-   "mark": 2790,
-   "notional": 499410,
-   "upnl": 1790,
-   "upnl_pct": 0.36
+   "mark": 2810,
+   "notional": 502990,
+   "upnl": 5370,
+   "upnl_pct": 1.08
   },
   {
    "symbol": "진도",
    "code": "088790",
    "qty": 212,
    "entry_price": 2350,
-   "mark": 2335,
-   "notional": 495020,
-   "upnl": -3180,
-   "upnl_pct": -0.64
+   "mark": 2350,
+   "notional": 498200,
+   "upnl": 0,
+   "upnl_pct": 0.0
   }
  ],
  "completed": [
