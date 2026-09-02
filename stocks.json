@@ -1,16 +1,16 @@
 {
- "updated_ts": 1788329401055,
- "balance": 3072641,
+ "updated_ts": 1788330006495,
+ "balance": 3073582,
  "positions": [
   {
    "symbol": "에스트래픽",
    "code": "234300",
    "qty": 158,
    "entry_price": 3145,
-   "mark": 3205,
-   "notional": 506390,
-   "upnl": 9480,
-   "upnl_pct": 1.91
+   "mark": 3225,
+   "notional": 509550,
+   "upnl": 12640,
+   "upnl_pct": 2.54
   },
   {
    "symbol": "케이엔제이",
@@ -21,16 +21,6 @@
    "notional": 490000,
    "upnl": 6000,
    "upnl_pct": 1.24
-  },
-  {
-   "symbol": "영화금속",
-   "code": "012280",
-   "qty": 123,
-   "entry_price": 4040,
-   "mark": 4030,
-   "notional": 495690,
-   "upnl": -1230,
-   "upnl_pct": -0.25
   }
  ],
  "completed": [
@@ -154,6 +144,17 @@
    "qty": 144,
    "entry_ts": 1788225330806,
    "reason": "Opus 즉시탈출(긴급 시장청산(세션))"
+  },
+  {
+   "close_ts": 1788329718000,
+   "symbol": "영화금속",
+   "entry_price": 4040,
+   "exit_px": 4020,
+   "pnl_krw": -3449,
+   "code": "012280",
+   "qty": 123,
+   "entry_ts": 1788316721538,
+   "reason": "당일 15:15 종가"
   }
  ]
 }
