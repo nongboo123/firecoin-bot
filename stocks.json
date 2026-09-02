@@ -1,28 +1,7 @@
 {
- "updated_ts": 1788303601061,
- "balance": 3062917,
- "positions": [
-  {
-   "symbol": "탑런토탈솔루션",
-   "code": "336680",
-   "qty": 179,
-   "entry_price": 2780,
-   "mark": 2700,
-   "notional": 483300,
-   "upnl": -14320,
-   "upnl_pct": -2.88
-  },
-  {
-   "symbol": "진도",
-   "code": "088790",
-   "qty": 212,
-   "entry_price": 2350,
-   "mark": 2345,
-   "notional": 497140,
-   "upnl": -1060,
-   "upnl_pct": -0.21
-  }
- ],
+ "updated_ts": 1788307800799,
+ "balance": 3058391,
+ "positions": [],
  "completed": [
   {
    "close_ts": 1786685977000,
@@ -122,6 +101,28 @@
    "qty": 5,
    "entry_ts": 1788143146336,
    "reason": "D+1 15:15 종가"
+  },
+  {
+   "close_ts": 1788307239000,
+   "symbol": "진도",
+   "entry_price": 2350,
+   "exit_px": 2360,
+   "pnl_krw": 1134,
+   "code": "088790",
+   "qty": 212,
+   "entry_ts": 1788230169301,
+   "reason": "Opus 즉시탈출(긴급 시장청산(세션))"
+  },
+  {
+   "close_ts": 1788307387000,
+   "symbol": "탑런토탈솔루션",
+   "entry_price": 2780,
+   "exit_px": 2668,
+   "pnl_krw": -21040,
+   "code": "336680",
+   "qty": 144,
+   "entry_ts": 1788225330806,
+   "reason": "Opus 즉시탈출(긴급 시장청산(세션))"
   }
  ]
 }
