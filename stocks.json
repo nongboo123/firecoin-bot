@@ -1,6 +1,6 @@
 {
- "updated_ts": 1788321602496,
- "balance": 3061251,
+ "updated_ts": 1788322204992,
+ "balance": 3059251,
  "positions": [
   {
    "symbol": "에스트래픽",
@@ -17,10 +17,10 @@
    "code": "272110",
    "qty": 20,
    "entry_price": 24200,
-   "mark": 24150,
-   "notional": 483000,
-   "upnl": -1000,
-   "upnl_pct": -0.21
+   "mark": 24050,
+   "notional": 481000,
+   "upnl": -3000,
+   "upnl_pct": -0.62
   },
   {
    "symbol": "영화금속",
