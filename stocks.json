@@ -1,6 +1,6 @@
 {
- "updated_ts": 1788426002189,
- "balance": 3046397,
+ "updated_ts": 1788426601228,
+ "balance": 3047597,
  "positions": [
   {
    "symbol": "대창단조",
@@ -17,10 +17,10 @@
    "code": "399720",
    "qty": 12,
    "entry_price": 41100,
-   "mark": 40550,
-   "notional": 486600,
-   "upnl": -6600,
-   "upnl_pct": -1.34
+   "mark": 40650,
+   "notional": 487800,
+   "upnl": -5400,
+   "upnl_pct": -1.09
   }
  ],
  "completed": [
