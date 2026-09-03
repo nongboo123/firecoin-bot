@@ -1,16 +1,16 @@
 {
- "updated_ts": 1788416401018,
- "balance": 3050657,
+ "updated_ts": 1788417605868,
+ "balance": 3052997,
  "positions": [
   {
    "symbol": "대창단조",
    "code": "015230",
    "qty": 78,
    "entry_price": 6390,
-   "mark": 6470,
-   "notional": 504660,
-   "upnl": 6240,
-   "upnl_pct": 1.25
+   "mark": 6500,
+   "notional": 507000,
+   "upnl": 8580,
+   "upnl_pct": 1.72
   }
  ],
  "completed": [
