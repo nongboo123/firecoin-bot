@@ -1,36 +1,36 @@
 {
- "updated_ts": 1788412803989,
- "balance": 3052952,
+ "updated_ts": 1788413401383,
+ "balance": 3047232,
  "positions": [
   {
    "symbol": "에스트래픽",
    "code": "234300",
    "qty": 158,
    "entry_price": 3145,
-   "mark": 3140,
-   "notional": 496120,
-   "upnl": -790,
-   "upnl_pct": -0.16
+   "mark": 3120,
+   "notional": 492960,
+   "upnl": -3950,
+   "upnl_pct": -0.79
   },
   {
    "symbol": "케이엔제이",
    "code": "272110",
    "qty": 20,
    "entry_price": 24200,
-   "mark": 23750,
-   "notional": 475000,
-   "upnl": -9000,
-   "upnl_pct": -1.86
+   "mark": 23700,
+   "notional": 474000,
+   "upnl": -10000,
+   "upnl_pct": -2.07
   },
   {
    "symbol": "대창단조",
    "code": "015230",
    "qty": 78,
    "entry_price": 6390,
-   "mark": 6490,
-   "notional": 506220,
-   "upnl": 7800,
-   "upnl_pct": 1.56
+   "mark": 6470,
+   "notional": 504660,
+   "upnl": 6240,
+   "upnl_pct": 1.25
   }
  ],
  "completed": [
