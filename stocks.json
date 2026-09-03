@@ -1,16 +1,16 @@
 {
- "updated_ts": 1788409804128,
- "balance": 3073912,
+ "updated_ts": 1788410401427,
+ "balance": 3072332,
  "positions": [
   {
    "symbol": "에스트래픽",
    "code": "234300",
    "qty": 158,
    "entry_price": 3145,
-   "mark": 3160,
-   "notional": 499280,
-   "upnl": 2370,
-   "upnl_pct": 0.48
+   "mark": 3150,
+   "notional": 497700,
+   "upnl": 790,
+   "upnl_pct": 0.16
   },
   {
    "symbol": "케이엔제이",
