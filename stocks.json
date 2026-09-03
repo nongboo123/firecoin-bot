@@ -1,6 +1,6 @@
 {
- "updated_ts": 1788410401427,
- "balance": 3072332,
+ "updated_ts": 1788411003854,
+ "balance": 3072772,
  "positions": [
   {
    "symbol": "에스트래픽",
@@ -17,20 +17,20 @@
    "code": "272110",
    "qty": 20,
    "entry_price": 24200,
-   "mark": 24250,
-   "notional": 485000,
-   "upnl": 1000,
-   "upnl_pct": 0.21
+   "mark": 24350,
+   "notional": 487000,
+   "upnl": 3000,
+   "upnl_pct": 0.62
   },
   {
    "symbol": "대창단조",
    "code": "015230",
    "qty": 78,
    "entry_price": 6390,
-   "mark": 6590,
-   "notional": 514020,
-   "upnl": 15600,
-   "upnl_pct": 3.13
+   "mark": 6570,
+   "notional": 512460,
+   "upnl": 14040,
+   "upnl_pct": 2.82
   }
  ],
  "completed": [
