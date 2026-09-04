@@ -1,36 +1,26 @@
 {
- "updated_ts": 1788483009831,
- "balance": 3059837,
+ "updated_ts": 1788483613871,
+ "balance": 3051136,
  "positions": [
   {
    "symbol": "대창단조",
    "code": "015230",
    "qty": 78,
    "entry_price": 6390,
-   "mark": 6580,
-   "notional": 513240,
-   "upnl": 14820,
-   "upnl_pct": 2.97
+   "mark": 6550,
+   "notional": 510900,
+   "upnl": 12480,
+   "upnl_pct": 2.5
   },
   {
    "symbol": "가온칩스",
    "code": "399720",
    "qty": 12,
    "entry_price": 41100,
-   "mark": 41150,
-   "notional": 493800,
-   "upnl": 600,
-   "upnl_pct": 0.12
-  },
-  {
-   "symbol": "진양화학",
-   "code": "051630",
-   "qty": 140,
-   "entry_price": 1424,
-   "mark": 1424,
-   "notional": 199360,
-   "upnl": 0,
-   "upnl_pct": 0.0
+   "mark": 40800,
+   "notional": 489600,
+   "upnl": -3600,
+   "upnl_pct": -0.73
   }
  ],
  "completed": [
@@ -187,6 +177,17 @@
    "qty": 20,
    "entry_ts": 1788316045213,
    "reason": "D+1 15:15 종가"
+  },
+  {
+   "close_ts": 1788483251000,
+   "symbol": "진양화학",
+   "entry_price": 1424,
+   "exit_px": 1411,
+   "pnl_krw": -2161,
+   "code": "051630",
+   "qty": 84,
+   "entry_ts": 1788482939097,
+   "reason": "Opus 즉시탈출(사용자 /kexit)"
   }
  ]
 }
