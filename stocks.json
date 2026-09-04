@@ -1,26 +1,26 @@
 {
- "updated_ts": 1788491401751,
- "balance": 3063076,
+ "updated_ts": 1788492601006,
+ "balance": 3062656,
  "positions": [
   {
    "symbol": "대창단조",
    "code": "015230",
    "qty": 78,
    "entry_price": 6390,
-   "mark": 6510,
-   "notional": 507780,
-   "upnl": 9360,
-   "upnl_pct": 1.88
+   "mark": 6520,
+   "notional": 508560,
+   "upnl": 10140,
+   "upnl_pct": 2.03
   },
   {
    "symbol": "가온칩스",
    "code": "399720",
    "qty": 12,
    "entry_price": 41100,
-   "mark": 41650,
-   "notional": 499800,
-   "upnl": 6600,
-   "upnl_pct": 1.34
+   "mark": 41550,
+   "notional": 498600,
+   "upnl": 5400,
+   "upnl_pct": 1.09
   }
  ],
  "completed": [
