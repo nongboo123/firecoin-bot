@@ -1,6 +1,6 @@
 {
- "updated_ts": 1788484217217,
- "balance": 3052646,
+ "updated_ts": 1788484805150,
+ "balance": 3050496,
  "positions": [
   {
    "symbol": "대창단조",
@@ -17,20 +17,20 @@
    "code": "399720",
    "qty": 12,
    "entry_price": 41100,
-   "mark": 40900,
-   "notional": 490800,
-   "upnl": -2400,
-   "upnl_pct": -0.49
+   "mark": 40850,
+   "notional": 490200,
+   "upnl": -3000,
+   "upnl_pct": -0.61
   },
   {
    "symbol": "휴마시스",
    "code": "205470",
    "qty": 62,
    "entry_price": 3220,
-   "mark": 3225,
-   "notional": 199950,
-   "upnl": 310,
-   "upnl_pct": 0.16
+   "mark": 3200,
+   "notional": 198400,
+   "upnl": -1240,
+   "upnl_pct": -0.62
   }
  ],
  "completed": [
