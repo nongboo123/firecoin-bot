@@ -1,28 +1,7 @@
 {
- "updated_ts": 1788502206905,
- "balance": 3065716,
- "positions": [
-  {
-   "symbol": "대창단조",
-   "code": "015230",
-   "qty": 78,
-   "entry_price": 6390,
-   "mark": 6490,
-   "notional": 506220,
-   "upnl": 7800,
-   "upnl_pct": 1.56
-  },
-  {
-   "symbol": "가온칩스",
-   "code": "399720",
-   "qty": 12,
-   "entry_price": 41100,
-   "mark": 42000,
-   "notional": 504000,
-   "upnl": 10800,
-   "upnl_pct": 2.19
-  }
- ],
+ "updated_ts": 1788502804717,
+ "balance": 3063576,
+ "positions": [],
  "completed": [
   {
    "close_ts": 1786685977000,
@@ -199,6 +178,28 @@
    "qty": 62,
    "entry_ts": 1788484061010,
    "reason": "TP(걸어둔 지정가)"
+  },
+  {
+   "close_ts": 1788502520000,
+   "symbol": "대창단조",
+   "entry_price": 6390,
+   "exit_px": 6481,
+   "pnl_krw": 6069,
+   "code": "015230",
+   "qty": 78,
+   "entry_ts": 1788403590096,
+   "reason": "D+1 15:15 종가"
+  },
+  {
+   "close_ts": 1788502521000,
+   "symbol": "가온칩스",
+   "entry_price": 41100,
+   "exit_px": 42050,
+   "pnl_krw": 10391,
+   "code": "399720",
+   "qty": 12,
+   "entry_ts": 1788422017205,
+   "reason": "D+1 15:15 종가"
   }
  ]
 }
