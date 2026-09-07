@@ -1,36 +1,26 @@
 {
- "updated_ts": 1788761415004,
- "balance": 3065225,
+ "updated_ts": 1788762008620,
+ "balance": 3067638,
  "positions": [
   {
    "symbol": "나이스디앤비",
    "code": "130580",
    "qty": 33,
    "entry_price": 5880,
-   "mark": 6010,
-   "notional": 198330,
-   "upnl": 4290,
-   "upnl_pct": 2.21
-  },
-  {
-   "symbol": "에스에이티",
-   "code": "060540",
-   "qty": 242,
-   "entry_price": 1357,
-   "mark": 1339,
-   "notional": 324038,
-   "upnl": -4356,
-   "upnl_pct": -1.33
+   "mark": 6030,
+   "notional": 198990,
+   "upnl": 4950,
+   "upnl_pct": 2.55
   },
   {
    "symbol": "크린앤사이언스",
    "code": "045520",
    "qty": 49,
    "entry_price": 2550,
-   "mark": 2585,
-   "notional": 126665,
-   "upnl": 1715,
-   "upnl_pct": 1.37
+   "mark": 2565,
+   "notional": 125685,
+   "upnl": 735,
+   "upnl_pct": 0.59
   }
  ],
  "completed": [
@@ -231,6 +221,17 @@
    "qty": 12,
    "entry_ts": 1788422017205,
    "reason": "D+1 15:15 종가"
+  },
+  {
+   "close_ts": 1788761728000,
+   "symbol": "에스에이티",
+   "entry_price": 1357,
+   "exit_px": 1353,
+   "pnl_krw": -1623,
+   "code": "060540",
+   "qty": 242,
+   "entry_ts": 1788749542235,
+   "reason": "당일 15:15 종가"
   }
  ]
 }
