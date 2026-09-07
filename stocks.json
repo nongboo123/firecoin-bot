@@ -1,16 +1,26 @@
 {
- "updated_ts": 1788749402668,
- "balance": 3065886,
+ "updated_ts": 1788750007726,
+ "balance": 3067536,
  "positions": [
   {
    "symbol": "나이스디앤비",
    "code": "130580",
    "qty": 33,
    "entry_price": 5880,
-   "mark": 5950,
-   "notional": 196350,
-   "upnl": 2310,
-   "upnl_pct": 1.19
+   "mark": 6000,
+   "notional": 198000,
+   "upnl": 3960,
+   "upnl_pct": 2.04
+  },
+  {
+   "symbol": "에스에이티",
+   "code": "060540",
+   "qty": 242,
+   "entry_price": 1357,
+   "mark": 1357,
+   "notional": 328394,
+   "upnl": 0,
+   "upnl_pct": 0.0
   }
  ],
  "completed": [
