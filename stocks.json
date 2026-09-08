@@ -1,26 +1,26 @@
 {
- "updated_ts": 1788829200779,
- "balance": 3069693,
+ "updated_ts": 1788829800656,
+ "balance": 3069608,
  "positions": [
   {
    "symbol": "나이스디앤비",
    "code": "130580",
    "qty": 33,
    "entry_price": 5880,
-   "mark": 6070,
-   "notional": 200310,
-   "upnl": 6270,
-   "upnl_pct": 3.23
+   "mark": 6060,
+   "notional": 199980,
+   "upnl": 5940,
+   "upnl_pct": 3.06
   },
   {
    "symbol": "크린앤사이언스",
    "code": "045520",
    "qty": 49,
    "entry_price": 2550,
-   "mark": 2580,
-   "notional": 126420,
-   "upnl": 1470,
-   "upnl_pct": 1.18
+   "mark": 2585,
+   "notional": 126665,
+   "upnl": 1715,
+   "upnl_pct": 1.37
   }
  ],
  "completed": [
