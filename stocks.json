@@ -1,16 +1,16 @@
 {
- "updated_ts": 1788844200879,
- "balance": 3073010,
+ "updated_ts": 1788844802509,
+ "balance": 3076640,
  "positions": [
   {
    "symbol": "나이스디앤비",
    "code": "130580",
    "qty": 33,
    "entry_price": 5880,
-   "mark": 6030,
-   "notional": 198990,
-   "upnl": 4950,
-   "upnl_pct": 2.55
+   "mark": 6140,
+   "notional": 202620,
+   "upnl": 8580,
+   "upnl_pct": 4.42
   }
  ],
  "completed": [
