@@ -1,6 +1,6 @@
 {
- "updated_ts": 1788830400689,
- "balance": 3071248,
+ "updated_ts": 1788831001010,
+ "balance": 3072963,
  "positions": [
   {
    "symbol": "나이스디앤비",
@@ -17,10 +17,10 @@
    "code": "045520",
    "qty": 49,
    "entry_price": 2550,
-   "mark": 2605,
-   "notional": 127645,
-   "upnl": 2695,
-   "upnl_pct": 2.16
+   "mark": 2640,
+   "notional": 129360,
+   "upnl": 4410,
+   "upnl_pct": 3.53
   }
  ],
  "completed": [
