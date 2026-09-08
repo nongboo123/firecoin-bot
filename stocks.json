@@ -1,6 +1,6 @@
 {
- "updated_ts": 1788831601543,
- "balance": 3073943,
+ "updated_ts": 1788832201478,
+ "balance": 3074660,
  "positions": [
   {
    "symbol": "나이스디앤비",
@@ -11,16 +11,6 @@
    "notional": 200640,
    "upnl": 6600,
    "upnl_pct": 3.4
-  },
-  {
-   "symbol": "크린앤사이언스",
-   "code": "045520",
-   "qty": 49,
-   "entry_price": 2550,
-   "mark": 2660,
-   "notional": 130340,
-   "upnl": 5390,
-   "upnl_pct": 4.31
   }
  ],
  "completed": [
@@ -232,6 +222,17 @@
    "qty": 242,
    "entry_ts": 1788749542235,
    "reason": "당일 15:15 종가"
+  },
+  {
+   "close_ts": 1788832186000,
+   "symbol": "크린앤사이언스",
+   "entry_price": 2550,
+   "exit_px": 2680,
+   "pnl_krw": 6107,
+   "code": "045520",
+   "qty": 49,
+   "entry_ts": 1788759286305,
+   "reason": "TP(걸어둔 지정가)"
   }
  ]
 }
