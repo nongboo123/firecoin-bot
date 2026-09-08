@@ -1,18 +1,7 @@
 {
- "updated_ts": 1788845402399,
- "balance": 3076970,
- "positions": [
-  {
-   "symbol": "나이스디앤비",
-   "code": "130580",
-   "qty": 33,
-   "entry_price": 5880,
-   "mark": 6150,
-   "notional": 202950,
-   "upnl": 8910,
-   "upnl_pct": 4.59
-  }
- ],
+ "updated_ts": 1788846001060,
+ "balance": 3077552,
+ "positions": [],
  "completed": [
   {
    "close_ts": 1786685977000,
@@ -232,6 +221,17 @@
    "code": "045520",
    "qty": 49,
    "entry_ts": 1788759286305,
+   "reason": "TP(걸어둔 지정가)"
+  },
+  {
+   "close_ts": 1788845566000,
+   "symbol": "나이스디앤비",
+   "entry_price": 5880,
+   "exit_px": 6180,
+   "pnl_krw": 9492,
+   "code": "130580",
+   "qty": 33,
+   "entry_ts": 1788745230163,
    "reason": "TP(걸어둔 지정가)"
   }
  ]
