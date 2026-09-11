@@ -1,28 +1,7 @@
 {
- "updated_ts": 1789107012987,
- "balance": 3076232,
- "positions": [
-  {
-   "symbol": "한국알콜",
-   "code": "017890",
-   "qty": 34,
-   "entry_price": 14680,
-   "mark": 14670,
-   "notional": 498780,
-   "upnl": -340,
-   "upnl_pct": -0.07
-  },
-  {
-   "symbol": "지어소프트",
-   "code": "051160",
-   "qty": 49,
-   "entry_price": 10010,
-   "mark": 9990,
-   "notional": 489510,
-   "upnl": -980,
-   "upnl_pct": -0.2
-  }
- ],
+ "updated_ts": 1789107603579,
+ "balance": 3073847,
+ "positions": [],
  "completed": [
   {
    "close_ts": 1786685977000,
@@ -254,6 +233,28 @@
    "qty": 33,
    "entry_ts": 1788745230163,
    "reason": "TP(걸어둔 지정가)"
+  },
+  {
+   "close_ts": 1789107320000,
+   "symbol": "한국알콜",
+   "entry_price": 14680,
+   "exit_px": 14652,
+   "pnl_krw": -1966,
+   "code": "017890",
+   "qty": 34,
+   "entry_ts": 1789103200249,
+   "reason": "당일 15:15 종가"
+  },
+  {
+   "close_ts": 1789107321000,
+   "symbol": "지어소프트",
+   "entry_price": 10010,
+   "exit_px": 9994,
+   "pnl_krw": -1739,
+   "code": "051160",
+   "qty": 49,
+   "entry_ts": 1789103204633,
+   "reason": "당일 15:15 종가"
   }
  ]
 }
