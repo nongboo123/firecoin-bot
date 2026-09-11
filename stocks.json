@@ -1,26 +1,26 @@
 {
- "updated_ts": 1789105823589,
- "balance": 3078682,
+ "updated_ts": 1789106411438,
+ "balance": 3078042,
  "positions": [
   {
    "symbol": "한국알콜",
    "code": "017890",
    "qty": 34,
    "entry_price": 14680,
-   "mark": 14670,
-   "notional": 498780,
-   "upnl": -340,
-   "upnl_pct": -0.07
+   "mark": 14680,
+   "notional": 499120,
+   "upnl": 0,
+   "upnl_pct": 0.0
   },
   {
    "symbol": "지어소프트",
    "code": "051160",
    "qty": 49,
    "entry_price": 10010,
-   "mark": 10040,
-   "notional": 491960,
-   "upnl": 1470,
-   "upnl_pct": 0.3
+   "mark": 10020,
+   "notional": 490980,
+   "upnl": 490,
+   "upnl_pct": 0.1
   }
  ],
  "completed": [
