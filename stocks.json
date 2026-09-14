@@ -1,7 +1,18 @@
 {
- "updated_ts": 1789352401038,
- "balance": 3073847,
- "positions": [],
+ "updated_ts": 1789353001193,
+ "balance": 3085462,
+ "positions": [
+  {
+   "symbol": "브이씨",
+   "code": "365900",
+   "qty": 101,
+   "entry_price": 2475,
+   "mark": 2590,
+   "notional": 261590,
+   "upnl": 11615,
+   "upnl_pct": 4.65
+  }
+ ],
  "completed": [
   {
    "close_ts": 1786685977000,
