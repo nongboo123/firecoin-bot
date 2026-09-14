@@ -1,25 +1,14 @@
 {
- "updated_ts": 1789353001193,
- "balance": 3085462,
- "positions": [
-  {
-   "symbol": "브이씨",
-   "code": "365900",
-   "qty": 101,
-   "entry_price": 2475,
-   "mark": 2590,
-   "notional": 261590,
-   "upnl": 11615,
-   "upnl_pct": 4.65
-  }
- ],
+ "updated_ts": 1789353602645,
+ "balance": 3073847,
+ "positions": [],
  "completed": [
   {
    "close_ts": 1786685977000,
    "symbol": "비스토스",
    "entry_price": 3223,
    "exit_px": 3385,
-   "pnl_krw": 23453,
+   "pnl_krw": 23795,
    "code": "419540",
    "qty": 151,
    "entry_ts": 1786685589249,
@@ -266,6 +255,17 @@
    "qty": 49,
    "entry_ts": 1789103204633,
    "reason": "당일 15:15 종가"
+  },
+  {
+   "close_ts": 1789353177000,
+   "symbol": "브이씨",
+   "entry_price": 2475,
+   "exit_px": 2540,
+   "pnl_krw": 6223,
+   "code": "365900",
+   "qty": 101,
+   "entry_ts": 1789352640845,
+   "reason": "익절"
   }
  ]
 }
