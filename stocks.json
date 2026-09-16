@@ -1,18 +1,7 @@
 {
- "updated_ts": 1789537800759,
- "balance": 3078419,
- "positions": [
-  {
-   "symbol": "아모레퍼시픽홀딩스",
-   "code": "002790",
-   "qty": 18,
-   "entry_price": 26450,
-   "mark": 26300,
-   "notional": 473400,
-   "upnl": -2700,
-   "upnl_pct": -0.57
-  }
- ],
+ "updated_ts": 1789539602383,
+ "balance": 3077472,
+ "positions": [],
  "completed": [
   {
    "close_ts": 1786685977000,
@@ -288,6 +277,17 @@
    "qty": 143,
    "entry_ts": 1789524947643,
    "reason": "TP(걸어둔 지정가)"
+  },
+  {
+   "close_ts": 1789539324000,
+   "symbol": "아모레퍼시픽홀딩스",
+   "entry_price": 26450,
+   "exit_px": 26300,
+   "pnl_krw": -3647,
+   "code": "002790",
+   "qty": 18,
+   "entry_ts": 1789536532168,
+   "reason": "당일 15:15 종가"
   }
  ]
 }
