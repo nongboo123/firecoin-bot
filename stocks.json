@@ -1,16 +1,16 @@
 {
- "updated_ts": 1789526400823,
- "balance": 3070415,
+ "updated_ts": 1789527002735,
+ "balance": 3071845,
  "positions": [
   {
    "symbol": "DKME",
    "code": "015590",
    "qty": 143,
    "entry_price": 2089,
-   "mark": 2065,
-   "notional": 295295,
-   "upnl": -3432,
-   "upnl_pct": -1.15
+   "mark": 2075,
+   "notional": 296725,
+   "upnl": -2002,
+   "upnl_pct": -0.67
   }
  ],
  "completed": [
