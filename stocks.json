@@ -1,16 +1,16 @@
 {
- "updated_ts": 1789710606579,
- "balance": 2995728,
+ "updated_ts": 1789711204049,
+ "balance": 2996768,
  "positions": [
   {
    "symbol": "신송홀딩스",
    "code": "006880",
    "qty": 208,
    "entry_price": 4768,
-   "mark": 4375,
-   "notional": 910000,
-   "upnl": -81744,
-   "upnl_pct": -8.24
+   "mark": 4380,
+   "notional": 911040,
+   "upnl": -80704,
+   "upnl_pct": -8.14
   }
  ],
  "completed": [
