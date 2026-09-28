@@ -1,6 +1,6 @@
 {
- "updated_ts": 1790579402784,
- "balance": 3009841,
+ "updated_ts": 1790580605545,
+ "balance": 3032915,
  "positions": [
   {
    "symbol": "달바글로벌",
@@ -17,10 +17,10 @@
    "code": "042660",
    "qty": 12,
    "entry_price": 81000,
-   "mark": 80300,
-   "notional": 963600,
-   "upnl": -8400,
-   "upnl_pct": -0.86
+   "mark": 80200,
+   "notional": 962400,
+   "upnl": -9600,
+   "upnl_pct": -0.99
   }
  ],
  "completed": [
@@ -330,6 +330,17 @@
    "code": "094360",
    "qty": 41,
    "entry_ts": 1790574628050,
+   "reason": "TP(걸어둔 지정가)"
+  },
+  {
+   "close_ts": 1790580508000,
+   "symbol": "에프앤가이드",
+   "entry_price": 21200,
+   "exit_px": 22300,
+   "pnl_krw": 24274,
+   "code": "064850",
+   "qty": 23,
+   "entry_ts": 1790580464619,
    "reason": "TP(걸어둔 지정가)"
   }
  ]
