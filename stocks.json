@@ -1,26 +1,26 @@
 {
- "updated_ts": 1790657401062,
- "balance": 3018115,
+ "updated_ts": 1790658001053,
+ "balance": 3016915,
  "positions": [
   {
    "symbol": "달바글로벌",
    "code": "483650",
    "qty": 2,
    "entry_price": 183000,
-   "mark": 188100,
-   "notional": 376200,
-   "upnl": 10200,
-   "upnl_pct": 2.79
+   "mark": 187800,
+   "notional": 375600,
+   "upnl": 9600,
+   "upnl_pct": 2.62
   },
   {
    "symbol": "한화오션",
    "code": "042660",
    "qty": 12,
    "entry_price": 81000,
-   "mark": 78250,
-   "notional": 939000,
-   "upnl": -33000,
-   "upnl_pct": -3.4
+   "mark": 78200,
+   "notional": 938400,
+   "upnl": -33600,
+   "upnl_pct": -3.46
   }
  ],
  "completed": [
