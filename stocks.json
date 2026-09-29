@@ -1,28 +1,7 @@
 {
- "updated_ts": 1790662201140,
- "balance": 3020815,
- "positions": [
-  {
-   "symbol": "달바글로벌",
-   "code": "483650",
-   "qty": 2,
-   "entry_price": 183000,
-   "mark": 188550,
-   "notional": 377100,
-   "upnl": 11100,
-   "upnl_pct": 3.03
-  },
-  {
-   "symbol": "한화오션",
-   "code": "042660",
-   "qty": 12,
-   "entry_price": 81000,
-   "mark": 78400,
-   "notional": 940800,
-   "upnl": -31200,
-   "upnl_pct": -3.21
-  }
- ],
+ "updated_ts": 1790662800676,
+ "balance": 3019676,
+ "positions": [],
  "completed": [
   {
    "close_ts": 1786685977000,
@@ -342,6 +321,28 @@
    "qty": 23,
    "entry_ts": 1790580464619,
    "reason": "TP(걸어둔 지정가)"
+  },
+  {
+   "close_ts": 1790662519000,
+   "symbol": "달바글로벌",
+   "entry_price": 183000,
+   "exit_px": 188700,
+   "pnl_krw": 10645,
+   "code": "483650",
+   "qty": 2,
+   "entry_ts": 1790572647593,
+   "reason": "D+1 15:15 종가"
+  },
+  {
+   "close_ts": 1790662521000,
+   "symbol": "한화오션",
+   "entry_price": 81000,
+   "exit_px": 78500,
+   "pnl_krw": -31884,
+   "code": "042660",
+   "qty": 12,
+   "entry_ts": 1790578321285,
+   "reason": "D+1 15:15 종가"
   }
  ]
 }
