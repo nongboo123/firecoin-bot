@@ -1,6 +1,6 @@
 {
- "updated_ts": 1790744400502,
- "balance": 3020688,
+ "updated_ts": 1790748000491,
+ "balance": 3017849,
  "positions": [],
  "completed": [
   {
@@ -365,6 +365,17 @@
    "qty": 7,
    "entry_ts": 1790733938042,
    "reason": "30분 시간청산"
+  },
+  {
+   "close_ts": 1790747989000,
+   "symbol": "덱스터",
+   "entry_price": 941,
+   "exit_px": 930,
+   "pnl_krw": -2839,
+   "code": "206560",
+   "qty": 212,
+   "entry_ts": 1790747765188,
+   "reason": "SL(-1%)"
   }
  ]
 }
