@@ -1,18 +1,7 @@
 {
- "updated_ts": 1790732400705,
- "balance": 3021176,
- "positions": [
-  {
-   "symbol": "아모레퍼시픽",
-   "code": "090430",
-   "qty": 1,
-   "entry_price": 137200,
-   "mark": 138700,
-   "notional": 138700,
-   "upnl": 1500,
-   "upnl_pct": 1.09
-  }
- ],
+ "updated_ts": 1790733000477,
+ "balance": 3021398,
+ "positions": [],
  "completed": [
   {
    "close_ts": 1786685977000,
@@ -354,6 +343,17 @@
    "qty": 12,
    "entry_ts": 1790578321285,
    "reason": "D+1 15:15 종가"
+  },
+  {
+   "close_ts": 1790732981000,
+   "symbol": "아모레퍼시픽",
+   "entry_price": 137200,
+   "exit_px": 139200,
+   "pnl_krw": 1722,
+   "code": "090430",
+   "qty": 1,
+   "entry_ts": 1790731173858,
+   "reason": "30분 시간청산"
   }
  ]
 }
