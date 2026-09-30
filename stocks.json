@@ -1,16 +1,16 @@
 {
- "updated_ts": 1790731800830,
- "balance": 3020576,
+ "updated_ts": 1790732400705,
+ "balance": 3021176,
  "positions": [
   {
    "symbol": "아모레퍼시픽",
    "code": "090430",
    "qty": 1,
    "entry_price": 137200,
-   "mark": 138100,
-   "notional": 138100,
-   "upnl": 900,
-   "upnl_pct": 0.66
+   "mark": 138700,
+   "notional": 138700,
+   "upnl": 1500,
+   "upnl_pct": 1.09
   }
  ],
  "completed": [
