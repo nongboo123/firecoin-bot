@@ -1,16 +1,16 @@
 {
- "updated_ts": 1790734800752,
- "balance": 3021048,
+ "updated_ts": 1790735400849,
+ "balance": 3021398,
  "positions": [
   {
    "symbol": "아모레퍼시픽홀딩스",
    "code": "002790",
    "qty": 7,
    "entry_price": 25800,
-   "mark": 25750,
-   "notional": 180250,
-   "upnl": -350,
-   "upnl_pct": -0.19
+   "mark": 25800,
+   "notional": 180600,
+   "upnl": 0,
+   "upnl_pct": 0.0
   }
  ],
  "completed": [
