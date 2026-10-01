@@ -1,18 +1,7 @@
 {
- "updated_ts": 1790812200838,
- "balance": 2987749,
- "positions": [
-  {
-   "symbol": "LF",
-   "code": "093050",
-   "qty": 43,
-   "entry_price": 22600,
-   "mark": 21900,
-   "notional": 941700,
-   "upnl": -30100,
-   "upnl_pct": -3.1
-  }
- ],
+ "updated_ts": 1790813400488,
+ "balance": 3054528,
+ "positions": [],
  "completed": [
   {
    "close_ts": 1786685977000,
@@ -387,6 +376,17 @@
    "qty": 212,
    "entry_ts": 1790747765188,
    "reason": "SL(-1%)"
+  },
+  {
+   "close_ts": 1790813014000,
+   "symbol": "LF",
+   "entry_price": 22600,
+   "exit_px": 23500,
+   "pnl_krw": 36679,
+   "code": "093050",
+   "qty": 43,
+   "entry_ts": 1790750423145,
+   "reason": "TP(걸어둔 지정가)"
   }
  ]
 }
