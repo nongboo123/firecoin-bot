@@ -1,6 +1,6 @@
 {
- "updated_ts": 1790920801351,
- "balance": 3064132,
+ "updated_ts": 1790921401232,
+ "balance": 3074022,
  "positions": [
   {
    "symbol": "성광벤드",
@@ -17,10 +17,10 @@
    "code": "403550",
    "qty": 43,
    "entry_price": 11122,
-   "mark": 11300,
-   "notional": 485900,
-   "upnl": 7654,
-   "upnl_pct": 1.6
+   "mark": 11530,
+   "notional": 495790,
+   "upnl": 17544,
+   "upnl_pct": 3.67
   },
   {
    "symbol": "자화전자",
