@@ -1,16 +1,16 @@
 {
- "updated_ts": 1790922000789,
- "balance": 3070622,
+ "updated_ts": 1790923200891,
+ "balance": 3073172,
  "positions": [
   {
    "symbol": "자화전자",
    "code": "033240",
    "qty": 17,
    "entry_price": 28085,
-   "mark": 27850,
-   "notional": 473450,
-   "upnl": -3995,
-   "upnl_pct": -0.84
+   "mark": 28000,
+   "notional": 476000,
+   "upnl": -1445,
+   "upnl_pct": -0.3
   }
  ],
  "completed": [
