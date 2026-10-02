@@ -1,16 +1,16 @@
 {
- "updated_ts": 1790914201023,
- "balance": 3063947,
+ "updated_ts": 1790914801234,
+ "balance": 3064697,
  "positions": [
   {
    "symbol": "성광벤드",
    "code": "014620",
    "qty": 15,
    "entry_price": 31500,
-   "mark": 30450,
-   "notional": 456750,
-   "upnl": -15750,
-   "upnl_pct": -3.33
+   "mark": 30500,
+   "notional": 457500,
+   "upnl": -15000,
+   "upnl_pct": -3.17
   },
   {
    "symbol": "쏘카",
