@@ -1,16 +1,16 @@
 {
- "updated_ts": 1791271810056,
- "balance": 3102067,
+ "updated_ts": 1791272402574,
+ "balance": 3127962,
  "positions": [
   {
    "symbol": "영원무역",
    "code": "111770",
    "qty": 7,
    "entry_price": 68600,
-   "mark": 69100,
-   "notional": 483700,
-   "upnl": 3500,
-   "upnl_pct": 0.73
+   "mark": 69600,
+   "notional": 487200,
+   "upnl": 7000,
+   "upnl_pct": 1.46
   }
  ],
  "completed": [
@@ -464,6 +464,17 @@
    "qty": 15,
    "entry_ts": 1790918314509,
    "reason": "D+1 15:15 종가"
+  },
+  {
+   "close_ts": 1791272241000,
+   "symbol": "모비릭스",
+   "entry_price": 3135,
+   "exit_px": 3380,
+   "pnl_krw": 22395,
+   "code": "348030",
+   "qty": 94,
+   "entry_ts": 1791272068387,
+   "reason": "TP(걸어둔 지정가)"
   }
  ]
 }
