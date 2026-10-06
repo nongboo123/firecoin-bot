@@ -1,38 +1,7 @@
 {
- "updated_ts": 1791267001107,
- "balance": 3102252,
- "positions": [
-  {
-   "symbol": "자화전자",
-   "code": "033240",
-   "qty": 17,
-   "entry_price": 28085,
-   "mark": 28150,
-   "notional": 478550,
-   "upnl": 1100,
-   "upnl_pct": 0.23
-  },
-  {
-   "symbol": "상상인",
-   "code": "038540",
-   "qty": 147,
-   "entry_price": 1939,
-   "mark": 2020,
-   "notional": 296940,
-   "upnl": 11965,
-   "upnl_pct": 4.2
-  },
-  {
-   "symbol": "마녀공장",
-   "code": "439090",
-   "qty": 31,
-   "entry_price": 15350,
-   "mark": 15820,
-   "notional": 490420,
-   "upnl": 14570,
-   "upnl_pct": 3.06
-  }
- ],
+ "updated_ts": 1791267623694,
+ "balance": 3098567,
+ "positions": [],
  "completed": [
   {
    "close_ts": 1786685977000,
@@ -450,6 +419,39 @@
    "code": "403550",
    "qty": 43,
    "entry_ts": 1790837559052,
+   "reason": "D+1 15:15 종가"
+  },
+  {
+   "close_ts": 1791267330000,
+   "symbol": "상상인",
+   "entry_price": 1939,
+   "exit_px": 2015,
+   "pnl_krw": 10638,
+   "code": "038540",
+   "qty": 147,
+   "entry_ts": 1790924835138,
+   "reason": "D+1 15:15 종가"
+  },
+  {
+   "close_ts": 1791267331000,
+   "symbol": "마녀공장",
+   "entry_price": 15350,
+   "exit_px": 15800,
+   "pnl_krw": 12970,
+   "code": "439090",
+   "qty": 31,
+   "entry_ts": 1790927396063,
+   "reason": "D+1 15:15 종가"
+  },
+  {
+   "close_ts": 1791267360000,
+   "symbol": "자화전자",
+   "entry_price": 28085,
+   "exit_px": 28162,
+   "pnl_krw": 342,
+   "code": "033240",
+   "qty": 15,
+   "entry_ts": 1790918314509,
    "reason": "D+1 15:15 종가"
   }
  ]
