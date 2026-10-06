@@ -1,26 +1,26 @@
 {
- "updated_ts": 1791249617077,
- "balance": 3091447,
+ "updated_ts": 1791250201341,
+ "balance": 3093262,
  "positions": [
   {
    "symbol": "자화전자",
    "code": "033240",
    "qty": 17,
    "entry_price": 28085,
-   "mark": 28050,
-   "notional": 476850,
-   "upnl": -600,
-   "upnl_pct": -0.13
+   "mark": 28200,
+   "notional": 479400,
+   "upnl": 1950,
+   "upnl_pct": 0.41
   },
   {
    "symbol": "상상인",
    "code": "038540",
    "qty": 147,
    "entry_price": 1939,
-   "mark": 2015,
-   "notional": 296205,
-   "upnl": 11230,
-   "upnl_pct": 3.94
+   "mark": 2010,
+   "notional": 295470,
+   "upnl": 10495,
+   "upnl_pct": 3.68
   },
   {
    "symbol": "마녀공장",
