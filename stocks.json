@@ -1,6 +1,6 @@
 {
- "updated_ts": 1791244219197,
- "balance": 3059742,
+ "updated_ts": 1791244804751,
+ "balance": 3075552,
  "positions": [
   {
    "symbol": "자화전자",
@@ -27,10 +27,10 @@
    "code": "439090",
    "qty": 31,
    "entry_price": 15350,
-   "mark": 15120,
-   "notional": 468720,
-   "upnl": -7130,
-   "upnl_pct": -1.5
+   "mark": 15630,
+   "notional": 484530,
+   "upnl": 8680,
+   "upnl_pct": 1.82
   }
  ],
  "completed": [
