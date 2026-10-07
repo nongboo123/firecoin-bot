@@ -1,16 +1,16 @@
 {
- "updated_ts": 1791330600572,
- "balance": 3114662,
+ "updated_ts": 1791331800727,
+ "balance": 3142662,
  "positions": [
   {
    "symbol": "영원무역",
    "code": "111770",
    "qty": 7,
    "entry_price": 68600,
-   "mark": 67700,
-   "notional": 473900,
-   "upnl": -6300,
-   "upnl_pct": -1.31
+   "mark": 71700,
+   "notional": 501900,
+   "upnl": 21700,
+   "upnl_pct": 4.52
   }
  ],
  "completed": [
