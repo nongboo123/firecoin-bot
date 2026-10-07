@@ -1,7 +1,18 @@
 {
- "updated_ts": 1791360023774,
- "balance": 3144453,
- "positions": [],
+ "updated_ts": 1791361810438,
+ "balance": 3143198,
+ "positions": [
+  {
+   "symbol": "BGF",
+   "code": "027410",
+   "qty": 251,
+   "entry_price": 3785,
+   "mark": 3780,
+   "notional": 948780,
+   "upnl": -1255,
+   "upnl_pct": -0.13
+  }
+ ],
  "completed": [
   {
    "close_ts": 1786685977000,
