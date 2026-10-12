@@ -1,6 +1,6 @@
 {
- "updated_ts": 1791782412592,
- "balance": 3141066,
+ "updated_ts": 1791783623744,
+ "balance": 3154813,
  "positions": [],
  "completed": [
   {
@@ -486,6 +486,17 @@
    "qty": 205,
    "entry_ts": 1791361326977,
    "reason": "D+1 15:15 종가"
+  },
+  {
+   "close_ts": 1791783329000,
+   "symbol": "디씨엠",
+   "entry_price": 12476,
+   "exit_px": 13100,
+   "pnl_krw": 13747,
+   "code": "024090",
+   "qty": 23,
+   "entry_ts": 1791783143244,
+   "reason": "TP(걸어둔 지정가)"
   }
  ]
 }
