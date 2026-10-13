@@ -1,6 +1,6 @@
 {
- "updated_ts": 1791886803291,
- "balance": 3153313,
+ "updated_ts": 1791888001263,
+ "balance": 3153913,
  "positions": [
   {
    "symbol": "SK가스",
@@ -17,10 +17,10 @@
    "code": "006120",
    "qty": 6,
    "entry_price": 69000,
-   "mark": 69000,
-   "notional": 414000,
-   "upnl": 0,
-   "upnl_pct": 0.0
+   "mark": 69100,
+   "notional": 414600,
+   "upnl": 600,
+   "upnl_pct": 0.14
   }
  ],
  "completed": [
