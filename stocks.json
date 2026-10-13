@@ -1,16 +1,16 @@
 {
- "updated_ts": 1791885604153,
- "balance": 3152313,
+ "updated_ts": 1791886803291,
+ "balance": 3153313,
  "positions": [
   {
    "symbol": "SK가스",
    "code": "018670",
    "qty": 1,
    "entry_price": 276000,
-   "mark": 273500,
-   "notional": 273500,
-   "upnl": -2500,
-   "upnl_pct": -0.91
+   "mark": 274500,
+   "notional": 274500,
+   "upnl": -1500,
+   "upnl_pct": -0.54
   },
   {
    "symbol": "SK디스커버리",
