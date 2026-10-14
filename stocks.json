@@ -1,28 +1,7 @@
 {
- "updated_ts": 1791958209056,
- "balance": 3141013,
- "positions": [
-  {
-   "symbol": "SK가스",
-   "code": "018670",
-   "qty": 1,
-   "entry_price": 276000,
-   "mark": 273000,
-   "notional": 273000,
-   "upnl": -3000,
-   "upnl_pct": -1.09
-  },
-  {
-   "symbol": "SK디스커버리",
-   "code": "006120",
-   "qty": 6,
-   "entry_price": 69000,
-   "mark": 67200,
-   "notional": 403200,
-   "upnl": -10800,
-   "upnl_pct": -2.61
-  }
- ],
+ "updated_ts": 1791958806417,
+ "balance": 3144451,
+ "positions": [],
  "completed": [
   {
    "close_ts": 1786685977000,
@@ -518,6 +497,28 @@
    "qty": 23,
    "entry_ts": 1791783143244,
    "reason": "TP(걸어둔 지정가)"
+  },
+  {
+   "close_ts": 1791958530000,
+   "symbol": "SK가스",
+   "entry_price": 276000,
+   "exit_px": 273000,
+   "pnl_krw": -3546,
+   "code": "018670",
+   "qty": 1,
+   "entry_ts": 1791876716747,
+   "reason": "D+1 15:15 종가"
+  },
+  {
+   "close_ts": 1791958532000,
+   "symbol": "SK디스커버리",
+   "entry_price": 69000,
+   "exit_px": 68000,
+   "pnl_krw": -6816,
+   "code": "006120",
+   "qty": 6,
+   "entry_ts": 1791877112203,
+   "reason": "D+1 15:15 종가"
   }
  ]
 }
