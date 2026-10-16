@@ -1,16 +1,16 @@
 {
- "updated_ts": 1792121404662,
- "balance": 3122751,
+ "updated_ts": 1792122002033,
+ "balance": 3124851,
  "positions": [
   {
    "symbol": "미원에스씨",
    "code": "268280",
    "qty": 7,
    "entry_price": 132400,
-   "mark": 129300,
-   "notional": 905100,
-   "upnl": -21700,
-   "upnl_pct": -2.34
+   "mark": 129600,
+   "notional": 907200,
+   "upnl": -19600,
+   "upnl_pct": -2.11
   }
  ],
  "completed": [
