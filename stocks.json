@@ -1,6 +1,6 @@
 {
- "updated_ts": 1792125003191,
- "balance": 3122751,
+ "updated_ts": 1792128003999,
+ "balance": 3125711,
  "positions": [
   {
    "symbol": "미원에스씨",
@@ -11,6 +11,16 @@
    "notional": 905100,
    "upnl": -21700,
    "upnl_pct": -2.34
+  },
+  {
+   "symbol": "노머스",
+   "code": "473980",
+   "qty": 8,
+   "entry_price": 10720,
+   "mark": 11090,
+   "notional": 88720,
+   "upnl": 2960,
+   "upnl_pct": 3.45
   }
  ],
  "completed": [
