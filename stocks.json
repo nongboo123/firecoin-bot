@@ -1,26 +1,16 @@
 {
- "updated_ts": 1792128003999,
- "balance": 3125711,
+ "updated_ts": 1792128608656,
+ "balance": 3128087,
  "positions": [
   {
    "symbol": "미원에스씨",
    "code": "268280",
    "qty": 7,
    "entry_price": 132400,
-   "mark": 129300,
-   "notional": 905100,
-   "upnl": -21700,
-   "upnl_pct": -2.34
-  },
-  {
-   "symbol": "노머스",
-   "code": "473980",
-   "qty": 8,
-   "entry_price": 10720,
-   "mark": 11090,
-   "notional": 88720,
-   "upnl": 2960,
-   "upnl_pct": 3.45
+   "mark": 129500,
+   "notional": 906500,
+   "upnl": -20300,
+   "upnl_pct": -2.19
   }
  ],
  "completed": [
@@ -540,6 +530,17 @@
    "qty": 6,
    "entry_ts": 1791877112203,
    "reason": "D+1 15:15 종가"
+  },
+  {
+   "close_ts": 1792128066000,
+   "symbol": "노머스",
+   "entry_price": 10720,
+   "exit_px": 11260,
+   "pnl_krw": 3936,
+   "code": "473980",
+   "qty": 8,
+   "entry_ts": 1792127611004,
+   "reason": "TP(걸어둔 지정가)"
   }
  ]
 }
