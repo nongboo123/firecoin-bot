@@ -1,18 +1,7 @@
 {
- "updated_ts": 1792131001845,
- "balance": 3127387,
- "positions": [
-  {
-   "symbol": "미원에스씨",
-   "code": "268280",
-   "qty": 7,
-   "entry_price": 132400,
-   "mark": 129400,
-   "notional": 905800,
-   "upnl": -21000,
-   "upnl_pct": -2.27
-  }
- ],
+ "updated_ts": 1792131613259,
+ "balance": 3120917,
+ "positions": [],
  "completed": [
   {
    "close_ts": 1786685977000,
@@ -541,6 +530,17 @@
    "qty": 8,
    "entry_ts": 1792127611004,
    "reason": "TP(걸어둔 지정가)"
+  },
+  {
+   "close_ts": 1792131325000,
+   "symbol": "미원에스씨",
+   "entry_price": 132400,
+   "exit_px": 129029,
+   "pnl_krw": -27470,
+   "code": "268280",
+   "qty": 7,
+   "entry_ts": 1792046706079,
+   "reason": "D+1 15:15 종가"
   }
  ]
 }
