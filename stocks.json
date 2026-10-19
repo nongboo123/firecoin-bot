@@ -1,6 +1,6 @@
 {
- "updated_ts": 1792400404944,
- "balance": 3144585,
+ "updated_ts": 1792401002661,
+ "balance": 3148585,
  "positions": [
   {
    "symbol": "실리콘투",
@@ -17,10 +17,10 @@
    "code": "039840",
    "qty": 100,
    "entry_price": 9802,
-   "mark": 9870,
-   "notional": 987000,
-   "upnl": 6800,
-   "upnl_pct": 0.69
+   "mark": 9910,
+   "notional": 991000,
+   "upnl": 10800,
+   "upnl_pct": 1.1
   }
  ],
  "completed": [
