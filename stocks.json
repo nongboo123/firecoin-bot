@@ -1,26 +1,26 @@
 {
- "updated_ts": 1792401607173,
- "balance": 3143885,
+ "updated_ts": 1792402201018,
+ "balance": 3146585,
  "positions": [
   {
    "symbol": "실리콘투",
    "code": "257720",
    "qty": 14,
    "entry_price": 33550,
-   "mark": 34350,
-   "notional": 480900,
-   "upnl": 11200,
-   "upnl_pct": 2.38
+   "mark": 34400,
+   "notional": 481600,
+   "upnl": 11900,
+   "upnl_pct": 2.53
   },
   {
    "symbol": "디오",
    "code": "039840",
    "qty": 100,
    "entry_price": 9802,
-   "mark": 9870,
-   "notional": 987000,
-   "upnl": 6800,
-   "upnl_pct": 0.69
+   "mark": 9890,
+   "notional": 989000,
+   "upnl": 8800,
+   "upnl_pct": 0.9
   }
  ],
  "completed": [
