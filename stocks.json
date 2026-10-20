@@ -1,16 +1,16 @@
 {
- "updated_ts": 1792472410126,
- "balance": 3147211,
+ "updated_ts": 1792474212002,
+ "balance": 3145111,
  "positions": [
   {
    "symbol": "실리콘투",
    "code": "257720",
    "qty": 14,
    "entry_price": 33550,
-   "mark": 32900,
-   "notional": 460600,
-   "upnl": -9100,
-   "upnl_pct": -1.94
+   "mark": 32750,
+   "notional": 458500,
+   "upnl": -11200,
+   "upnl_pct": -2.38
   }
  ],
  "completed": [
