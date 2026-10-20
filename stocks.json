@@ -1,18 +1,7 @@
 {
- "updated_ts": 1792476000937,
- "balance": 3144411,
- "positions": [
-  {
-   "symbol": "실리콘투",
-   "code": "257720",
-   "qty": 14,
-   "entry_price": 33550,
-   "mark": 32700,
-   "notional": 457800,
-   "upnl": -11900,
-   "upnl_pct": -2.53
-  }
- ],
+ "updated_ts": 1792477201490,
+ "balance": 3142447,
+ "positions": [],
  "completed": [
   {
    "close_ts": 1786685977000,
@@ -574,6 +563,17 @@
    "qty": 100,
    "entry_ts": 1792388343970,
    "reason": "TP(걸어둔 지정가)"
+  },
+  {
+   "close_ts": 1792476923000,
+   "symbol": "실리콘투",
+   "entry_price": 33550,
+   "exit_px": 32700,
+   "pnl_krw": -13864,
+   "code": "257720",
+   "qty": 14,
+   "entry_ts": 1792376612828,
+   "reason": "D+1 15:15 종가"
   }
  ]
 }
