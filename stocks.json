@@ -1,18 +1,7 @@
 {
- "updated_ts": 1792649403508,
- "balance": 3139182,
- "positions": [
-  {
-   "symbol": "메가스터디교육",
-   "code": "215200",
-   "qty": 11,
-   "entry_price": 40640,
-   "mark": 39500,
-   "notional": 434500,
-   "upnl": -12540,
-   "upnl_pct": -2.81
-  }
- ],
+ "updated_ts": 1792650005318,
+ "balance": 3136763,
+ "positions": [],
  "completed": [
   {
    "close_ts": 1786685977000,
@@ -596,6 +585,17 @@
    "qty": 88,
    "entry_ts": 1792649046835,
    "reason": "TP(걸어둔 지정가)"
+  },
+  {
+   "close_ts": 1792649729000,
+   "symbol": "메가스터디교육",
+   "entry_price": 40640,
+   "exit_px": 39450,
+   "pnl_krw": -14959,
+   "code": "215200",
+   "qty": 11,
+   "entry_ts": 1792547499941,
+   "reason": "D+1 15:15 종가"
   }
  ]
 }
