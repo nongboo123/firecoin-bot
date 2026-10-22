@@ -1,6 +1,6 @@
 {
- "updated_ts": 1792656024208,
- "balance": 3091827,
+ "updated_ts": 1792656612553,
+ "balance": 3078314,
  "positions": [
   {
    "symbol": "LF",
@@ -11,16 +11,6 @@
    "notional": 984700,
    "upnl": -4816,
    "upnl_pct": -0.49
-  },
-  {
-   "symbol": "현대차증권",
-   "code": "001500",
-   "qty": 136,
-   "entry_price": 7175,
-   "mark": 6880,
-   "notional": 935680,
-   "upnl": -40120,
-   "upnl_pct": -4.11
   }
  ],
  "completed": [
@@ -617,6 +607,17 @@
    "qty": 11,
    "entry_ts": 1792547499941,
    "reason": "D+1 15:15 종가"
+  },
+  {
+   "close_ts": 1792656426000,
+   "symbol": "현대차증권",
+   "entry_price": 7175,
+   "exit_px": 6810,
+   "pnl_krw": -53633,
+   "code": "001500",
+   "qty": 136,
+   "entry_ts": 1792655269110,
+   "reason": "하드SL(-5%)"
   }
  ]
 }
