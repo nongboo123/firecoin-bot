@@ -1,26 +1,26 @@
 {
- "updated_ts": 1792655409908,
- "balance": 3184747,
+ "updated_ts": 1792656024208,
+ "balance": 3091827,
  "positions": [
   {
    "symbol": "LF",
    "code": "093050",
    "qty": 43,
    "entry_price": 23012,
-   "mark": 23100,
-   "notional": 993300,
-   "upnl": 3784,
-   "upnl_pct": 0.38
+   "mark": 22900,
+   "notional": 984700,
+   "upnl": -4816,
+   "upnl_pct": -0.49
   },
   {
    "symbol": "현대차증권",
    "code": "001500",
    "qty": 136,
    "entry_price": 7175,
-   "mark": 7500,
-   "notional": 1020000,
-   "upnl": 44200,
-   "upnl_pct": 4.53
+   "mark": 6880,
+   "notional": 935680,
+   "upnl": -40120,
+   "upnl_pct": -4.11
   }
  ],
  "completed": [
