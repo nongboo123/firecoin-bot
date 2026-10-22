@@ -1,16 +1,16 @@
 {
- "updated_ts": 1792645207082,
- "balance": 3131557,
+ "updated_ts": 1792645802304,
+ "balance": 3129357,
  "positions": [
   {
    "symbol": "메가스터디교육",
    "code": "215200",
    "qty": 11,
    "entry_price": 40640,
-   "mark": 39650,
-   "notional": 436150,
-   "upnl": -10890,
-   "upnl_pct": -2.44
+   "mark": 39450,
+   "notional": 433950,
+   "upnl": -13090,
+   "upnl_pct": -2.93
   }
  ],
  "completed": [
