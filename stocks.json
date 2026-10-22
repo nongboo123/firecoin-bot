@@ -1,16 +1,16 @@
 {
- "updated_ts": 1792653600905,
- "balance": 3138397,
+ "updated_ts": 1792654802639,
+ "balance": 3142697,
  "positions": [
   {
    "symbol": "LF",
    "code": "093050",
    "qty": 43,
    "entry_price": 23012,
-   "mark": 23050,
-   "notional": 991150,
-   "upnl": 1634,
-   "upnl_pct": 0.17
+   "mark": 23150,
+   "notional": 995450,
+   "upnl": 5934,
+   "upnl_pct": 0.6
   }
  ],
  "completed": [
