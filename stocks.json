@@ -1,18 +1,7 @@
 {
- "updated_ts": 1792717800930,
- "balance": 3041764,
- "positions": [
-  {
-   "symbol": "LF",
-   "code": "093050",
-   "qty": 43,
-   "entry_price": 23012,
-   "mark": 22050,
-   "notional": 948150,
-   "upnl": -41366,
-   "upnl_pct": -4.18
-  }
- ],
+ "updated_ts": 1792718400930,
+ "balance": 3025121,
+ "positions": [],
  "completed": [
   {
    "close_ts": 1786685977000,
@@ -617,6 +606,17 @@
    "code": "001500",
    "qty": 136,
    "entry_ts": 1792655269110,
+   "reason": "하드SL(-5%)"
+  },
+  {
+   "close_ts": 1792718195000,
+   "symbol": "LF",
+   "entry_price": 23012,
+   "exit_px": 21757,
+   "pnl_krw": -58009,
+   "code": "093050",
+   "qty": 43,
+   "entry_ts": 1792651827899,
    "reason": "하드SL(-5%)"
   }
  ]
