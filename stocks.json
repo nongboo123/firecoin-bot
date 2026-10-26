@@ -1,36 +1,36 @@
 {
- "updated_ts": 1792990801411,
- "balance": 3002301,
+ "updated_ts": 1792991403501,
+ "balance": 3004801,
  "positions": [
   {
    "symbol": "하나금융지주",
    "code": "086790",
    "qty": 8,
    "entry_price": 114900,
-   "mark": 113000,
-   "notional": 904000,
-   "upnl": -15200,
-   "upnl_pct": -1.65
+   "mark": 113200,
+   "notional": 905600,
+   "upnl": -13600,
+   "upnl_pct": -1.48
   },
   {
    "symbol": "셀트리온",
    "code": "068270",
    "qty": 5,
    "entry_price": 189200,
-   "mark": 190700,
-   "notional": 953500,
-   "upnl": 7500,
-   "upnl_pct": 0.79
+   "mark": 190600,
+   "notional": 953000,
+   "upnl": 7000,
+   "upnl_pct": 0.74
   },
   {
    "symbol": "감성코퍼레이션",
    "code": "036620",
    "qty": 280,
    "entry_price": 3534,
-   "mark": 3480,
-   "notional": 974400,
-   "upnl": -15120,
-   "upnl_pct": -1.53
+   "mark": 3485,
+   "notional": 975800,
+   "upnl": -13720,
+   "upnl_pct": -1.39
   }
  ],
  "completed": [
