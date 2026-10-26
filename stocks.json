@@ -1,17 +1,7 @@
 {
- "updated_ts": 1792995003185,
- "balance": 3005601,
+ "updated_ts": 1792995605314,
+ "balance": 2994544,
  "positions": [
-  {
-   "symbol": "하나금융지주",
-   "code": "086790",
-   "qty": 8,
-   "entry_price": 114900,
-   "mark": 112800,
-   "notional": 902400,
-   "upnl": -16800,
-   "upnl_pct": -1.83
-  },
   {
    "symbol": "셀트리온",
    "code": "068270",
@@ -27,10 +17,10 @@
    "code": "036620",
    "qty": 280,
    "entry_price": 3534,
-   "mark": 3510,
-   "notional": 982800,
-   "upnl": -6720,
-   "upnl_pct": -0.68
+   "mark": 3490,
+   "notional": 977200,
+   "upnl": -12320,
+   "upnl_pct": -1.25
   }
  ],
  "completed": [
@@ -649,6 +639,17 @@
    "qty": 43,
    "entry_ts": 1792651827899,
    "reason": "하드SL(-5%)"
+  },
+  {
+   "close_ts": 1792995334000,
+   "symbol": "하나금융지주",
+   "entry_price": 114900,
+   "exit_px": 112600,
+   "pnl_krw": -22257,
+   "code": "086790",
+   "qty": 8,
+   "entry_ts": 1792734734699,
+   "reason": "D+1 15:15 종가"
   }
  ]
 }
