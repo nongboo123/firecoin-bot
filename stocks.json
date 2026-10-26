@@ -1,6 +1,6 @@
 {
- "updated_ts": 1792990201221,
- "balance": 2996301,
+ "updated_ts": 1792990801411,
+ "balance": 3002301,
  "positions": [
   {
    "symbol": "하나금융지주",
@@ -17,20 +17,20 @@
    "code": "068270",
    "qty": 5,
    "entry_price": 189200,
-   "mark": 190900,
-   "notional": 954500,
-   "upnl": 8500,
-   "upnl_pct": 0.9
+   "mark": 190700,
+   "notional": 953500,
+   "upnl": 7500,
+   "upnl_pct": 0.79
   },
   {
    "symbol": "감성코퍼레이션",
    "code": "036620",
    "qty": 280,
    "entry_price": 3534,
-   "mark": 3455,
-   "notional": 967400,
-   "upnl": -22120,
-   "upnl_pct": -2.24
+   "mark": 3480,
+   "notional": 974400,
+   "upnl": -15120,
+   "upnl_pct": -1.53
   }
  ],
  "completed": [
