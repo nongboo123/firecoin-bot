@@ -1,16 +1,16 @@
 {
- "updated_ts": 1792980600933,
- "balance": 3027521,
+ "updated_ts": 1792981203900,
+ "balance": 3023521,
  "positions": [
   {
    "symbol": "하나금융지주",
    "code": "086790",
    "qty": 8,
    "entry_price": 114900,
-   "mark": 115200,
-   "notional": 921600,
-   "upnl": 2400,
-   "upnl_pct": 0.26
+   "mark": 114700,
+   "notional": 917600,
+   "upnl": -1600,
+   "upnl_pct": -0.17
   }
  ],
  "completed": [
