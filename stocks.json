@@ -1,6 +1,6 @@
 {
- "updated_ts": 1793068803174,
- "balance": 2999344,
+ "updated_ts": 1793069403431,
+ "balance": 2995144,
  "positions": [
   {
    "symbol": "셀트리온",
@@ -17,10 +17,10 @@
    "code": "036620",
    "qty": 280,
    "entry_price": 3534,
-   "mark": 3500,
-   "notional": 980000,
-   "upnl": -9520,
-   "upnl_pct": -0.96
+   "mark": 3485,
+   "notional": 975800,
+   "upnl": -13720,
+   "upnl_pct": -1.39
   }
  ],
  "completed": [
