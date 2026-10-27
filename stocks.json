@@ -1,16 +1,16 @@
 {
- "updated_ts": 1793088001556,
- "balance": 3003459,
+ "updated_ts": 1793089201177,
+ "balance": 3004559,
  "positions": [
   {
    "symbol": "신한지주",
    "code": "055550",
    "qty": 11,
    "entry_price": 84600,
-   "mark": 85700,
-   "notional": 942700,
-   "upnl": 12100,
-   "upnl_pct": 1.3
+   "mark": 85800,
+   "notional": 943800,
+   "upnl": 13200,
+   "upnl_pct": 1.42
   }
  ],
  "completed": [
