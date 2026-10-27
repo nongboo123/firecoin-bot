@@ -1,26 +1,26 @@
 {
- "updated_ts": 1793071828673,
- "balance": 2989544,
+ "updated_ts": 1793072403294,
+ "balance": 2985994,
  "positions": [
   {
    "symbol": "셀트리온",
    "code": "068270",
    "qty": 5,
    "entry_price": 189200,
-   "mark": 189000,
-   "notional": 945000,
-   "upnl": -1000,
-   "upnl_pct": -0.11
+   "mark": 188850,
+   "notional": 944250,
+   "upnl": -1750,
+   "upnl_pct": -0.18
   },
   {
    "symbol": "감성코퍼레이션",
    "code": "036620",
    "qty": 280,
    "entry_price": 3534,
-   "mark": 3490,
-   "notional": 977200,
-   "upnl": -12320,
-   "upnl_pct": -1.25
+   "mark": 3480,
+   "notional": 974400,
+   "upnl": -15120,
+   "upnl_pct": -1.53
   }
  ],
  "completed": [
