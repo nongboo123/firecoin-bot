@@ -1,16 +1,16 @@
 {
- "updated_ts": 1793163003258,
- "balance": 3070363,
+ "updated_ts": 1793163612270,
+ "balance": 3068863,
  "positions": [
   {
    "symbol": "달바글로벌",
    "code": "483650",
    "qty": 3,
    "entry_price": 149300,
-   "mark": 148200,
-   "notional": 444600,
-   "upnl": -3300,
-   "upnl_pct": -0.74
+   "mark": 147700,
+   "notional": 443100,
+   "upnl": -4800,
+   "upnl_pct": -1.07
   }
  ],
  "completed": [
