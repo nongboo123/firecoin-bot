@@ -1,26 +1,26 @@
 {
- "updated_ts": 1793149204061,
- "balance": 3056559,
+ "updated_ts": 1793149803033,
+ "balance": 3051759,
  "positions": [
   {
    "symbol": "신한지주",
    "code": "055550",
    "qty": 11,
    "entry_price": 84600,
-   "mark": 87800,
-   "notional": 965800,
-   "upnl": 35200,
-   "upnl_pct": 3.78
+   "mark": 87000,
+   "notional": 957000,
+   "upnl": 26400,
+   "upnl_pct": 2.84
   },
   {
    "symbol": "SK스퀘어",
    "code": "402340",
    "qty": 1,
    "entry_price": 851000,
-   "mark": 881000,
-   "notional": 881000,
-   "upnl": 30000,
-   "upnl_pct": 3.53
+   "mark": 885000,
+   "notional": 885000,
+   "upnl": 34000,
+   "upnl_pct": 4.0
   }
  ],
  "completed": [
