@@ -1,16 +1,26 @@
 {
- "updated_ts": 1793152803378,
- "balance": 3065739,
+ "updated_ts": 1793153401331,
+ "balance": 3073239,
  "positions": [
   {
    "symbol": "신한지주",
    "code": "055550",
    "qty": 11,
    "entry_price": 84600,
-   "mark": 87800,
-   "notional": 965800,
-   "upnl": 35200,
-   "upnl_pct": 3.78
+   "mark": 88700,
+   "notional": 975700,
+   "upnl": 45100,
+   "upnl_pct": 4.85
+  },
+  {
+   "symbol": "달바글로벌",
+   "code": "483650",
+   "qty": 3,
+   "entry_price": 149300,
+   "mark": 148500,
+   "notional": 445500,
+   "upnl": -2400,
+   "upnl_pct": -0.54
   }
  ],
  "completed": [
