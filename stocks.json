@@ -1,16 +1,16 @@
 {
- "updated_ts": 1793230213864,
- "balance": 3083626,
+ "updated_ts": 1793230802434,
+ "balance": 3084726,
  "positions": [
   {
    "symbol": "달바글로벌",
    "code": "483650",
    "qty": 3,
    "entry_price": 149300,
-   "mark": 148200,
-   "notional": 444600,
-   "upnl": -3300,
-   "upnl_pct": -0.74
+   "mark": 148400,
+   "notional": 445200,
+   "upnl": -2700,
+   "upnl_pct": -0.6
   },
   {
    "symbol": "신원",
@@ -27,10 +27,10 @@
    "code": "051910",
    "qty": 1,
    "entry_price": 240000,
-   "mark": 243000,
-   "notional": 243000,
-   "upnl": 3000,
-   "upnl_pct": 1.25
+   "mark": 243500,
+   "notional": 243500,
+   "upnl": 3500,
+   "upnl_pct": 1.46
   }
  ],
  "completed": [
