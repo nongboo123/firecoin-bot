@@ -1,6 +1,6 @@
 {
- "updated_ts": 1793238003259,
- "balance": 3031467,
+ "updated_ts": 1793238606163,
+ "balance": 3033400,
  "positions": [
   {
    "symbol": "달바글로벌",
@@ -17,20 +17,20 @@
    "code": "009270",
    "qty": 933,
    "entry_price": 1023,
-   "mark": 1011,
-   "notional": 943263,
-   "upnl": -11196,
-   "upnl_pct": -1.17
+   "mark": 1012,
+   "notional": 944196,
+   "upnl": -10263,
+   "upnl_pct": -1.08
   },
   {
    "symbol": "LG화학",
    "code": "051910",
    "qty": 1,
    "entry_price": 240000,
-   "mark": 228500,
-   "notional": 228500,
-   "upnl": -11500,
-   "upnl_pct": -4.79
+   "mark": 229500,
+   "notional": 229500,
+   "upnl": -10500,
+   "upnl_pct": -4.37
   }
  ],
  "completed": [
