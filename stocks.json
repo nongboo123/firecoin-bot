@@ -1,16 +1,16 @@
 {
- "updated_ts": 1793259003586,
- "balance": 3039889,
+ "updated_ts": 1793259603144,
+ "balance": 3039389,
  "positions": [
   {
    "symbol": "LG화학",
    "code": "051910",
    "qty": 1,
    "entry_price": 240000,
-   "mark": 232500,
-   "notional": 232500,
-   "upnl": -7500,
-   "upnl_pct": -3.12
+   "mark": 232000,
+   "notional": 232000,
+   "upnl": -8000,
+   "upnl_pct": -3.33
   }
  ],
  "completed": [
