@@ -1,6 +1,6 @@
 {
- "updated_ts": 1793245806228,
- "balance": 3031201,
+ "updated_ts": 1793246403559,
+ "balance": 3032701,
  "positions": [
   {
    "symbol": "달바글로벌",
@@ -27,10 +27,10 @@
    "code": "051910",
    "qty": 1,
    "entry_price": 240000,
-   "mark": 232500,
-   "notional": 232500,
-   "upnl": -7500,
-   "upnl_pct": -3.12
+   "mark": 234000,
+   "notional": 234000,
+   "upnl": -6000,
+   "upnl_pct": -2.5
   }
  ],
  "completed": [
