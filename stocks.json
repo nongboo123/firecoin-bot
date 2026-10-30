@@ -1,16 +1,16 @@
 {
- "updated_ts": 1793337603935,
- "balance": 3033411,
+ "updated_ts": 1793338204093,
+ "balance": 3031791,
  "positions": [
   {
    "symbol": "방림",
    "code": "003610",
    "qty": 162,
    "entry_price": 5860,
-   "mark": 5820,
-   "notional": 942840,
-   "upnl": -6480,
-   "upnl_pct": -0.68
+   "mark": 5810,
+   "notional": 941220,
+   "upnl": -8100,
+   "upnl_pct": -0.85
   }
  ],
  "completed": [
