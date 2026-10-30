@@ -1,18 +1,7 @@
 {
- "updated_ts": 1793322006624,
- "balance": 3041389,
- "positions": [
-  {
-   "symbol": "LG화학",
-   "code": "051910",
-   "qty": 1,
-   "entry_price": 240000,
-   "mark": 234000,
-   "notional": 234000,
-   "upnl": -6000,
-   "upnl_pct": -2.5
-  }
- ],
+ "updated_ts": 1793322618470,
+ "balance": 3039891,
+ "positions": [],
  "completed": [
   {
    "close_ts": 1786685977000,
@@ -705,6 +694,17 @@
    "code": "009270",
    "qty": 933,
    "entry_ts": 1793166874674,
+   "reason": "D+1 15:15 종가"
+  },
+  {
+   "close_ts": 1793322098000,
+   "symbol": "LG화학",
+   "entry_price": 240000,
+   "exit_px": 233500,
+   "pnl_krw": -7498,
+   "code": "051910",
+   "qty": 1,
+   "entry_ts": 1793170756976,
    "reason": "D+1 15:15 종가"
   }
  ]
