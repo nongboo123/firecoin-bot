@@ -1,16 +1,16 @@
 {
- "updated_ts": 1793338204093,
- "balance": 3031791,
+ "updated_ts": 1793338802864,
+ "balance": 3050742,
  "positions": [
   {
    "symbol": "방림",
    "code": "003610",
    "qty": 162,
    "entry_price": 5860,
-   "mark": 5810,
-   "notional": 941220,
-   "upnl": -8100,
-   "upnl_pct": -0.85
+   "mark": 5820,
+   "notional": 942840,
+   "upnl": -6480,
+   "upnl_pct": -0.68
   }
  ],
  "completed": [
@@ -717,6 +717,17 @@
    "qty": 1,
    "entry_ts": 1793170756976,
    "reason": "D+1 15:15 종가"
+  },
+  {
+   "close_ts": 1793338349000,
+   "symbol": "엠게임",
+   "entry_price": 3699,
+   "exit_px": 3780,
+   "pnl_krw": 17331,
+   "code": "058630",
+   "qty": 270,
+   "entry_ts": 1793338308681,
+   "reason": "TP(걸어둔 지정가)"
   }
  ]
 }
