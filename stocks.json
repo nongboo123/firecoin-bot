@@ -1,16 +1,16 @@
 {
- "updated_ts": 1793598000718,
- "balance": 3053982,
+ "updated_ts": 1793598601370,
+ "balance": 3064651,
  "positions": [
   {
    "symbol": "방림",
    "code": "003610",
    "qty": 162,
    "entry_price": 5860,
-   "mark": 5840,
-   "notional": 946080,
-   "upnl": -3240,
-   "upnl_pct": -0.34
+   "mark": 5850,
+   "notional": 947700,
+   "upnl": -1620,
+   "upnl_pct": -0.17
   }
  ],
  "completed": [
@@ -727,6 +727,17 @@
    "code": "058630",
    "qty": 270,
    "entry_ts": 1793338308681,
+   "reason": "TP(걸어둔 지정가)"
+  },
+  {
+   "close_ts": 1793598148000,
+   "symbol": "APS",
+   "entry_price": 3600,
+   "exit_px": 3725,
+   "pnl_krw": 9049,
+   "code": "054620",
+   "qty": 83,
+   "entry_ts": 1793597989842,
    "reason": "TP(걸어둔 지정가)"
   }
  ]
