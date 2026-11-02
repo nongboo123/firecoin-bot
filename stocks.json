@@ -1,6 +1,6 @@
 {
- "updated_ts": 1793604604167,
- "balance": 3062191,
+ "updated_ts": 1793605800626,
+ "balance": 3083857,
  "positions": [],
  "completed": [
   {
@@ -739,6 +739,17 @@
    "qty": 162,
    "entry_ts": 1793336726970,
    "reason": "D+1 15:15 종가"
+  },
+  {
+   "close_ts": 1793605752000,
+   "symbol": "마녀공장",
+   "entry_price": 14000,
+   "exit_px": 14700,
+   "pnl_krw": 21666,
+   "code": "439090",
+   "qty": 34,
+   "entry_ts": 1793605565332,
+   "reason": "TP(걸어둔 지정가)"
   }
  ]
 }
