@@ -1,6 +1,6 @@
 {
- "updated_ts": 1793676602880,
- "balance": 3083857,
+ "updated_ts": 1793677801210,
+ "balance": 3065509,
  "positions": [],
  "completed": [
   {
@@ -750,6 +750,17 @@
    "qty": 34,
    "entry_ts": 1793605565332,
    "reason": "TP(걸어둔 지정가)"
+  },
+  {
+   "close_ts": 1793677445000,
+   "symbol": "보락",
+   "entry_price": 1038,
+   "exit_px": 977,
+   "pnl_krw": -18348,
+   "code": "002760",
+   "qty": 282,
+   "entry_ts": 1793677285128,
+   "reason": "하드SL(-5%)"
   }
  ]
 }
