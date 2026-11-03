@@ -1,26 +1,16 @@
 {
- "updated_ts": 1793686201199,
- "balance": 3080856,
+ "updated_ts": 1793686801470,
+ "balance": 3104554,
  "positions": [
-  {
-   "symbol": "현대그린푸드",
-   "code": "453340",
-   "qty": 48,
-   "entry_price": 20016,
-   "mark": 20500,
-   "notional": 984000,
-   "upnl": 23232,
-   "upnl_pct": 2.42
-  },
   {
    "symbol": "현대지에프홀딩스",
    "code": "005440",
    "qty": 83,
    "entry_price": 11395,
-   "mark": 11300,
-   "notional": 937900,
-   "upnl": -7885,
-   "upnl_pct": -0.83
+   "mark": 11320,
+   "notional": 939560,
+   "upnl": -6225,
+   "upnl_pct": -0.66
   }
  ],
  "completed": [
@@ -782,6 +772,17 @@
    "qty": 282,
    "entry_ts": 1793677285128,
    "reason": "하드SL(-5%)"
+  },
+  {
+   "close_ts": 1793686639000,
+   "symbol": "현대그린푸드",
+   "entry_price": 20016,
+   "exit_px": 21050,
+   "pnl_krw": 45270,
+   "code": "453340",
+   "qty": 48,
+   "entry_ts": 1793684152407,
+   "reason": "TP(걸어둔 지정가)"
   }
  ]
 }
