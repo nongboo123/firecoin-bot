@@ -1,7 +1,18 @@
 {
- "updated_ts": 1793681412610,
- "balance": 3065509,
- "positions": [],
+ "updated_ts": 1793684405378,
+ "balance": 3056581,
+ "positions": [
+  {
+   "symbol": "현대그린푸드",
+   "code": "453340",
+   "qty": 48,
+   "entry_price": 20016,
+   "mark": 19830,
+   "notional": 951840,
+   "upnl": -8928,
+   "upnl_pct": -0.93
+  }
+ ],
  "completed": [
   {
    "close_ts": 1786685977000,
