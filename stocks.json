@@ -1,18 +1,7 @@
 {
- "updated_ts": 1793772600708,
- "balance": 3138202,
- "positions": [
-  {
-   "symbol": "현대지에프홀딩스",
-   "code": "005440",
-   "qty": 83,
-   "entry_price": 11395,
-   "mark": 11440,
-   "notional": 949520,
-   "upnl": 3735,
-   "upnl_pct": 0.39
-  }
- ],
+ "updated_ts": 1793773202142,
+ "balance": 3130819,
+ "positions": [],
  "completed": [
   {
    "close_ts": 1786685977000,
@@ -805,6 +794,17 @@
    "qty": 68,
    "entry_ts": 1793771489601,
    "reason": "하드SL(-5%)"
+  },
+  {
+   "close_ts": 1793772926000,
+   "symbol": "현대지에프홀딩스",
+   "entry_price": 11395,
+   "exit_px": 11400,
+   "pnl_krw": -3648,
+   "code": "005440",
+   "qty": 83,
+   "entry_ts": 1793684481870,
+   "reason": "D+1 15:15 종가"
   }
  ]
 }
