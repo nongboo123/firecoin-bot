@@ -1,16 +1,16 @@
 {
- "updated_ts": 1793766007615,
- "balance": 3116936,
+ "updated_ts": 1793766624341,
+ "balance": 3113616,
  "positions": [
   {
    "symbol": "현대지에프홀딩스",
    "code": "005440",
    "qty": 83,
    "entry_price": 11395,
-   "mark": 10960,
-   "notional": 909680,
-   "upnl": -36105,
-   "upnl_pct": -3.82
+   "mark": 10920,
+   "notional": 906360,
+   "upnl": -39425,
+   "upnl_pct": -4.17
   }
  ],
  "completed": [
