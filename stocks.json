@@ -1,6 +1,6 @@
 {
- "updated_ts": 1793959819249,
- "balance": 3157377,
+ "updated_ts": 1793960407130,
+ "balance": 3156837,
  "positions": [
   {
    "symbol": "한화에어로스페이스",
@@ -17,10 +17,10 @@
    "code": "094170",
    "qty": 27,
    "entry_price": 17120,
-   "mark": 16960,
-   "notional": 457920,
-   "upnl": -4320,
-   "upnl_pct": -0.93
+   "mark": 16940,
+   "notional": 457380,
+   "upnl": -4860,
+   "upnl_pct": -1.05
   },
   {
    "symbol": "한화엔진",
