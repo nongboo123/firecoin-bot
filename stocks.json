@@ -1,18 +1,7 @@
 {
- "updated_ts": 1794197430515,
- "balance": 3128437,
- "positions": [
-  {
-   "symbol": "한화엔진",
-   "code": "082740",
-   "qty": 39,
-   "entry_price": 24248,
-   "mark": 25200,
-   "notional": 982800,
-   "upnl": 37128,
-   "upnl_pct": 3.93
-  }
- ],
+ "updated_ts": 1794198006179,
+ "balance": 3135852,
+ "positions": [],
  "completed": [
   {
    "close_ts": 1786685977000,
@@ -849,6 +838,17 @@
    "qty": 27,
    "entry_ts": 1793940561540,
    "reason": "하드SL(-5%)"
+  },
+  {
+   "close_ts": 1794197727000,
+   "symbol": "한화엔진",
+   "entry_price": 24248,
+   "exit_px": 25500,
+   "pnl_krw": 44543,
+   "code": "082740",
+   "qty": 39,
+   "entry_ts": 1793944329077,
+   "reason": "TP(걸어둔 지정가)"
   }
  ]
 }
