@@ -1,26 +1,16 @@
 {
- "updated_ts": 1794187203952,
- "balance": 3095921,
+ "updated_ts": 1794187835043,
+ "balance": 3095287,
  "positions": [
-  {
-   "symbol": "동운아나텍",
-   "code": "094170",
-   "qty": 27,
-   "entry_price": 17120,
-   "mark": 16400,
-   "notional": 442800,
-   "upnl": -19440,
-   "upnl_pct": -4.21
-  },
   {
    "symbol": "한화엔진",
    "code": "082740",
    "qty": 39,
    "entry_price": 24248,
-   "mark": 24200,
-   "notional": 943800,
-   "upnl": -1872,
-   "upnl_pct": -0.2
+   "mark": 24350,
+   "notional": 949650,
+   "upnl": 3978,
+   "upnl_pct": 0.42
   }
  ],
  "completed": [
@@ -847,6 +837,17 @@
    "code": "012450",
    "qty": 1,
    "entry_ts": 1793940277697,
+   "reason": "하드SL(-5%)"
+  },
+  {
+   "close_ts": 1794187820000,
+   "symbol": "동운아나텍",
+   "entry_price": 17120,
+   "exit_px": 16230,
+   "pnl_krw": -25924,
+   "code": "094170",
+   "qty": 27,
+   "entry_ts": 1793940561540,
    "reason": "하드SL(-5%)"
   }
  ]
