@@ -1,36 +1,36 @@
 {
- "updated_ts": 1794006016181,
- "balance": 3164357,
+ "updated_ts": 1794182412345,
+ "balance": 3116307,
  "positions": [
   {
    "symbol": "한화에어로스페이스",
    "code": "012450",
    "qty": 1,
    "entry_price": 660000,
-   "mark": 659000,
-   "notional": 659000,
-   "upnl": -1000,
-   "upnl_pct": -0.15
+   "mark": 660000,
+   "notional": 660000,
+   "upnl": 0,
+   "upnl_pct": 0.0
   },
   {
    "symbol": "동운아나텍",
    "code": "094170",
    "qty": 27,
    "entry_price": 17120,
-   "mark": 17000,
-   "notional": 459000,
-   "upnl": -3240,
-   "upnl_pct": -0.7
+   "mark": 16700,
+   "notional": 450900,
+   "upnl": -11340,
+   "upnl_pct": -2.45
   },
   {
    "symbol": "한화엔진",
    "code": "082740",
    "qty": 39,
    "entry_price": 24248,
-   "mark": 24650,
-   "notional": 961350,
-   "upnl": 15678,
-   "upnl_pct": 1.66
+   "mark": 23600,
+   "notional": 920400,
+   "upnl": -25272,
+   "upnl_pct": -2.67
   }
  ],
  "completed": [
