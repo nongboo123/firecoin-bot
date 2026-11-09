@@ -1,16 +1,16 @@
 {
- "updated_ts": 1794187835043,
- "balance": 3095287,
+ "updated_ts": 1794188403150,
+ "balance": 3101137,
  "positions": [
   {
    "symbol": "한화엔진",
    "code": "082740",
    "qty": 39,
    "entry_price": 24248,
-   "mark": 24350,
-   "notional": 949650,
-   "upnl": 3978,
-   "upnl_pct": 0.42
+   "mark": 24500,
+   "notional": 955500,
+   "upnl": 9828,
+   "upnl_pct": 1.04
   }
  ],
  "completed": [
