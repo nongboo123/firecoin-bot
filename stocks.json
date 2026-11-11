@@ -1,6 +1,6 @@
 {
- "updated_ts": 1794373212830,
- "balance": 3180168,
+ "updated_ts": 1794373814321,
+ "balance": 3177408,
  "positions": [
   {
    "symbol": "인지소프트",
@@ -17,10 +17,10 @@
    "code": "002900",
    "qty": 138,
    "entry_price": 7070,
-   "mark": 7390,
-   "notional": 1019820,
-   "upnl": 44160,
-   "upnl_pct": 4.53
+   "mark": 7370,
+   "notional": 1017060,
+   "upnl": 41400,
+   "upnl_pct": 4.24
   }
  ],
  "completed": [
