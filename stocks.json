@@ -1,26 +1,26 @@
 {
- "updated_ts": 1794370803047,
- "balance": 3173598,
+ "updated_ts": 1794371434386,
+ "balance": 3162308,
  "positions": [
   {
    "symbol": "인지소프트",
    "code": "100030",
    "qty": 13,
    "entry_price": 20488,
-   "mark": 20950,
-   "notional": 272350,
-   "upnl": 6006,
-   "upnl_pct": 2.25
+   "mark": 20400,
+   "notional": 265200,
+   "upnl": -1144,
+   "upnl_pct": -0.43
   },
   {
    "symbol": "TYM",
    "code": "002900",
    "qty": 138,
    "entry_price": 7070,
-   "mark": 7300,
-   "notional": 1007400,
-   "upnl": 31740,
-   "upnl_pct": 3.25
+   "mark": 7270,
+   "notional": 1003260,
+   "upnl": 27600,
+   "upnl_pct": 2.83
   }
  ],
  "completed": [
