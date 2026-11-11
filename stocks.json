@@ -1,26 +1,26 @@
 {
- "updated_ts": 1794391207447,
- "balance": 3190840,
+ "updated_ts": 1794391807550,
+ "balance": 3192740,
  "positions": [
   {
    "symbol": "인지소프트",
    "code": "100030",
    "qty": 13,
    "entry_price": 20488,
-   "mark": 21050,
-   "notional": 273650,
-   "upnl": 7306,
-   "upnl_pct": 2.74
+   "mark": 21150,
+   "notional": 274950,
+   "upnl": 8606,
+   "upnl_pct": 3.23
   },
   {
    "symbol": "케이씨텍",
    "code": "281820",
    "qty": 3,
    "entry_price": 73900,
-   "mark": 74700,
-   "notional": 224100,
-   "upnl": 2400,
-   "upnl_pct": 1.08
+   "mark": 74900,
+   "notional": 224700,
+   "upnl": 3000,
+   "upnl_pct": 1.35
   }
  ],
  "completed": [
