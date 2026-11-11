@@ -1,16 +1,16 @@
 {
- "updated_ts": 1794375631227,
- "balance": 3185840,
+ "updated_ts": 1794376205953,
+ "balance": 3184540,
  "positions": [
   {
    "symbol": "인지소프트",
    "code": "100030",
    "qty": 13,
    "entry_price": 20488,
-   "mark": 20850,
-   "notional": 271050,
-   "upnl": 4706,
-   "upnl_pct": 1.77
+   "mark": 20750,
+   "notional": 269750,
+   "upnl": 3406,
+   "upnl_pct": 1.28
   }
  ],
  "completed": [
